@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+  <meta charset="UTF-8"> 
+  <head>
+    <script src="angular.min.js"></script>
+    <script src="angular-sanitize.min.js"></script>
+    <script src="result_data.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+      .result-header button {
+        font-size: 14px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+      }
+      .result-header {
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+      .indented {
+        padding-left: 30px;
+      }
+      img {
+        max-width: 800px;
+      }
+      .label {
+        font-weight: bold;
+        border-radius: 3px;
+        padding: 1px;
+        margin-right: 5px;
+      }
+      .label-green {
+        background-color: green;
+        color: white;
+      }
+      .label-red {
+        background-color: red;
+        color: white;
+      }
+      p.text {
+        font-size: 13px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body ng-app="app">
+    <div ng-controller="appController" class="container-fluid">
+      <div class="col-lg-10">
+        <result ng-repeat="elm in rootResults"
+                result-data="elm"
+                result-dict="results">
+        </result>
+      </div>
+    </div>
+  </body>
+  <footer>
+  	<script type="text/ng-template" id="result.html">
+      <div>
+        <!-- result header -->
+        <p class="result-header">
+          <button type="button" class="btn btn-primary"
+                  ng-click="open()"
+                  ng-show="!subVisible">
+            <span class="fa {{result.type | faGlyphiconClosed}}"></span>
+          </button>
+          <button type="button" class="btn btn-secondary"
+                  ng-click="close()"
+                  ng-show="subVisible">
+            <span class="fa {{result.type | faGlyphiconOpen}}"></span>
+          </button>
+          <span ng-repeat="label in result.labels" class="label label-{{label[0]}}">
+          	{{label[1]}}
+          </span>
+          <span ng-bind-html="result.name"></span>
+        </p>
+
+        <!-- result body -->
+        <div ng-if="openedBefore" ng-show="subVisible" ng-switch="result.type">
+
+          <div ng-switch-when="FigureResult">
+            <img ng-src="results/{{result.data.filename}}" />
+          </div>
+
+          <div ng-switch-when="TableResult">
+            <p>{{result.data.pre}}</p>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th ng-repeat="heading in result.data.headings track by $index">
+                    {{heading}}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="row in result.data.rows">
+                  <td ng-repeat="cell in row track by $index">
+                    {{cell}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p>{{result.data.post}}</p>
+          </div>
+
+          <div ng-switch-when="ContainerResult" class="indented">
+            <result ng-repeat="child in result.children"
+                    result-data="resultDict[child]"
+                    result-dict="resultDict">
+            </result>
+          </div>
+
+        </div>
+      </div>
+	 </script>
+  </footer>
+</html>
