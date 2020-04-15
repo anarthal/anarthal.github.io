@@ -20,5 +20,6 @@ var group__connection =
       [ "async_prepare_statement", "classboost_1_1mysql_1_1connection.html#a2722a35469e61e88fe17af1e5331f964", null ]
     ] ],
     [ "tcp_connection", "group__connection.html#gad6193d6f25c62c6e01289d19fa26ad3b", null ],
+    [ "unix_connection", "group__connection.html#gaf7fafffd36efe9f6d63d209b83f2d471", null ],
     [ "default_port", "group__connection.html#ga8b06987134c461a221c30c6ef3cdb0d4", null ]
 ];

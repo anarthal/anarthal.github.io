@@ -20,5 +20,6 @@ var group__stmt =
       [ "async_close", "classboost_1_1mysql_1_1prepared__statement.html#a9e745279d2d50b8df4d46450108a46d5", null ]
     ] ],
     [ "tcp_prepared_statement", "group__stmt.html#ga42f4eafb7797b04a582fd28e03244bd4", null ],
+    [ "unix_prepared_statement", "group__stmt.html#ga398680da0b9b92d34e1141388ba6484c", null ],
     [ "no_statement_params", "group__stmt.html#ga34684902a3d85a0210cef331174445be", null ]
 ];

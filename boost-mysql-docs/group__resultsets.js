@@ -54,6 +54,7 @@ var group__resultsets =
     ] ],
     [ "owning_row", "classboost_1_1mysql_1_1owning__row.html", null ],
     [ "tcp_resultset", "group__resultsets.html#gace8b7e3e61dc68ceac4d4d93e5a7d7c1", null ],
+    [ "unix_resultset", "group__resultsets.html#gaa49be938b905228fdf64709203f7353c", null ],
     [ "field_type", "group__resultsets.html#gac967096c0bd13a9102ea14034766a395", [
       [ "tinyint", "group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a2c595e4c0f8d1bd145ebaa2c0b7a6788", null ],
       [ "smallint", "group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a88c67e380e2de7bae3be689895d16502", null ],

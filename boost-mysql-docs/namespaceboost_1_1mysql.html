@@ -141,6 +141,10 @@ Typedefs</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__connection.html#gad6193d6f25c62c6e01289d19fa26ad3b">tcp_connection</a> = <a class="el" href="classboost_1_1mysql_1_1connection.html">connection</a>&lt; boost::asio::ip::tcp::socket &gt;</td></tr>
 <tr class="memdesc:gad6193d6f25c62c6e01289d19fa26ad3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A connection to MySQL over a TCP socket. <br /></td></tr>
 <tr class="separator:gad6193d6f25c62c6e01289d19fa26ad3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7fafffd36efe9f6d63d209b83f2d471"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__connection.html#gaf7fafffd36efe9f6d63d209b83f2d471">unix_connection</a> = <a class="el" href="classboost_1_1mysql_1_1connection.html">connection</a>&lt; boost::asio::local::stream_protocol::socket &gt;</td></tr>
+<tr class="memdesc:gaf7fafffd36efe9f6d63d209b83f2d471"><td class="mdescLeft">&#160;</td><td class="mdescRight">A connection to MySQL over a UNIX domain socket. <br /></td></tr>
+<tr class="separator:gaf7fafffd36efe9f6d63d209b83f2d471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaff8c71ba89eb874c8d2a7e1221942ccd"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> = boost::system::error_code</td></tr>
 <tr class="memdesc:gaff8c71ba89eb874c8d2a7e1221942ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias for boost::system error codes. <br /></td></tr>
@@ -149,10 +153,18 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stmt.html#ga42f4eafb7797b04a582fd28e03244bd4">tcp_prepared_statement</a> = <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt; boost::asio::ip::tcp::socket &gt;</td></tr>
 <tr class="memdesc:ga42f4eafb7797b04a582fd28e03244bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A prepared statement associated to a <a class="el" href="group__connection.html#gad6193d6f25c62c6e01289d19fa26ad3b" title="A connection to MySQL over a TCP socket. ">boost::mysql::tcp_connection</a>. <br /></td></tr>
 <tr class="separator:ga42f4eafb7797b04a582fd28e03244bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga398680da0b9b92d34e1141388ba6484c"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stmt.html#ga398680da0b9b92d34e1141388ba6484c">unix_prepared_statement</a> = <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt; boost::asio::local::stream_protocol::socket &gt;</td></tr>
+<tr class="memdesc:ga398680da0b9b92d34e1141388ba6484c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A prepared statement associated to a <a class="el" href="group__connection.html#gaf7fafffd36efe9f6d63d209b83f2d471" title="A connection to MySQL over a UNIX domain socket. ">boost::mysql::unix_connection</a>. <br /></td></tr>
+<tr class="separator:ga398680da0b9b92d34e1141388ba6484c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gace8b7e3e61dc68ceac4d4d93e5a7d7c1"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__resultsets.html#gace8b7e3e61dc68ceac4d4d93e5a7d7c1">tcp_resultset</a> = <a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; boost::asio::ip::tcp::socket &gt;</td></tr>
 <tr class="memdesc:gace8b7e3e61dc68ceac4d4d93e5a7d7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of a resultset associated with a <a class="el" href="group__connection.html#gad6193d6f25c62c6e01289d19fa26ad3b" title="A connection to MySQL over a TCP socket. ">boost::mysql::tcp_connection</a>. <br /></td></tr>
 <tr class="separator:gace8b7e3e61dc68ceac4d4d93e5a7d7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa49be938b905228fdf64709203f7353c"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__resultsets.html#gaa49be938b905228fdf64709203f7353c">unix_resultset</a> = <a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; boost::asio::local::stream_protocol::socket &gt;</td></tr>
+<tr class="memdesc:gaa49be938b905228fdf64709203f7353c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of a resultset associated with a <a class="el" href="group__connection.html#gaf7fafffd36efe9f6d63d209b83f2d471" title="A connection to MySQL over a UNIX domain socket. ">boost::mysql::unix_connection</a>. <br /></td></tr>
+<tr class="separator:gaa49be938b905228fdf64709203f7353c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabbc1cfc7d2af463a61fb35f62ab24767"><td class="memItemLeft" align="right" valign="top">
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">date</a> = ::date::sys_days</td></tr>
 <tr class="memdesc:gabbc1cfc7d2af463a61fb35f62ab24767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL DATE data type. <br /></td></tr>

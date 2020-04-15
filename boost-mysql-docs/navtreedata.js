@@ -15,7 +15,8 @@ var NAVTREE =
         [ "Query, asynchronous with futures", "index.html#query_async_futures", null ],
         [ "Query, asynchronous with coroutines", "index.html#query_async_coroutines", null ],
         [ "Prepared statements", "index.html#prepared_statements", null ],
-        [ "Metadata", "index.html#metadata", null ]
+        [ "Metadata", "index.html#metadata", null ],
+        [ "UNIX domain sockets", "index.html#unix_socket", null ]
       ] ]
     ] ],
     [ "Reference", "modules.html", "modules" ]
