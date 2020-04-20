@@ -1,0 +1,25 @@
+var classboost_1_1mysql_1_1resultset =
+[
+    [ "fetch_one_signature", "classboost_1_1mysql_1_1resultset.html#a6d0db90f1ee52806171463e05a3ae7a4", null ],
+    [ "fetch_many_signature", "classboost_1_1mysql_1_1resultset.html#a79c07b757c8b6ba997b9ce2767cb3715", null ],
+    [ "fetch_all_signature", "classboost_1_1mysql_1_1resultset.html#aa31b2e762cafef23552501a2833b67d6", null ],
+    [ "resultset", "classboost_1_1mysql_1_1resultset.html#af466d88383b57f4d84300aeac44a173a", null ],
+    [ "next_layer", "classboost_1_1mysql_1_1resultset.html#ade1d3bf1857bdd01165fa8f5e28d482c", null ],
+    [ "next_layer", "classboost_1_1mysql_1_1resultset.html#aab721984a1f933d61f0700e4ffdf2e24", null ],
+    [ "fetch_one", "classboost_1_1mysql_1_1resultset.html#a319fffb72b1f7d43a37ab0d451cdf31b", null ],
+    [ "fetch_one", "classboost_1_1mysql_1_1resultset.html#a50e17ad705fd19b85ded5e887fa35345", null ],
+    [ "fetch_many", "classboost_1_1mysql_1_1resultset.html#a10542514617497b666e50b9639c495a9", null ],
+    [ "fetch_many", "classboost_1_1mysql_1_1resultset.html#a198a812d0f55241682e9c4533bb5420d", null ],
+    [ "fetch_all", "classboost_1_1mysql_1_1resultset.html#ae55f09ab6291e867e67a3a1a30304df7", null ],
+    [ "fetch_all", "classboost_1_1mysql_1_1resultset.html#abfcc5250d85163e6492d98434c2dcb25", null ],
+    [ "async_fetch_one", "classboost_1_1mysql_1_1resultset.html#a910221e4490a0c69b60eb6402dfa6633", null ],
+    [ "async_fetch_many", "classboost_1_1mysql_1_1resultset.html#af97196a7ce884466fcacbff0f6d0cfdc", null ],
+    [ "async_fetch_all", "classboost_1_1mysql_1_1resultset.html#ae7811db628170c78f335424a3ec27e66", null ],
+    [ "valid", "classboost_1_1mysql_1_1resultset.html#a2701f00e40306e566f191d0975113b1c", null ],
+    [ "complete", "classboost_1_1mysql_1_1resultset.html#ac329073848f78799c986543e3b4e4f90", null ],
+    [ "fields", "classboost_1_1mysql_1_1resultset.html#aec87f1181163a455734e7ede0c71e653", null ],
+    [ "affected_rows", "classboost_1_1mysql_1_1resultset.html#a3769086ddc708c79d079875e838af476", null ],
+    [ "last_insert_id", "classboost_1_1mysql_1_1resultset.html#a3ad3e2af6b4693728d4fb48a90ae7f31", null ],
+    [ "warning_count", "classboost_1_1mysql_1_1resultset.html#a18866661285a1a6e655688daa3a6f088", null ],
+    [ "info", "classboost_1_1mysql_1_1resultset.html#a1f6abba2cd9270f5fde950f7f212c87a", null ]
+];

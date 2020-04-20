@@ -99,18 +99,10 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1prepared__state
 <div class="title">boost::mysql::prepared_statement&lt; Stream &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__stmt.html">Prepared statements</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Description</h2>
-<div class="textblock"><h3>template&lt;typename Stream&gt;<br />
-class boost::mysql::prepared_statement&lt; Stream &gt;</h3>
 
-<p>Represents a prepared statement. </p>
-<p>This class is a handle to a server-side prepared statement.</p>
-<p>The main use of a prepared statement is executing it using <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>. When calling this method, you must pass in <b>exactly</b> as many parameters as the statement has. You may pass in the parameters as a collection of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s or as an iterator range pointing to <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s.</p>
-<p>Execution of a statement results in a <a class="el" href="classboost_1_1mysql_1_1resultset.html" title="Represents tabular data retrieved from the MySQL server. ">mysql::resultset</a>. The same considerations as with <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a> apply. In particular, <b>you should read the entire resultset</b> before calling any function involving communication with the server over this connection.</p>
-<p>Prepared statements are default constructible. A default-constructed prepared statement is considered invalid (<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9e3521ef551b99bc0317bf8a71e558f2" title="Returns true if the statement is not a default-constructed object. ">prepared_statement::valid()</a> will return false). Calling any function other than assignment on an invalid statement results in undefined behavior.</p>
-<p>Prepared statements are managed by the server in a per-connection basis: once created, a prepared statement may be used as long as the parent <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">mysql::connection</a> object (e.g. the connection on which <a class="el" href="classboost_1_1mysql_1_1connection.html#a32686019f0f6bd9de0f8e527ec0b28fd" title="Prepares a statement in the server (sync with error code version). ">connection::prepare_statement</a> was called) is alive and open. Calling any function on a <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html" title="Represents a prepared statement. ">prepared_statement</a> whose parent connection has been closed or destroyed results in undefined behavior.</p>
-<p>After the connection with the server is closed, the server deallocates all prepared statements associated with the connection. Prepared statements may also be explicitly deallocated by calling <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#abe74e8a3f15e5df7731ae793ef1b6c43" title="Closes a prepared statement, deallocating it from the server (sync with error code version)...">prepared_statement::close</a>. </p>
-</div><table class="memberdecls">
+<p>Represents a prepared statement.  
+ <a href="classboost_1_1mysql_1_1prepared__statement.html#details">More...</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a6cdeb7db78208e3c02ba7a8f2469fef1"><td class="memItemLeft" align="right" valign="top"><a id="a6cdeb7db78208e3c02ba7a8f2469fef1"></a>
@@ -187,7 +179,18 @@ template&lt;typename CompletionToken &gt; </td></tr>
 <tr class="memdesc:a9e745279d2d50b8df4d46450108a46d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a prepared statement, deallocating it from the server (async version). <br /></td></tr>
 <tr class="separator:a9e745279d2d50b8df4d46450108a46d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename Stream&gt;<br />
+class boost::mysql::prepared_statement&lt; Stream &gt;</h3>
+
+<p>Represents a prepared statement. </p>
+<p>This class is a handle to a server-side prepared statement.</p>
+<p>The main use of a prepared statement is executing it using <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>. When calling this method, you must pass in <b>exactly</b> as many parameters as the statement has. You may pass in the parameters as a collection of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s or as an iterator range pointing to <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s.</p>
+<p>Execution of a statement results in a <a class="el" href="classboost_1_1mysql_1_1resultset.html" title="Represents tabular data retrieved from the MySQL server. ">mysql::resultset</a>. The same considerations as with <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a> apply. In particular, <b>you should read the entire resultset</b> before calling any function involving communication with the server over this connection.</p>
+<p>Prepared statements are default constructible. A default-constructed prepared statement is considered invalid (<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9e3521ef551b99bc0317bf8a71e558f2" title="Returns true if the statement is not a default-constructed object. ">prepared_statement::valid()</a> will return false). Calling any function other than assignment on an invalid statement results in undefined behavior.</p>
+<p>Prepared statements are managed by the server in a per-connection basis: once created, a prepared statement may be used as long as the parent <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">mysql::connection</a> object (e.g. the connection on which <a class="el" href="classboost_1_1mysql_1_1connection.html#a32686019f0f6bd9de0f8e527ec0b28fd" title="Prepares a statement in the server (sync with error code version). ">connection::prepare_statement</a> was called) is alive and open. Calling any function on a <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html" title="Represents a prepared statement. ">prepared_statement</a> whose parent connection has been closed or destroyed results in undefined behavior.</p>
+<p>After the connection with the server is closed, the server deallocates all prepared statements associated with the connection. Prepared statements may also be explicitly deallocated by calling <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#abe74e8a3f15e5df7731ae793ef1b6c43" title="Closes a prepared statement, deallocating it from the server (sync with error code version)...">prepared_statement::close</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aab7df2a99b87167d976974d259895e0a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab7df2a99b87167d976974d259895e0a">&#9670;&nbsp;</a></span>execute() <span class="overload">[1/2]</span></h2>
 
