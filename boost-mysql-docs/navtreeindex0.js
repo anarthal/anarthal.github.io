@@ -1,6 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"annotated.html":[3,0],
 "classboost_1_1mysql_1_1connection.html":[1,0,1],
 "classboost_1_1mysql_1_1connection.html#a04a290a7b9320a99b29127daf4310aa3":[1,0,1,3],
 "classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891":[1,0,1,10],
@@ -110,9 +109,6 @@ var NAVTREEINDEX0 =
 "classboost_1_1mysql_1_1ssl__options.html":[1,0,0,0],
 "classboost_1_1mysql_1_1ssl__options.html#a232fb9184270bd5e5a3fe3416d79efcd":[1,0,0,0,1],
 "classboost_1_1mysql_1_1ssl__options.html#ab4d89d95bda52d23ed3bbf47e6414ce0":[1,0,0,0,0],
-"functions.html":[3,2,0],
-"functions_func.html":[3,2,1],
-"functions_type.html":[3,2,2],
 "group__connection.html":[1,0],
 "group__connection.html#ga8b06987134c461a221c30c6ef3cdb0d4":[1,0,4],
 "group__connection.html#gad6193d6f25c62c6e01289d19fa26ad3b":[1,0,2],
@@ -176,7 +172,6 @@ var NAVTREEINDEX0 =
 "group__values.html#gab39ef4e0d1e50f311311a1bf2d7125d2":[1,4,6],
 "group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767":[1,4,0],
 "group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1":[1,4,3],
-"hierarchy.html":[3,1],
 "index.html":[0],
 "index.html":[],
 "index.html#Features":[0,3],
@@ -194,15 +189,5 @@ var NAVTREEINDEX0 =
 "index.html#unix_socket":[0,5,5],
 "index.html#why":[0,0],
 "modules.html":[1],
-"namespaceboost.html":[3,0,0],
-"namespaceboost.html":[2,0,0],
-"namespaceboost_1_1mysql.html":[3,0,0,0],
-"namespaceboost_1_1mysql.html":[2,0,0,0],
-"namespacemembers.html":[2,1,0],
-"namespacemembers_enum.html":[2,1,4],
-"namespacemembers_func.html":[2,1,1],
-"namespacemembers_type.html":[2,1,3],
-"namespacemembers_vars.html":[2,1,2],
-"namespaces.html":[2,0],
 "pages.html":[]
 };

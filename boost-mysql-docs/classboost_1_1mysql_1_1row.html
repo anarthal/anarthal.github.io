@@ -99,10 +99,11 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1row.html','');}
 <div class="title">boost::mysql::row Class Reference<div class="ingroups"><a class="el" href="group__resultsets.html">Resultsets</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Represents a row returned from a query.  
- <a href="classboost_1_1mysql_1_1row.html#details">More...</a></p>
-
+<a name="details" id="details"></a><h2 class="groupheader">Description</h2>
+<div class="textblock"><p>Represents a row returned from a query. </p>
+<p>Call <a class="el" href="classboost_1_1mysql_1_1row.html#a2245a385438282036468a39bb23db4a0" title="Accessor for the sequence of values. ">row::values()</a> to get the actual sequence of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a>. There will be the same number of values and in the same order as fields in the SQL query that produced the row. You can get more information about these fields using <a class="el" href="classboost_1_1mysql_1_1resultset.html#aec87f1181163a455734e7ede0c71e653" title="Returns metadata about the fields in the query. ">resultset::fields()</a>.</p>
+<p>If any of the values is a string (<a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a> having string_view as actual type), it will point to an externally owned piece of memory. Thus, the row base class is not owning; this is contrary to <a class="el" href="classboost_1_1mysql_1_1owning__row.html" title="A row that owns a chunk of memory for its string values. ">owning_row</a>, that actually owns the string memory of its values. </p>
+</div>
 <p>Inherited by <a class="el" href="classboost_1_1mysql_1_1owning__row.html">boost::mysql::owning_row</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -137,11 +138,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memdesc:a13d186a0ca4e9eb2408e716b95a28366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streams a row. <br /></td></tr>
 <tr class="separator:a13d186a0ca4e9eb2408e716b95a28366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a row returned from a query. </p>
-<p>Call <a class="el" href="classboost_1_1mysql_1_1row.html#a2245a385438282036468a39bb23db4a0" title="Accessor for the sequence of values. ">row::values()</a> to get the actual sequence of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a>. There will be the same number of values and in the same order as fields in the SQL query that produced the row. You can get more information about these fields using <a class="el" href="classboost_1_1mysql_1_1resultset.html#aec87f1181163a455734e7ede0c71e653" title="Returns metadata about the fields in the query. ">resultset::fields()</a>.</p>
-<p>If any of the values is a string (<a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a> having string_view as actual type), it will point to an externally owned piece of memory. Thus, the row base class is not owning; this is contrary to <a class="el" href="classboost_1_1mysql_1_1owning__row.html" title="A row that owns a chunk of memory for its string values. ">owning_row</a>, that actually owns the string memory of its values. </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
