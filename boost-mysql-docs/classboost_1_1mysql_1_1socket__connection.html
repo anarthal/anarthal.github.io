@@ -99,10 +99,15 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1socket__connect
 <div class="title">boost::mysql::socket_connection&lt; Stream &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__connection.html">Connection</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Description</h2>
+<div class="textblock"><h3>template&lt;typename Stream&gt;<br />
+class boost::mysql::socket_connection&lt; Stream &gt;</h3>
 
-<p>A connection to a MySQL server over a socket.  
- <a href="classboost_1_1mysql_1_1socket__connection.html#details">More...</a></p>
-
+<p>A connection to a MySQL server over a socket. </p>
+<p>Extends <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">boost::mysql::connection</a> with additional functions that require Stream to be a socket. Stream should inherit from an instantiation of boost::asio::basic_socket.</p>
+<p>In general, prefer this class over <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">boost::mysql::connection</a>. See also boost::mysql::tcp_socket and boost::mysql::unix_socket for the most common instantiations of this template class.</p>
+<p>When using this class, use <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#a6d5f78de5bbd45f3af40f5c7b22a3a70" title="Performs a connection to the MySQL server (sync with error code version). ">socket_connection::connect</a> instead of a socket connect + <a class="el" href="classboost_1_1mysql_1_1connection.html#ac7a16e8bee658880fde70d08730c5ab0" title="Performs the MySQL-level handshake (synchronous with error code version). ">connection::handshake</a>, and <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#afee5a5ce041c40643c39a6cd79483868" title="Closes the connection (sync with error code version). ">socket_connection::close</a> instead of a <a class="el" href="classboost_1_1mysql_1_1connection.html#afa589666697eba0a09c0300b94f21432" title="Notifies the MySQL server that we want to end the session and quit the connection (sync with error co...">connection::quit</a> + socket close. </p>
+</div>
 <p>Inherits <a class="el" href="classboost_1_1mysql_1_1connection.html">boost::mysql::connection&lt; Stream &gt;</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -227,15 +232,7 @@ template&lt;typename CompletionToken &gt; </td></tr>
 <tr class="memdesc:a9b1b2527f8b7191a95eb0e9497d262b7 inherit pub_methods_classboost_1_1mysql_1_1connection"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the MySQL server that we want to end the session and quit the connection (async version). <br /></td></tr>
 <tr class="separator:a9b1b2527f8b7191a95eb0e9497d262b7 inherit pub_methods_classboost_1_1mysql_1_1connection"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Stream&gt;<br />
-class boost::mysql::socket_connection&lt; Stream &gt;</h3>
-
-<p>A connection to a MySQL server over a socket. </p>
-<p>Extends <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">boost::mysql::connection</a> with additional functions that require Stream to be a socket. Stream should inherit from an instantiation of boost::asio::basic_socket.</p>
-<p>In general, prefer this class over <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">boost::mysql::connection</a>. See also boost::mysql::tcp_socket and boost::mysql::unix_socket for the most common instantiations of this template class.</p>
-<p>When using this class, use <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#a6d5f78de5bbd45f3af40f5c7b22a3a70" title="Performs a connection to the MySQL server (sync with error code version). ">socket_connection::connect</a> instead of a socket connect + <a class="el" href="classboost_1_1mysql_1_1connection.html#ac7a16e8bee658880fde70d08730c5ab0" title="Performs the MySQL-level handshake (synchronous with error code version). ">connection::handshake</a>, and <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#afee5a5ce041c40643c39a6cd79483868" title="Closes the connection (sync with error code version). ">socket_connection::close</a> instead of a <a class="el" href="classboost_1_1mysql_1_1connection.html#afa589666697eba0a09c0300b94f21432" title="Notifies the MySQL server that we want to end the session and quit the connection (sync with error co...">connection::quit</a> + socket close. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6d5f78de5bbd45f3af40f5c7b22a3a70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d5f78de5bbd45f3af40f5c7b22a3a70">&#9670;&nbsp;</a></span>connect()</h2>
 

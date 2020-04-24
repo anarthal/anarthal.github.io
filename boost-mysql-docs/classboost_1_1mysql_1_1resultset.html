@@ -99,10 +99,23 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1resultset.html'
 <div class="title">boost::mysql::resultset&lt; StreamType &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__resultsets.html">Resultsets</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Description</h2>
+<div class="textblock"><h3>template&lt;typename StreamType&gt;<br />
+class boost::mysql::resultset&lt; StreamType &gt;</h3>
 
-<p>Represents tabular data retrieved from the MySQL server.  
- <a href="classboost_1_1mysql_1_1resultset.html#details">More...</a></p>
-<table class="memberdecls">
+<p>Represents tabular data retrieved from the MySQL server. </p>
+<p>Returned as the result of a query (see <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a>, <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>).</p>
+<p>A resultset does not read all the retrieved information into memory directly. Instead, you use fetch_one, fetch_many or fetch_all to load rows progressively. This allows for better efficiency.</p>
+<p>A resultset can be in two states:</p><ul>
+<li>Complete, meaning that all data has already been retrieved for this resultset.</li>
+<li>Not complete, meaning that there is still rows to be read.</li>
+</ul>
+<p>You can test whether a resultset is complete or not by calling <a class="el" href="classboost_1_1mysql_1_1resultset.html#ac329073848f78799c986543e3b4e4f90" title="Returns whether the resultset has been completely read or not. ">resultset::complete()</a>.</p>
+<p>Resultsets also contain metadata about the fields in the query. You can access them at any point using <a class="el" href="classboost_1_1mysql_1_1resultset.html#aec87f1181163a455734e7ede0c71e653" title="Returns metadata about the fields in the query. ">resultset::fields()</a>.</p>
+<p>The result of a SQL statement that does not return any data (e.g. an UPDATE statement) is an empty resultset. An empty resultset is complete since the very beginning, and <a class="el" href="classboost_1_1mysql_1_1resultset.html#aec87f1181163a455734e7ede0c71e653" title="Returns metadata about the fields in the query. ">fields()</a> will be empty.</p>
+<p>Resultsets contain additional data about the execution of the query, like the warning count or the last insert ID. You may access this information <b>only after the resultset is complete</b>. Failing to do so results in undefined behavior.</p>
+<p>Resultsets are default-constructible. A default-constructed resultset has <a class="el" href="classboost_1_1mysql_1_1resultset.html#a2701f00e40306e566f191d0975113b1c" title="Returns whether this object represents a valid resultset. ">valid()</a> == false. It is undefined to call any member function on an invalid resultset, other than assignment. Resultsets are movable but not copyable. </p>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a6d0db90f1ee52806171463e05a3ae7a4"><td class="memItemLeft" align="right" valign="top"><a id="a6d0db90f1ee52806171463e05a3ae7a4"></a>
@@ -191,23 +204,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a1f6abba2cd9270f5fde950f7f212c87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additionat text information about the execution of the SQL that generated this resultset.  <a href="#a1f6abba2cd9270f5fde950f7f212c87a">More...</a><br /></td></tr>
 <tr class="separator:a1f6abba2cd9270f5fde950f7f212c87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename StreamType&gt;<br />
-class boost::mysql::resultset&lt; StreamType &gt;</h3>
-
-<p>Represents tabular data retrieved from the MySQL server. </p>
-<p>Returned as the result of a query (see <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a>, <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>).</p>
-<p>A resultset does not read all the retrieved information into memory directly. Instead, you use fetch_one, fetch_many or fetch_all to load rows progressively. This allows for better efficiency.</p>
-<p>A resultset can be in two states:</p><ul>
-<li>Complete, meaning that all data has already been retrieved for this resultset.</li>
-<li>Not complete, meaning that there is still rows to be read.</li>
-</ul>
-<p>You can test whether a resultset is complete or not by calling <a class="el" href="classboost_1_1mysql_1_1resultset.html#ac329073848f78799c986543e3b4e4f90" title="Returns whether the resultset has been completely read or not. ">resultset::complete()</a>.</p>
-<p>Resultsets also contain metadata about the fields in the query. You can access them at any point using <a class="el" href="classboost_1_1mysql_1_1resultset.html#aec87f1181163a455734e7ede0c71e653" title="Returns metadata about the fields in the query. ">resultset::fields()</a>.</p>
-<p>The result of a SQL statement that does not return any data (e.g. an UPDATE statement) is an empty resultset. An empty resultset is complete since the very beginning, and <a class="el" href="classboost_1_1mysql_1_1resultset.html#aec87f1181163a455734e7ede0c71e653" title="Returns metadata about the fields in the query. ">fields()</a> will be empty.</p>
-<p>Resultsets contain additional data about the execution of the query, like the warning count or the last insert ID. You may access this information <b>only after the resultset is complete</b>. Failing to do so results in undefined behavior.</p>
-<p>Resultsets are default-constructible. A default-constructed resultset has <a class="el" href="classboost_1_1mysql_1_1resultset.html#a2701f00e40306e566f191d0975113b1c" title="Returns whether this object represents a valid resultset. ">valid()</a> == false. It is undefined to call any member function on an invalid resultset, other than assignment. Resultsets are movable but not copyable. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a319fffb72b1f7d43a37ab0d451cdf31b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a319fffb72b1f7d43a37ab0d451cdf31b">&#9670;&nbsp;</a></span>fetch_one()</h2>
 

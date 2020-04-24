@@ -93,15 +93,13 @@ $(document).ready(function(){initNavTree('group__resultsets.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">Resultsets</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Classes and functions related to resultsets.  
-<a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Description</h2>
+<p>Classes and functions related to resultsets. </p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -128,46 +126,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__resultsets.html#gaa49be938b905228fdf64709203f7353c">boost::mysql::unix_resultset</a> = <a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; boost::asio::local::stream_protocol::socket &gt;</td></tr>
 <tr class="memdesc:gaa49be938b905228fdf64709203f7353c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of a resultset associated with a <a class="el" href="group__connection.html#ga8d2c93f780b5cc5954499e145dc1b731" title="A connection to MySQL over a UNIX domain socket. ">boost::mysql::unix_connection</a>. <br /></td></tr>
 <tr class="separator:gaa49be938b905228fdf64709203f7353c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:gac967096c0bd13a9102ea14034766a395"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__resultsets.html#gac967096c0bd13a9102ea14034766a395">boost::mysql::field_type</a> { <br />
-&#160;&#160;<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a2c595e4c0f8d1bd145ebaa2c0b7a6788">boost::mysql::field_type::tinyint</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a88c67e380e2de7bae3be689895d16502">boost::mysql::field_type::smallint</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a1598c1f303f9549a2dce54bb82479a13">boost::mysql::field_type::mediumint</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395ad7488204e92ed01986284bef5650eb53">boost::mysql::field_type::int_</a>, 
-<br />
-&#160;&#160;<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a428fda282c5955ae90508b5edf6812cf">boost::mysql::field_type::bigint</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395aefe6d5085c67bc38cd3746f2dc8013e1">boost::mysql::field_type::float_</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a9ff848d203d671e297c98886f9fc0bd9">boost::mysql::field_type::double_</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395abdaa3c20a3e3851599514f7c6be5f62f">boost::mysql::field_type::decimal</a>, 
-<br />
-&#160;&#160;<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395af67169dfbf72c4ca285e9ee12e3e9ac5">boost::mysql::field_type::bit</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a84cdc76cabf41bd7c961f6ab12f117d8">boost::mysql::field_type::year</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a07cc694b9b3fc636710fa08b6922c42b">boost::mysql::field_type::time</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a5fc732311905cb27e82d67f4f6511f7f">boost::mysql::field_type::date</a>, 
-<br />
-&#160;&#160;<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395adfeaaeb4316477bd556ea5e8c3295887">boost::mysql::field_type::datetime</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395ad7e6d55ba379a13d08c25d15faf2a23b">boost::mysql::field_type::timestamp</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a5f3043d0c85e63e75b57dc147346f74a">boost::mysql::field_type::char_</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395ae334e4821b2fa4ff1d5b78c0774a337e">boost::mysql::field_type::varchar</a>, 
-<br />
-&#160;&#160;<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a9d7183f16acce70658f686ae7f1a4d20">boost::mysql::field_type::binary</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a48d3ba792850178dbffe63ab2b0dfac3">boost::mysql::field_type::varbinary</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a1cb251ec0d568de6a929b520c4aed8d1">boost::mysql::field_type::text</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395aee26908bf9629eeb4b37dac350f4754a">boost::mysql::field_type::blob</a>, 
-<br />
-&#160;&#160;<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395af18cd75185ae2187982ea78eaac7acaa">boost::mysql::field_type::enum_</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395acdaeeeba9b4a4c5ebf042c0215a7bb0e">boost::mysql::field_type::set</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395aed7daeb157cd9b31e53896ad3c771a26">boost::mysql::field_type::geometry</a>, 
-<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395aad921d60486366258809553a3db49a4a">boost::mysql::field_type::unknown</a>
-<br />
- }<tr class="memdesc:gac967096c0bd13a9102ea14034766a395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the type of a MySQL field.  <a href="group__resultsets.html#gac967096c0bd13a9102ea14034766a395">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:gac967096c0bd13a9102ea14034766a395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Classes and functions related to resultsets. </p>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="gac967096c0bd13a9102ea14034766a395"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac967096c0bd13a9102ea14034766a395">&#9670;&nbsp;</a></span>field_type</h2>
