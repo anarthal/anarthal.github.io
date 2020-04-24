@@ -99,9 +99,13 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>async_close()
 : <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9e745279d2d50b8df4d46450108a46d5">boost::mysql::prepared_statement&lt; Stream &gt;</a>
+, <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#a0790a5129c0f24451e1ec864907bf2e5">boost::mysql::socket_connection&lt; Stream &gt;</a>
+</li>
+<li>async_connect()
+: <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#af5269b7fd0ba6f1822f431eb4a85b6fc">boost::mysql::socket_connection&lt; Stream &gt;</a>
 </li>
 <li>async_execute()
-: <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ae8908589d94e864c8ef101e9084a2c69">boost::mysql::prepared_statement&lt; Stream &gt;</a>
+: <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a6cc0a167bedff1714bea860385e4c6b2">boost::mysql::prepared_statement&lt; Stream &gt;</a>
 </li>
 <li>async_fetch_all()
 : <a class="el" href="classboost_1_1mysql_1_1resultset.html#ae7811db628170c78f335424a3ec27e66">boost::mysql::resultset&lt; StreamType &gt;</a>
@@ -121,6 +125,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>async_query()
 : <a class="el" href="classboost_1_1mysql_1_1connection.html#a7d15a7fc2aa843d5f0afaa5863319639">boost::mysql::connection&lt; Stream &gt;</a>
 </li>
+<li>async_quit()
+: <a class="el" href="classboost_1_1mysql_1_1connection.html#a9b1b2527f8b7191a95eb0e9497d262b7">boost::mysql::connection&lt; Stream &gt;</a>
+</li>
 </ul>
 
 
@@ -130,15 +137,23 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>close()
 : <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#abe74e8a3f15e5df7731ae793ef1b6c43">boost::mysql::prepared_statement&lt; Stream &gt;</a>
+, <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#afee5a5ce041c40643c39a6cd79483868">boost::mysql::socket_connection&lt; Stream &gt;</a>
 </li>
 <li>close_signature
 : <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a4542a7649ce18fa8422a2dd95a14f40c">boost::mysql::prepared_statement&lt; Stream &gt;</a>
+, <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#acbb66dcedccea93855fad18522a9dea4">boost::mysql::socket_connection&lt; Stream &gt;</a>
 </li>
 <li>column_length()
 : <a class="el" href="classboost_1_1mysql_1_1field__metadata.html#ad867e0748efcc00cacc272e8a82cbc8a">boost::mysql::field_metadata</a>
 </li>
 <li>complete()
 : <a class="el" href="classboost_1_1mysql_1_1resultset.html#ac329073848f78799c986543e3b4e4f90">boost::mysql::resultset&lt; StreamType &gt;</a>
+</li>
+<li>connect()
+: <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#a6d5f78de5bbd45f3af40f5c7b22a3a70">boost::mysql::socket_connection&lt; Stream &gt;</a>
+</li>
+<li>connect_signature
+: <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#a7c4445e88e3fc96a7649c56a7d03423c">boost::mysql::socket_connection&lt; Stream &gt;</a>
 </li>
 <li>connection()
 : <a class="el" href="classboost_1_1mysql_1_1connection.html#a04a290a7b9320a99b29127daf4310aa3">boost::mysql::connection&lt; Stream &gt;</a>
@@ -164,11 +179,14 @@ $(document).ready(function(){initNavTree('functions.html','');});
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
+<li>endpoint_type
+: <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#a8a2acf404fd5ee8b3420202b0adde402">boost::mysql::socket_connection&lt; Stream &gt;</a>
+</li>
 <li>error_info()
 : <a class="el" href="classboost_1_1mysql_1_1error__info.html#a5b1ee79db12b2d38a7aa691434d20cba">boost::mysql::error_info</a>
 </li>
 <li>execute()
-: <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a4538248706057300ba884f54b0b079b1">boost::mysql::prepared_statement&lt; Stream &gt;</a>
+: <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ad7515232fefadf39b96d0576019bf1f1">boost::mysql::prepared_statement&lt; Stream &gt;</a>
 </li>
 <li>execute_signature
 : <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a6cdeb7db78208e3c02ba7a8f2469fef1">boost::mysql::prepared_statement&lt; Stream &gt;</a>
@@ -327,6 +345,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>query_signature
 : <a class="el" href="classboost_1_1mysql_1_1connection.html#aa613792b813138a6637388e6ab2b0db1">boost::mysql::connection&lt; Stream &gt;</a>
+</li>
+<li>quit()
+: <a class="el" href="classboost_1_1mysql_1_1connection.html#afa589666697eba0a09c0300b94f21432">boost::mysql::connection&lt; Stream &gt;</a>
+</li>
+<li>quit_signature
+: <a class="el" href="classboost_1_1mysql_1_1connection.html#a90f3b219f35b84b3c9c00b62c764f54e">boost::mysql::connection&lt; Stream &gt;</a>
 </li>
 </ul>
 

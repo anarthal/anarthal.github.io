@@ -99,33 +99,30 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1connection.html
 <div class="title">boost::mysql::connection&lt; Stream &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__connection.html">Connection</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Description</h2>
-<div class="textblock"><h3>template&lt;typename Stream&gt;<br />
-class boost::mysql::connection&lt; Stream &gt;</h3>
 
-<p>A connection to a MySQL server. </p>
-<p>This is the basic object to instantiate to use the MySQL-Asio library.</p>
-<p>Connections allow you to interact with the database server (e.g. you can issue queries using <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a>).</p>
-<p>Before being able to use a connection, you must connect it. This encompasses two steps:</p><ul>
-<li>Stream connection: you should make sure the Stream gets connected to whatever endpoint the MySQL server lives on. You can access the underlying Stream object by calling <a class="el" href="classboost_1_1mysql_1_1connection.html#ab689619ce2d691b2d6c4a1d65e6ec4eb" title="Retrieves the underlying Stream object. ">connection::next_layer()</a>. For a TCP socket, this is equivalent to connecting the socket.</li>
-<li>MySQL handshake: authenticates the connection to the MySQL server. You can do that by calling <a class="el" href="classboost_1_1mysql_1_1connection.html#ac7a16e8bee658880fde70d08730c5ab0" title="Performs the MySQL-level handshake (synchronous with error code version). ">connection::handshake()</a> or <a class="el" href="classboost_1_1mysql_1_1connection.html#a914c6ac5ee247acc9dc14e1eb1da0fc8" title="Performs the MySQL-level handshake (asynchronous version). ">connection::async_handshake()</a>.</li>
-</ul>
-<p>Because of how the MySQL protocol works, you must fully perform an operation before starting the next one. For queries, you must wait for the query response and <b>read the entire resultset</b> before starting a new query. For prepared statements, once executed, you must wait for the response and read the entire resultset. Otherwise, results are undefined. </p>
-</div><table class="memberdecls">
+<p>A connection to a MySQL server.  
+ <a href="classboost_1_1mysql_1_1connection.html#details">More...</a></p>
+
+<p>Inherited by <a class="el" href="classboost_1_1mysql_1_1socket__connection.html">boost::mysql::socket_connection&lt; Stream &gt;</a>.</p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a2b32b323fdec91109e503cbf9bf12af7"><td class="memItemLeft" align="right" valign="top"><a id="a2b32b323fdec91109e503cbf9bf12af7"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a2b32b323fdec91109e503cbf9bf12af7">handshake_signature</a> = void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a>)</td></tr>
-<tr class="memdesc:a2b32b323fdec91109e503cbf9bf12af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler signature for handshake. <br /></td></tr>
+<tr class="memdesc:a2b32b323fdec91109e503cbf9bf12af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler signature for <a class="el" href="classboost_1_1mysql_1_1connection.html#a914c6ac5ee247acc9dc14e1eb1da0fc8" title="Performs the MySQL-level handshake (asynchronous version). ">connection::async_handshake</a>. <br /></td></tr>
 <tr class="separator:a2b32b323fdec91109e503cbf9bf12af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa613792b813138a6637388e6ab2b0db1"><td class="memItemLeft" align="right" valign="top"><a id="aa613792b813138a6637388e6ab2b0db1"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#aa613792b813138a6637388e6ab2b0db1">query_signature</a> = void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a>, <a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;)</td></tr>
-<tr class="memdesc:aa613792b813138a6637388e6ab2b0db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler signature for query. <br /></td></tr>
+<tr class="memdesc:aa613792b813138a6637388e6ab2b0db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler signature for <a class="el" href="classboost_1_1mysql_1_1connection.html#a7d15a7fc2aa843d5f0afaa5863319639" title="Executes a SQL text query (async version). ">connection::async_query</a>. <br /></td></tr>
 <tr class="separator:aa613792b813138a6637388e6ab2b0db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20f625c84bc321b87eabb47e896aade2"><td class="memItemLeft" align="right" valign="top"><a id="a20f625c84bc321b87eabb47e896aade2"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a20f625c84bc321b87eabb47e896aade2">prepare_statement_signature</a> = void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a>, <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt; Stream &gt;)</td></tr>
-<tr class="memdesc:a20f625c84bc321b87eabb47e896aade2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler signature for prepare_statement. <br /></td></tr>
+<tr class="memdesc:a20f625c84bc321b87eabb47e896aade2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler signature for <a class="el" href="classboost_1_1mysql_1_1connection.html#a2722a35469e61e88fe17af1e5331f964" title="Prepares a statement (async version). ">connection::async_prepare_statement</a>. <br /></td></tr>
 <tr class="separator:a20f625c84bc321b87eabb47e896aade2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f3b219f35b84b3c9c00b62c764f54e"><td class="memItemLeft" align="right" valign="top"><a id="a90f3b219f35b84b3c9c00b62c764f54e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a90f3b219f35b84b3c9c00b62c764f54e">quit_signature</a> = void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a>)</td></tr>
+<tr class="memdesc:a90f3b219f35b84b3c9c00b62c764f54e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler signature for <a class="el" href="classboost_1_1mysql_1_1connection.html#a9b1b2527f8b7191a95eb0e9497d262b7" title="Notifies the MySQL server that we want to end the session and quit the connection (async version)...">connection::async_quit</a>. <br /></td></tr>
+<tr class="separator:a90f3b219f35b84b3c9c00b62c764f54e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -180,8 +177,33 @@ template&lt;typename CompletionToken &gt; </td></tr>
 <tr class="memitem:a2722a35469e61e88fe17af1e5331f964"><td class="memTemplItemLeft" align="right" valign="top">DEDUCED&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a2722a35469e61e88fe17af1e5331f964">async_prepare_statement</a> (std::string_view statement, CompletionToken &amp;&amp;token, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> *info=nullptr)</td></tr>
 <tr class="memdesc:a2722a35469e61e88fe17af1e5331f964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement (async version). <br /></td></tr>
 <tr class="separator:a2722a35469e61e88fe17af1e5331f964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa589666697eba0a09c0300b94f21432"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#afa589666697eba0a09c0300b94f21432">quit</a> (<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
+<tr class="memdesc:afa589666697eba0a09c0300b94f21432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the MySQL server that we want to end the session and quit the connection (sync with error code version).  <a href="#afa589666697eba0a09c0300b94f21432">More...</a><br /></td></tr>
+<tr class="separator:afa589666697eba0a09c0300b94f21432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab2e73a059269533397b12896573580"><td class="memItemLeft" align="right" valign="top"><a id="a6ab2e73a059269533397b12896573580"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a6ab2e73a059269533397b12896573580">quit</a> ()</td></tr>
+<tr class="memdesc:a6ab2e73a059269533397b12896573580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the MySQL server that we want to end the session and quit the connection (sync with exceptions version). <br /></td></tr>
+<tr class="separator:a6ab2e73a059269533397b12896573580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b1b2527f8b7191a95eb0e9497d262b7"><td class="memTemplParams" colspan="2"><a id="a9b1b2527f8b7191a95eb0e9497d262b7"></a>
+template&lt;typename CompletionToken &gt; </td></tr>
+<tr class="memitem:a9b1b2527f8b7191a95eb0e9497d262b7"><td class="memTemplItemLeft" align="right" valign="top">DEDUCED&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a9b1b2527f8b7191a95eb0e9497d262b7">async_quit</a> (CompletionToken &amp;&amp;token, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> *info=nullptr)</td></tr>
+<tr class="memdesc:a9b1b2527f8b7191a95eb0e9497d262b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the MySQL server that we want to end the session and quit the connection (async version). <br /></td></tr>
+<tr class="separator:a9b1b2527f8b7191a95eb0e9497d262b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename Stream&gt;<br />
+class boost::mysql::connection&lt; Stream &gt;</h3>
+
+<p>A connection to a MySQL server. </p>
+<p>This is the basic object to instantiate to use the MySQL-Asio library.</p>
+<p>Connections allow you to interact with the database server (e.g. you can issue queries using <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a>).</p>
+<p>Before being able to use a connection, you must connect it. This encompasses two steps:</p><ul>
+<li>Stream connection: you should make sure the Stream gets connected to whatever endpoint the MySQL server lives on. You can access the underlying Stream object by calling <a class="el" href="classboost_1_1mysql_1_1connection.html#ab689619ce2d691b2d6c4a1d65e6ec4eb" title="Retrieves the underlying Stream object. ">connection::next_layer()</a>. For a TCP socket, this is equivalent to connecting the socket.</li>
+<li>MySQL handshake: authenticates the connection to the MySQL server. You can do that by calling <a class="el" href="classboost_1_1mysql_1_1connection.html#ac7a16e8bee658880fde70d08730c5ab0" title="Performs the MySQL-level handshake (synchronous with error code version). ">connection::handshake()</a> or <a class="el" href="classboost_1_1mysql_1_1connection.html#a914c6ac5ee247acc9dc14e1eb1da0fc8" title="Performs the MySQL-level handshake (asynchronous version). ">connection::async_handshake()</a>.</li>
+</ul>
+<p>If using a TCP socket or UNIX socket, consider using <a class="el" href="classboost_1_1mysql_1_1socket__connection.html" title="A connection to a MySQL server over a socket. ">socket_connection</a>, which implements a <a class="el" href="classboost_1_1mysql_1_1socket__connection.html#a6d5f78de5bbd45f3af40f5c7b22a3a70" title="Performs a connection to the MySQL server (sync with error code version). ">socket_connection::connect</a> method that handles both steps.</p>
+<p>Because of how the MySQL protocol works, you must fully perform an operation before starting the next one. For queries, you must wait for the query response and <b>read the entire resultset</b> before starting a new query. For prepared statements, once executed, you must wait for the response and read the entire resultset. Otherwise, results are undefined. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a04a290a7b9320a99b29127daf4310aa3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04a290a7b9320a99b29127daf4310aa3">&#9670;&nbsp;</a></span>connection()</h2>
 
@@ -358,6 +380,40 @@ template&lt;typename Stream &gt; </div>
 <p>Prepares a statement in the server (sync with error code version). </p>
 <p>Instructs the server to create a prepared statement. The passed in statement should be a SQL statement with question marks (?) as placeholders for the statement parameters. See the MySQL documentation on prepared statements for more info.</p>
 <p>Prepared statements are only valid while the connection object on which prepare_statement was called is alive and open. See <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html" title="Represents a prepared statement. ">prepared_statement</a> docs for more info. </p>
+
+</div>
+</div>
+<a id="afa589666697eba0a09c0300b94f21432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa589666697eba0a09c0300b94f21432">&#9670;&nbsp;</a></span>quit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Stream &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classboost_1_1mysql_1_1connection.html">boost::mysql::connection</a>&lt; Stream &gt;::quit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Notifies the MySQL server that we want to end the session and quit the connection (sync with error code version). </p>
+<p>Sends a quit request to the MySQL server. Both server and client should close the underlying physical connection after this. This operation involves a network transfer and thus can fail.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This operation is a low level one. It does not close the underlying physical connection after sending the quit request. If you are using a socket_stream, use socket_stream::close instead. </dd></dl>
 
 </div>
 </div>

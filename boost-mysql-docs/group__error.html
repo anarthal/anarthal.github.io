@@ -93,13 +93,15 @@ $(document).ready(function(){initNavTree('group__error.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">Error handling</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Description</h2>
-<p>Classes and functions used in error handling. </p>
+
+<p>Classes and functions used in error handling.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -113,7 +115,28 @@ Typedefs</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">boost::mysql::error_code</a> = boost::system::error_code</td></tr>
 <tr class="memdesc:gaff8c71ba89eb874c8d2a7e1221942ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alias for boost::system error codes. <br /></td></tr>
 <tr class="separator:gaff8c71ba89eb874c8d2a7e1221942ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga555f5fc6f487336c8692c0ed0a38c6c8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__error.html#ga555f5fc6f487336c8692c0ed0a38c6c8">boost::mysql::errc</a> : int { <br />
+&#160;&#160;<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a444bcb3a3fcf8389296c49467f27e1d6">boost::mysql::errc::ok</a> = 0
+, <a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a5d34a92edde456a183f807e2d2186908">boost::mysql::errc::incomplete_message</a> = 0x10000, 
+<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac6b6f0cde58d498878dcc4aa0c502b9a">boost::mysql::errc::extra_bytes</a>, 
+<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8aec98ced91e44dd01f851e30eb648869a">boost::mysql::errc::sequence_number_mismatch</a>, 
+<br />
+&#160;&#160;<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a6037415781596d57d26ba5d309610725">boost::mysql::errc::server_unsupported</a>, 
+<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8af0f16fa037da1ba1bd34842dfc482eda">boost::mysql::errc::protocol_value_error</a>, 
+<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a8955d4df1676f6cd4963daa7c2d1dbb1">boost::mysql::errc::unknown_auth_plugin</a>, 
+<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a50195b9b6e1d57c3ae86ae1314b66d49">boost::mysql::errc::auth_plugin_requires_ssl</a>, 
+<br />
+&#160;&#160;<a class="el" href="group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a5294a31b2386525054e0755e86fa87c9">boost::mysql::errc::wrong_num_params</a>
+<br />
+ }<tr class="memdesc:ga555f5fc6f487336c8692c0ed0a38c6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">MySQL-specific error codes.  <a href="group__error.html#ga555f5fc6f487336c8692c0ed0a38c6c8">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ga555f5fc6f487336c8692c0ed0a38c6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Classes and functions used in error handling. </p>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ga555f5fc6f487336c8692c0ed0a38c6c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga555f5fc6f487336c8692c0ed0a38c6c8">&#9670;&nbsp;</a></span>errc</h2>

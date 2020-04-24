@@ -8,5 +8,6 @@ var namespaceboost_1_1mysql =
     [ "prepared_statement", "classboost_1_1mysql_1_1prepared__statement.html", "classboost_1_1mysql_1_1prepared__statement" ],
     [ "resultset", "classboost_1_1mysql_1_1resultset.html", "classboost_1_1mysql_1_1resultset" ],
     [ "row", "classboost_1_1mysql_1_1row.html", "classboost_1_1mysql_1_1row" ],
+    [ "socket_connection", "classboost_1_1mysql_1_1socket__connection.html", "classboost_1_1mysql_1_1socket__connection" ],
     [ "ssl_options", "classboost_1_1mysql_1_1ssl__options.html", "classboost_1_1mysql_1_1ssl__options" ]
 ];

@@ -1,6 +1,8 @@
 var hierarchy =
 [
-    [ "boost::mysql::connection< Stream >", "classboost_1_1mysql_1_1connection.html", null ],
+    [ "boost::mysql::connection< Stream >", "classboost_1_1mysql_1_1connection.html", [
+      [ "boost::mysql::socket_connection< Stream >", "classboost_1_1mysql_1_1socket__connection.html", null ]
+    ] ],
     [ "boost::mysql::connection_params", "classboost_1_1mysql_1_1connection__params.html", null ],
     [ "boost::mysql::error_info", "classboost_1_1mysql_1_1error__info.html", null ],
     [ "boost::mysql::field_metadata", "classboost_1_1mysql_1_1field__metadata.html", null ],

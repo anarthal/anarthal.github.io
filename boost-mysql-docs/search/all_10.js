@@ -10,6 +10,7 @@ var searchData=
   ['set_5fssl',['set_ssl',['../classboost_1_1mysql_1_1connection__params.html#a40fb10bd6c585052a7a5c7ea388678a2',1,'boost::mysql::connection_params']]],
   ['set_5fusername',['set_username',['../classboost_1_1mysql_1_1connection__params.html#a842637c98743c4bbb224ac7e592031cc',1,'boost::mysql::connection_params']]],
   ['smallint',['smallint',['../group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a88c67e380e2de7bae3be689895d16502',1,'boost::mysql']]],
+  ['socket_5fconnection',['socket_connection',['../classboost_1_1mysql_1_1socket__connection.html',1,'boost::mysql']]],
   ['ssl',['ssl',['../classboost_1_1mysql_1_1connection__params.html#a85fb9f96abae79b4ad4f240e7d42d059',1,'boost::mysql::connection_params']]],
   ['ssl_5fmode',['ssl_mode',['../group__connparams.html#ga00174858dd61a473818be3fb15be6345',1,'boost::mysql']]],
   ['ssl_5foptions',['ssl_options',['../classboost_1_1mysql_1_1ssl__options.html',1,'boost::mysql::ssl_options'],['../classboost_1_1mysql_1_1ssl__options.html#ab4d89d95bda52d23ed3bbf47e6414ce0',1,'boost::mysql::ssl_options::ssl_options()']]]
