@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user_20manual',['User manual',['../index.html',1,'']]]
+  ['value_20ranges',['Value ranges',['../group__values.html',1,'']]]
 ];

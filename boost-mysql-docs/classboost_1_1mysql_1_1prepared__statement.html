@@ -105,7 +105,7 @@ class boost::mysql::prepared_statement&lt; Stream &gt;</h3>
 
 <p>Represents a prepared statement. </p>
 <p>This class is a handle to a server-side prepared statement.</p>
-<p>The main use of a prepared statement is executing it using <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>. When calling this method, you must pass in <b>exactly</b> as many parameters as the statement has. You may pass in the parameters as a collection of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s or as an iterator range pointing to <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s.</p>
+<p>The main use of a prepared statement is executing it using <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>. When calling this method, you must pass in <b>exactly</b> as many parameters as the statement has. You may pass in the parameters as a collection of <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s or as an iterator range pointing to <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s.</p>
 <p>Execution of a statement results in a <a class="el" href="classboost_1_1mysql_1_1resultset.html" title="Represents tabular data retrieved from the MySQL server. ">mysql::resultset</a>. The same considerations as with <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a> apply. In particular, <b>you should read the entire resultset</b> before calling any function involving communication with the server over this connection.</p>
 <p>Prepared statements are default constructible. A default-constructed prepared statement is considered invalid (<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9e3521ef551b99bc0317bf8a71e558f2" title="Returns true if the statement is not a default-constructed object. ">prepared_statement::valid()</a> will return false). Calling any function other than assignment on an invalid statement results in undefined behavior.</p>
 <p>Prepared statements are managed by the server in a per-connection basis: once created, a prepared statement may be used as long as the parent <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">mysql::connection</a> object (e.g. the connection on which <a class="el" href="classboost_1_1mysql_1_1connection.html#a32686019f0f6bd9de0f8e527ec0b28fd" title="Prepares a statement in the server (sync with error code version). ">connection::prepare_statement</a> was called) is alive and open. Calling any function on a <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html" title="Represents a prepared statement. ">prepared_statement</a> whose parent connection has been closed or destroyed results in undefined behavior.</p>
@@ -225,7 +225,7 @@ template&lt;typename Collection &gt; </div>
 </div><div class="memdoc">
 
 <p>Executes a statement (collection, sync with error code version). </p>
-<p>Collection should be a sequence for which std::begin() and std::end() return forward iterators to a valid <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a> range. Use no_statement_params to execute a statement with no params. </p>
+<p>Collection should be a sequence for which std::begin() and std::end() return forward iterators to a valid <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a> range. Use no_statement_params to execute a statement with no params. </p>
 
 </div>
 </div>
@@ -313,7 +313,7 @@ template&lt;typename ForwardIterator &gt; </div>
 </div><div class="memdoc">
 
 <p>Executes a statement (iterator, sync with error code version). </p>
-<p>params_first and params_last should point to a valid range, identifying the parameters to be used. They should be forward iterators, at least. The value_type of these iterators should be convertible to <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>. </p>
+<p>params_first and params_last should point to a valid range, identifying the parameters to be used. They should be forward iterators, at least. The value_type of these iterators should be convertible to <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>. </p>
 
 </div>
 </div>

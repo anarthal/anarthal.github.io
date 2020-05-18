@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Boost.MySQL: Values, rows and resultsets</title>
+<title>Boost.MySQL: Values</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,15 +92,70 @@ $(document).ready(function(){initNavTree('group__values.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">Values, rows and resultsets</div>  </div>
+<div class="title">Values</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
-<p>Classes and functions related to the representation of database values, rows and resultsets. </p>
+<p>Classes and functions related to the representation of database values. </p>
+<p>In a MySQL table, a value can be any of the MySQL supported types. In this library, table rows are represented as a collection of <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>, which is a union of all the supported types.</p>
+<p>The following lists all the types known to Boost.Mysql, together with the ranges and specific considerations for each one.</p>
+<ul>
+<li>Integral types:<ul>
+<li><b>TINYINT</b>. 1 byte integer type. If it is signed, it is represented as a std::int32_t, and its range is between -0x80 and 0x7f. If unsigned, represented as a std::uint32_t, and its range is between 0 and 0xff.</li>
+<li><b>SMALLINT</b>. 2 byte integer type. If it is signed, it is represented as a std::int32_t, and its range is between -0x8000 and 0x7fff. If unsigned, represented as a std::uint32_t, and its range is between 0 and 0xffff.</li>
+<li><b>MEDIUMINT</b>. 3 byte integer type. If it is signed, it is represented as a std::int32_t, and its range is between -0x800000 and 0x7fffff. If unsigned, represented as a std::uint32_t, and its range is between 0 and 0xffffff.</li>
+<li><b>INT</b>. 4 byte integer type. If it is signed, it is represented as a std::int32_t, and its range is between -0x80000000 and 0x7fffffff. If unsigned, represented as a std::uint32_t, and its range is between 0 and 0xffffffff.</li>
+<li><b>BIGINT</b>. 8 byte integer type. If it is signed, it is represented as a std::int64_t, and its range is between -0x8000000000000000 and 0x7fffffffffffffff. If unsigned, represented as a std::uint64_t, and its range is between 0 and 0xffffffffffffffff.</li>
+<li><b>YEAR</b>. 1 byte integer type used to represent years. Its range is [1901, 2155], plus zero. Zero is often employed to represent invalid year values. We represent zero year here as a numeric 0. YEAR is represented as a std::uint32_t.</li>
+</ul>
+</li>
+<li>Floating point types:<ul>
+<li><b>FLOAT</b>. 4 byte floating point type. Represented as float.</li>
+<li><b>DOUBLE</b>. 8 byte floating point type. Represented as double.</li>
+</ul>
+</li>
+<li>Date and time types:<ul>
+<li><p class="startli"><b>DATE</b>. Represented as a <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. All dates retrieved from the database are guaranteed to be in the range [<a class="el" href="namespaceboost_1_1mysql.html#a54696b93796664a1fdedd9b0212d6f3a" title="The minimum allowed value for boost::mysql::date. ">boost::mysql::min_date</a>, <a class="el" href="namespaceboost_1_1mysql.html#ac69de6308160ac0915792999877a19bf" title="The maximum allowed value for boost::mysql::date. ">boost::mysql::max_date</a>]. Note that these limits are slightly more flexible than the official DATE limits.</p>
+<p class="startli">If sql_mode is set to ALLOW_INVALID_DATES, MySQL will accept invalid dates, like '2010-02-31'. Furthermore, if strict SQL mode is not enabled, MySQL will accept zero dates, like '0000-00-00', and dates with zero components, like '2010-00-20'. These dates are invalid and not representable as a <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
+</li>
+<li><p class="startli"><b>DATETIME</b>. MySQL representation of a time point without time zone, with a resolution of one microsecond. Represented as a <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. All datetimes retrieved from the database are guaranteed to be in the range [<a class="el" href="namespaceboost_1_1mysql.html#a4a34311e24f3e975893ec9caa7e57e24" title="The minimum allowed value for boost::mysql::datetime. ">boost::mysql::min_datetime</a>, <a class="el" href="namespaceboost_1_1mysql.html#a8138a1c80ce72aca8c3053c674eb95e0" title="The maximum allowed value for boost::mysql::datetime. ">boost::mysql::max_datetime</a>].</p>
+<p class="startli">If sql_mode is set to ALLOW_INVALID_DATES, MySQL will accept datetimes with invalid dates, like '2010-02-31 10:10:10'. Furthermore, if strict SQL mode is not enabled, MySQL will accept zero datetimes, like '0000-00-00 00:00:00', and datetimes with zero date components, like '2010-00-20 00:00:00'. These datetimes are invalid because they do not represent any real time point, and are thus not representable as a <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
+</li>
+<li><p class="startli"><b>TIMESTAMP</b>. Like DATETIME, it also represents a time point. When inserted, TIMESTAMPs are interpreted as local times, according to the variable time_zone, and converted to UTC for storage. When retrieved, they are converted back to the time zone indicated by time_zone. The retrieved value of a TIMESTAMP field is thus a time point in some local time zone, dictated by the current time_zone variable. As this variable can be changed programmatically, without the client knowing it, we represent TIMESTAMPs without their time zone, using <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. TIMESTAMP's range is narrower than DATETIME's, but we do not enforce it in the client.</p>
+<p class="startli">If strict SQL mode is not enabled, MySQL accepts zero TIMESTAMPs, like '0000-00-00 00:00:00'. These timestamps are invalid because they do not represent any real time point, and are thus not representable as a <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
+</li>
+<li><b>TIME</b>. A signed time duration, with a resolution of one microsecond. Represented as a <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf" title="Type representing MySQL TIME data type. ">boost::mysql::time</a> (alias for std::chrono::microseconds). Guaranteed to be in range [<a class="el" href="namespaceboost_1_1mysql.html#a2d5042c0a45183382c59ec3657223582" title="The minimum allowed value for boost::mysql::time. ">boost::mysql::min_time</a> and <a class="el" href="namespaceboost_1_1mysql.html#a3a8535cfaa5b3e6ab04e1c29428558ac" title="The maximum allowed value for boost::mysql::time. ">boost::mysql::max_time</a>].</li>
+</ul>
+</li>
+<li><p class="startli">String types. All text, character and blob types are represented as a std::string_view. Furthermore, any type without a more specialized representation is exposed as a std::string_view. Character strings are NOT aware of encoding - they are represented as the string raw bytes. The encoding for each character string column is part of the column metadata, and can be accessed using <a class="el" href="classboost_1_1mysql_1_1field__metadata.html#a76525cadee30c160afd4df3b0d84dd2f" title="Returns the character set (collation) for the column. ">boost::mysql::field_metadata::character_set()</a>.</p>
+<p class="startli">The following types are represented as strings in Boost.Mysql:</p><ul>
+<li><b>CHAR</b>. Fixed-size character string.</li>
+<li><b>BINARY</b>. Fixed-size blob.</li>
+<li><b>VARCHAR</b>. Variable size character string with a maximum size.</li>
+<li><b>VARBINARY</b>. Variable size blob with a maximum size.</li>
+<li><b>TEXT</b> (all sizes). Variable size character string.</li>
+<li><b>BLOB</b> (all sizes). Variable size blob.</li>
+<li><b>ENUM</b>. Character string with a fixed set of possible values (only one possible).</li>
+<li><b>SET</b>. Character string with a fixed set of possible values (many possible).</li>
+</ul>
+<p class="startli">The following types are not strings per se, but are represented as such because no better representation for them is available at the moment:</p><ul>
+<li><b>DECIMAL</b>. A fixed precision numeric value. In this case, the string will contain the textual representation of the number (e.g. the string "20.52" for 20.52).</li>
+<li><b>NUMERIC</b>. Alias for DECIMAL.</li>
+<li><b>BIT</b>. A bitset between 1 and 64 bits wide. In this case, the string will contain the binary representation of the bitset.</li>
+<li><b>GEOMETRY</b>. In this case, the string will contain the binary representation of the geometry type. </li>
+</ul>
+</li>
+</ul>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1value.html">boost::mysql::value</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a value in the database of any of the allowed types.  <a href="classboost_1_1mysql_1_1value.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:gabbc1cfc7d2af463a61fb35f62ab24767"><td class="memItemLeft" align="right" valign="top"><a id="gabbc1cfc7d2af463a61fb35f62ab24767"></a>
@@ -115,77 +170,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">boost::mysql::time</a> = std::chrono::microseconds</td></tr>
 <tr class="memdesc:ga494d58627935592976a63af024f3fdaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL TIME data type. <br /></td></tr>
 <tr class="separator:ga494d58627935592976a63af024f3fdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac6f5b3e5e1f668fc41cd82641f93bbe1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">boost::mysql::value</a> = std::variant&lt; std::int32_t, std::int64_t, std::uint32_t, std::uint64_t, std::string_view, float, double, <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">date</a>, <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742">datetime</a>, <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a>, std::nullptr_t &gt;</td></tr>
-<tr class="memdesc:gac6f5b3e5e1f668fc41cd82641f93bbe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a value in the database of any of the allowed types.  <a href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">More...</a><br /></td></tr>
-<tr class="separator:gac6f5b3e5e1f668fc41cd82641f93bbe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga9a28d9a4a3cce714c303f4a989c3b290"><td class="memItemLeft" align="right" valign="top"><a id="ga9a28d9a4a3cce714c303f4a989c3b290"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga9a28d9a4a3cce714c303f4a989c3b290">boost::mysql::operator==</a> (const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;lhs, const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;rhs)</td></tr>
-<tr class="memdesc:ga9a28d9a4a3cce714c303f4a989c3b290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests for equality (type and value). <br /></td></tr>
-<tr class="separator:ga9a28d9a4a3cce714c303f4a989c3b290"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8ded7b3b1fcb0268169fcc2e44ffa9d3"><td class="memItemLeft" align="right" valign="top"><a id="ga8ded7b3b1fcb0268169fcc2e44ffa9d3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga8ded7b3b1fcb0268169fcc2e44ffa9d3">boost::mysql::operator!=</a> (const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;lhs, const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;rhs)</td></tr>
-<tr class="memdesc:ga8ded7b3b1fcb0268169fcc2e44ffa9d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests for inequality (type and value). <br /></td></tr>
-<tr class="separator:ga8ded7b3b1fcb0268169fcc2e44ffa9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab39ef4e0d1e50f311311a1bf2d7125d2"><td class="memItemLeft" align="right" valign="top"><a id="gab39ef4e0d1e50f311311a1bf2d7125d2"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#gab39ef4e0d1e50f311311a1bf2d7125d2">boost::mysql::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;<a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a>)</td></tr>
-<tr class="memdesc:gab39ef4e0d1e50f311311a1bf2d7125d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streams a value. <br /></td></tr>
-<tr class="separator:gab39ef4e0d1e50f311311a1bf2d7125d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab042f0f67df56da09386c0b82a93e059"><td class="memTemplParams" colspan="2">template&lt;typename... Types&gt; </td></tr>
-<tr class="memitem:gab042f0f67df56da09386c0b82a93e059"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a>, sizeof...(Types)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__values.html#gab042f0f67df56da09386c0b82a93e059">boost::mysql::make_values</a> (Types &amp;&amp;... args)</td></tr>
-<tr class="memdesc:gab042f0f67df56da09386c0b82a93e059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a> out of the passed in arguments.  <a href="group__values.html#gab042f0f67df56da09386c0b82a93e059">More...</a><br /></td></tr>
-<tr class="separator:gab042f0f67df56da09386c0b82a93e059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="gac6f5b3e5e1f668fc41cd82641f93bbe1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac6f5b3e5e1f668fc41cd82641f93bbe1">&#9670;&nbsp;</a></span>value</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">boost::mysql::value</a> = typedef std::variant&lt; std::int32_t, std::int64_t, std::uint32_t, std::uint64_t, std::string_view, float, double, <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">date</a>, <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742">datetime</a>, <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a>, std::nullptr_t &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;/home/ruben/workspace/mysql-asio/include/boost/mysql/value.hpp&gt;</code></p>
-
-<p>Represents a value in the database of any of the allowed types. </p>
-<p>If a value is NULL, the type of the variant will be nullptr_t.</p>
-<p>If a value is a string, the type will be string_view, and it will point to a externally owned piece of memory. That implies that <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a> does <b>NOT</b> own its string memory (saving copies).</p>
-<p>MySQL types BIT and GEOMETRY do not have direct support yet. They are represented as binary strings. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gab042f0f67df56da09386c0b82a93e059"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab042f0f67df56da09386c0b82a93e059">&#9670;&nbsp;</a></span>make_values()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Types&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::array&lt;<a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a>, sizeof...(Types)&gt; boost::mysql::make_values </td>
-          <td>(</td>
-          <td class="paramtype">Types &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;/home/ruben/workspace/mysql-asio/include/boost/mysql/value.hpp&gt;</code></p>
-
-<p>Creates an array of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a> out of the passed in arguments. </p>
-<p>Each argument creates an element in the array. It should be possible to construct a <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a> out of every single argument passed in. </p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

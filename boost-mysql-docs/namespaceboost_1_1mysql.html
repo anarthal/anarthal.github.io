@@ -95,7 +95,6 @@ $(document).ready(function(){initNavTree('namespaceboost_1_1mysql.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">boost::mysql Namespace Reference</div>  </div>
@@ -136,6 +135,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1ssl__options.html">ssl_options</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection options regarding TLS.  <a href="classboost_1_1mysql_1_1ssl__options.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1value.html">value</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a value in the database of any of the allowed types.  <a href="classboost_1_1mysql_1_1value.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -180,9 +182,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a> = std::chrono::microseconds</td></tr>
 <tr class="memdesc:ga494d58627935592976a63af024f3fdaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL TIME data type. <br /></td></tr>
 <tr class="separator:ga494d58627935592976a63af024f3fdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac6f5b3e5e1f668fc41cd82641f93bbe1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> = std::variant&lt; std::int32_t, std::int64_t, std::uint32_t, std::uint64_t, std::string_view, float, double, <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">date</a>, <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742">datetime</a>, <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a>, std::nullptr_t &gt;</td></tr>
-<tr class="memdesc:gac6f5b3e5e1f668fc41cd82641f93bbe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a value in the database of any of the allowed types.  <a href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">More...</a><br /></td></tr>
-<tr class="separator:gac6f5b3e5e1f668fc41cd82641f93bbe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -1973,25 +1972,6 @@ Enumerations</h2></td></tr>
 </td></tr>
 <tr class="separator:gac967096c0bd13a9102ea14034766a395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga9a28d9a4a3cce714c303f4a989c3b290"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga9a28d9a4a3cce714c303f4a989c3b290">operator==</a> (const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;lhs, const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;rhs)</td></tr>
-<tr class="memdesc:ga9a28d9a4a3cce714c303f4a989c3b290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests for equality (type and value). <br /></td></tr>
-<tr class="separator:ga9a28d9a4a3cce714c303f4a989c3b290"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8ded7b3b1fcb0268169fcc2e44ffa9d3"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga8ded7b3b1fcb0268169fcc2e44ffa9d3">operator!=</a> (const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;lhs, const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;rhs)</td></tr>
-<tr class="memdesc:ga8ded7b3b1fcb0268169fcc2e44ffa9d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests for inequality (type and value). <br /></td></tr>
-<tr class="separator:ga8ded7b3b1fcb0268169fcc2e44ffa9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab39ef4e0d1e50f311311a1bf2d7125d2"><td class="memItemLeft" align="right" valign="top">
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#gab39ef4e0d1e50f311311a1bf2d7125d2">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a> &amp;<a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a>)</td></tr>
-<tr class="memdesc:gab39ef4e0d1e50f311311a1bf2d7125d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streams a value. <br /></td></tr>
-<tr class="separator:gab39ef4e0d1e50f311311a1bf2d7125d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab042f0f67df56da09386c0b82a93e059"><td class="memTemplParams" colspan="2">template&lt;typename... Types&gt; </td></tr>
-<tr class="memitem:gab042f0f67df56da09386c0b82a93e059"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a>, sizeof...(Types)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__values.html#gab042f0f67df56da09386c0b82a93e059">make_values</a> (Types &amp;&amp;... args)</td></tr>
-<tr class="memdesc:gab042f0f67df56da09386c0b82a93e059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array of <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1" title="Represents a value in the database of any of the allowed types. ">mysql::value</a> out of the passed in arguments.  <a href="group__values.html#gab042f0f67df56da09386c0b82a93e059">More...</a><br /></td></tr>
-<tr class="separator:gab042f0f67df56da09386c0b82a93e059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga8b06987134c461a221c30c6ef3cdb0d4"><td class="memItemLeft" align="right" valign="top">
@@ -1999,9 +1979,33 @@ constexpr unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a c
 <tr class="memdesc:ga8b06987134c461a221c30c6ef3cdb0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default TCP port for the MySQL protocol. <br /></td></tr>
 <tr class="separator:ga8b06987134c461a221c30c6ef3cdb0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga34684902a3d85a0210cef331174445be"><td class="memItemLeft" align="right" valign="top">
-constexpr std::array&lt; <a class="el" href="group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1">value</a>, 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stmt.html#ga34684902a3d85a0210cef331174445be">no_statement_params</a> {}</td></tr>
+constexpr std::array&lt; <a class="el" href="classboost_1_1mysql_1_1value.html">value</a>, 0 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stmt.html#ga34684902a3d85a0210cef331174445be">no_statement_params</a> {}</td></tr>
 <tr class="memdesc:ga34684902a3d85a0210cef331174445be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience constant to use within <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a> with statements without parameters. <br /></td></tr>
 <tr class="separator:ga34684902a3d85a0210cef331174445be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54696b93796664a1fdedd9b0212d6f3a"><td class="memItemLeft" align="right" valign="top"><a id="a54696b93796664a1fdedd9b0212d6f3a"></a>
+constexpr <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboost_1_1mysql.html#a54696b93796664a1fdedd9b0212d6f3a">min_date</a> = ::date::day(1)/::date::January/::<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a84cdc76cabf41bd7c961f6ab12f117d8">date::year</a>(0)</td></tr>
+<tr class="memdesc:a54696b93796664a1fdedd9b0212d6f3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum allowed value for <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. <br /></td></tr>
+<tr class="separator:a54696b93796664a1fdedd9b0212d6f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69de6308160ac0915792999877a19bf"><td class="memItemLeft" align="right" valign="top"><a id="ac69de6308160ac0915792999877a19bf"></a>
+constexpr <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboost_1_1mysql.html#ac69de6308160ac0915792999877a19bf">max_date</a> = ::date::day(31)/::date::December/::<a class="el" href="group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a84cdc76cabf41bd7c961f6ab12f117d8">date::year</a>(9999)</td></tr>
+<tr class="memdesc:ac69de6308160ac0915792999877a19bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum allowed value for <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. <br /></td></tr>
+<tr class="separator:ac69de6308160ac0915792999877a19bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a34311e24f3e975893ec9caa7e57e24"><td class="memItemLeft" align="right" valign="top"><a id="a4a34311e24f3e975893ec9caa7e57e24"></a>
+constexpr <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742">datetime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboost_1_1mysql.html#a4a34311e24f3e975893ec9caa7e57e24">min_datetime</a> = <a class="el" href="namespaceboost_1_1mysql.html#a54696b93796664a1fdedd9b0212d6f3a">min_date</a></td></tr>
+<tr class="memdesc:a4a34311e24f3e975893ec9caa7e57e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum allowed value for <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. <br /></td></tr>
+<tr class="separator:a4a34311e24f3e975893ec9caa7e57e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8138a1c80ce72aca8c3053c674eb95e0"><td class="memItemLeft" align="right" valign="top"><a id="a8138a1c80ce72aca8c3053c674eb95e0"></a>
+constexpr <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742">datetime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboost_1_1mysql.html#a8138a1c80ce72aca8c3053c674eb95e0">max_datetime</a> = <a class="el" href="namespaceboost_1_1mysql.html#ac69de6308160ac0915792999877a19bf">max_date</a> + std::chrono::hours(24) - std::chrono::microseconds(1)</td></tr>
+<tr class="memdesc:a8138a1c80ce72aca8c3053c674eb95e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum allowed value for <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. <br /></td></tr>
+<tr class="separator:a8138a1c80ce72aca8c3053c674eb95e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d5042c0a45183382c59ec3657223582"><td class="memItemLeft" align="right" valign="top"><a id="a2d5042c0a45183382c59ec3657223582"></a>
+constexpr <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboost_1_1mysql.html#a2d5042c0a45183382c59ec3657223582">min_time</a> = -std::chrono::hours(839)</td></tr>
+<tr class="memdesc:a2d5042c0a45183382c59ec3657223582"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum allowed value for <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf" title="Type representing MySQL TIME data type. ">boost::mysql::time</a>. <br /></td></tr>
+<tr class="separator:a2d5042c0a45183382c59ec3657223582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a8535cfaa5b3e6ab04e1c29428558ac"><td class="memItemLeft" align="right" valign="top"><a id="a3a8535cfaa5b3e6ab04e1c29428558ac"></a>
+constexpr <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceboost_1_1mysql.html#a3a8535cfaa5b3e6ab04e1c29428558ac">max_time</a> = std::chrono::hours(839)</td></tr>
+<tr class="memdesc:a3a8535cfaa5b3e6ab04e1c29428558ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum allowed value for <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf" title="Type representing MySQL TIME data type. ">boost::mysql::time</a>. <br /></td></tr>
+<tr class="separator:a3a8535cfaa5b3e6ab04e1c29428558ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The MySQL Boost library namespace. </p>

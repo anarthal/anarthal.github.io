@@ -7,6 +7,7 @@ var group__resultsets =
       [ "original_table", "classboost_1_1mysql_1_1field__metadata.html#a70c1438a936d9b5cf74e773834c89c74", null ],
       [ "field_name", "classboost_1_1mysql_1_1field__metadata.html#a68e76483692634b543da7a194786ae32", null ],
       [ "original_field_name", "classboost_1_1mysql_1_1field__metadata.html#a59f149bdb58a3faead3d58ae6c71bd1e", null ],
+      [ "character_set", "classboost_1_1mysql_1_1field__metadata.html#a76525cadee30c160afd4df3b0d84dd2f", null ],
       [ "column_length", "classboost_1_1mysql_1_1field__metadata.html#ad867e0748efcc00cacc272e8a82cbc8a", null ],
       [ "type", "classboost_1_1mysql_1_1field__metadata.html#ae7df491e497e083433706c45152e4e38", null ],
       [ "decimals", "classboost_1_1mysql_1_1field__metadata.html#aac7c4118d094a3fb87666bf6adb0ccf6", null ],

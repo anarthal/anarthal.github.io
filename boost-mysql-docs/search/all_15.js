@@ -1,7 +1,7 @@
 var searchData=
 [
   ['valid',['valid',['../classboost_1_1mysql_1_1prepared__statement.html#a9e3521ef551b99bc0317bf8a71e558f2',1,'boost::mysql::prepared_statement::valid()'],['../classboost_1_1mysql_1_1resultset.html#a2701f00e40306e566f191d0975113b1c',1,'boost::mysql::resultset::valid()']]],
-  ['value',['value',['../group__values.html#gac6f5b3e5e1f668fc41cd82641f93bbe1',1,'boost::mysql']]],
+  ['value',['value',['../classboost_1_1mysql_1_1value.html',1,'boost::mysql']]],
   ['values',['values',['../classboost_1_1mysql_1_1row.html#abf57faf0417c0b68af482ebf01db576a',1,'boost::mysql::row::values() const noexcept'],['../classboost_1_1mysql_1_1row.html#a2245a385438282036468a39bb23db4a0',1,'boost::mysql::row::values() noexcept'],['../group__values.html',1,'(Global Namespace)']]],
   ['values_5fis_5fnot_5fint_5ftype_5ferror',['values_is_not_int_type_error',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8acec623a51573564b43dec726b4e5fd8e',1,'boost::mysql']]],
   ['var_5fcant_5fbe_5fread',['var_cant_be_read',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a06d33203a7c2ce32b3519230f7d0a8e3',1,'boost::mysql']]],

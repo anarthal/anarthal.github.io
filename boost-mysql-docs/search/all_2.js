@@ -74,6 +74,7 @@ var searchData=
   ['change_5fmaster_5fpassword_5flength',['change_master_password_length',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ae640f545a262b0c5b7f4f42247daba3c',1,'boost::mysql']]],
   ['change_5frpl_5finfo_5frepository_5ffailure',['change_rpl_info_repository_failure',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a27eb6a5e7ba8873e53c26aa5effc88f5',1,'boost::mysql']]],
   ['char_5f',['char_',['../group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a5f3043d0c85e63e75b57dc147346f74a',1,'boost::mysql']]],
+  ['character_5fset',['character_set',['../classboost_1_1mysql_1_1field__metadata.html#a76525cadee30c160afd4df3b0d84dd2f',1,'boost::mysql::field_metadata']]],
   ['check_5fconstraint_5fclause_5fusing_5ffk_5frefer_5faction_5fcolumn',['check_constraint_clause_using_fk_refer_action_column',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a7e3b6edf2371e0bd8d6470c093095deb',1,'boost::mysql']]],
   ['check_5fconstraint_5fdup_5fname',['check_constraint_dup_name',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ae4749a0d8d3766e95e36379cf1d679bf',1,'boost::mysql']]],
   ['check_5fconstraint_5ffunction_5fis_5fnot_5fallowed',['check_constraint_function_is_not_allowed',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a47af5fa333ef9449974cf3233884a363',1,'boost::mysql']]],
