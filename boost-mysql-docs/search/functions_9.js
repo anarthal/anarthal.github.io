@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['next_5flayer',['next_layer',['../classboost_1_1mysql_1_1connection.html#ab689619ce2d691b2d6c4a1d65e6ec4eb',1,'boost::mysql::connection::next_layer()'],['../classboost_1_1mysql_1_1connection.html#ac441e90adadfbec81b21ad7684e474e6',1,'boost::mysql::connection::next_layer() const'],['../classboost_1_1mysql_1_1prepared__statement.html#a1b6fd45362d9e20f705568b079446692',1,'boost::mysql::prepared_statement::next_layer() noexcept'],['../classboost_1_1mysql_1_1prepared__statement.html#a94d00c0ec59811f188532e73a4924f12',1,'boost::mysql::prepared_statement::next_layer() const noexcept'],['../classboost_1_1mysql_1_1resultset.html#ade1d3bf1857bdd01165fa8f5e28d482c',1,'boost::mysql::resultset::next_layer() noexcept'],['../classboost_1_1mysql_1_1resultset.html#aab721984a1f933d61f0700e4ffdf2e24',1,'boost::mysql::resultset::next_layer() const noexcept']]],
-  ['num_5fparams',['num_params',['../classboost_1_1mysql_1_1prepared__statement.html#aac8cb6258129cc7d723a6048f0215fc0',1,'boost::mysql::prepared_statement']]]
+  ['make_5fvalues',['make_values',['../classboost_1_1mysql_1_1value.html#af099e2bdcacca7971be4cc461ea3846d',1,'boost::mysql::value']]],
+  ['message',['message',['../classboost_1_1mysql_1_1error__info.html#aa4ce7dd435d0cd596b42a8d0cb1d1d5e',1,'boost::mysql::error_info']]],
+  ['mode',['mode',['../classboost_1_1mysql_1_1ssl__options.html#a232fb9184270bd5e5a3fe3416d79efcd',1,'boost::mysql::ssl_options']]]
 ];

@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1prepared__state
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classboost_1_1mysql_1_1prepared__statement-members.html">List of all members</a>  </div>
@@ -105,22 +106,24 @@ class boost::mysql::prepared_statement&lt; Stream &gt;</h3>
 
 <p>Represents a prepared statement. </p>
 <p>This class is a handle to a server-side prepared statement.</p>
-<p>The main use of a prepared statement is executing it using <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>. When calling this method, you must pass in <b>exactly</b> as many parameters as the statement has. You may pass in the parameters as a collection of <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s or as an iterator range pointing to <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s.</p>
+<p>The main use of a prepared statement is executing it using <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a065306003e6957c501cb8c04063f06da" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>. When calling this method, you must pass in <b>exactly</b> as many parameters as the statement has. You may pass in the parameters as a collection of <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s or as an iterator range pointing to <a class="el" href="classboost_1_1mysql_1_1value.html" title="Represents a value in the database of any of the allowed types. ">boost::mysql::value</a>'s.</p>
 <p>Execution of a statement results in a <a class="el" href="classboost_1_1mysql_1_1resultset.html" title="Represents tabular data retrieved from the MySQL server. ">mysql::resultset</a>. The same considerations as with <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a> apply. In particular, <b>you should read the entire resultset</b> before calling any function involving communication with the server over this connection.</p>
 <p>Prepared statements are default constructible. A default-constructed prepared statement is considered invalid (<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9e3521ef551b99bc0317bf8a71e558f2" title="Returns true if the statement is not a default-constructed object. ">prepared_statement::valid()</a> will return false). Calling any function other than assignment on an invalid statement results in undefined behavior.</p>
 <p>Prepared statements are managed by the server in a per-connection basis: once created, a prepared statement may be used as long as the parent <a class="el" href="classboost_1_1mysql_1_1connection.html" title="A connection to a MySQL server. ">mysql::connection</a> object (e.g. the connection on which <a class="el" href="classboost_1_1mysql_1_1connection.html#a32686019f0f6bd9de0f8e527ec0b28fd" title="Prepares a statement in the server (sync with error code version). ">connection::prepare_statement</a> was called) is alive and open. Calling any function on a <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html" title="Represents a prepared statement. ">prepared_statement</a> whose parent connection has been closed or destroyed results in undefined behavior.</p>
 <p>After the connection with the server is closed, the server deallocates all prepared statements associated with the connection. Prepared statements may also be explicitly deallocated by calling <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#abe74e8a3f15e5df7731ae793ef1b6c43" title="Closes a prepared statement, deallocating it from the server (sync with error code version)...">prepared_statement::close</a>. </p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structboost_1_1mysql_1_1prepared__statement_1_1rebind__executor.html">rebind_executor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebinds the prepared statement type to another executor.  <a href="structboost_1_1mysql_1_1prepared__statement_1_1rebind__executor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6cdeb7db78208e3c02ba7a8f2469fef1"><td class="memItemLeft" align="right" valign="top"><a id="a6cdeb7db78208e3c02ba7a8f2469fef1"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a6cdeb7db78208e3c02ba7a8f2469fef1">execute_signature</a> = void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a>, <a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;)</td></tr>
-<tr class="memdesc:a6cdeb7db78208e3c02ba7a8f2469fef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The handler signature for <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a6cc0a167bedff1714bea860385e4c6b2" title="Executes a statement (collection, sync with exceptions code version). ">prepared_statement::async_execute</a>. <br /></td></tr>
-<tr class="separator:a6cdeb7db78208e3c02ba7a8f2469fef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4542a7649ce18fa8422a2dd95a14f40c"><td class="memItemLeft" align="right" valign="top"><a id="a4542a7649ce18fa8422a2dd95a14f40c"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a4542a7649ce18fa8422a2dd95a14f40c">close_signature</a> = void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a>)</td></tr>
-<tr class="memdesc:a4542a7649ce18fa8422a2dd95a14f40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The handler signature for <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9e745279d2d50b8df4d46450108a46d5" title="Closes a prepared statement, deallocating it from the server (async version). ">prepared_statement::async_close</a>. <br /></td></tr>
-<tr class="separator:a4542a7649ce18fa8422a2dd95a14f40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8bb0db3c020b21769f30584f6c8407c"><td class="memItemLeft" align="right" valign="top"><a id="ac8bb0db3c020b21769f30584f6c8407c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a> = typename Stream::executor_type</td></tr>
+<tr class="memdesc:ac8bb0db3c020b21769f30584f6c8407c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The executor type associated to this object. <br /></td></tr>
+<tr class="separator:ac8bb0db3c020b21769f30584f6c8407c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -128,6 +131,10 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a68ee29698b31f30660ead9f183ca33cc">prepared_statement</a> ()=default</td></tr>
 <tr class="memdesc:a68ee29698b31f30660ead9f183ca33cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
 <tr class="separator:a68ee29698b31f30660ead9f183ca33cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7158b2d6a6bdae112e5346571e8fb64"><td class="memItemLeft" align="right" valign="top"><a id="af7158b2d6a6bdae112e5346571e8fb64"></a>
+<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#af7158b2d6a6bdae112e5346571e8fb64">get_executor</a> ()</td></tr>
+<tr class="memdesc:af7158b2d6a6bdae112e5346571e8fb64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the executor associated to this object. <br /></td></tr>
+<tr class="separator:af7158b2d6a6bdae112e5346571e8fb64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b6fd45362d9e20f705568b079446692"><td class="memItemLeft" align="right" valign="top"><a id="a1b6fd45362d9e20f705568b079446692"></a>
 Stream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a1b6fd45362d9e20f705568b079446692">next_layer</a> () noexcept</td></tr>
 <tr class="memdesc:a1b6fd45362d9e20f705568b079446692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the stream object associated with the underlying connection. <br /></td></tr>
@@ -146,34 +153,44 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:a0eaa1b72baa5352d029d16fbc0d06b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac8cb6258129cc7d723a6048f0215fc0"><td class="memItemLeft" align="right" valign="top"><a id="aac8cb6258129cc7d723a6048f0215fc0"></a>
 unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aac8cb6258129cc7d723a6048f0215fc0">num_params</a> () const noexcept</td></tr>
-<tr class="memdesc:aac8cb6258129cc7d723a6048f0215fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of parameters that should be passed to <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a" title="Executes a statement (collection, sync with error code version). ">execute()</a>. <br /></td></tr>
+<tr class="memdesc:aac8cb6258129cc7d723a6048f0215fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of parameters that should be passed to <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a065306003e6957c501cb8c04063f06da" title="Executes a statement (collection, sync with error code version). ">execute()</a>. <br /></td></tr>
 <tr class="separator:aac8cb6258129cc7d723a6048f0215fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7df2a99b87167d976974d259895e0a"><td class="memTemplParams" colspan="2">template&lt;typename Collection &gt; </td></tr>
-<tr class="memitem:aab7df2a99b87167d976974d259895e0a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#aab7df2a99b87167d976974d259895e0a">execute</a> (const Collection &amp;params, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;info) const</td></tr>
-<tr class="memdesc:aab7df2a99b87167d976974d259895e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (collection, sync with error code version).  <a href="#aab7df2a99b87167d976974d259895e0a">More...</a><br /></td></tr>
-<tr class="separator:aab7df2a99b87167d976974d259895e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0d6e119cdff6ca122cf3bfced35424e"><td class="memTemplParams" colspan="2"><a id="af0d6e119cdff6ca122cf3bfced35424e"></a>
+<tr class="memitem:a065306003e6957c501cb8c04063f06da"><td class="memTemplParams" colspan="2">template&lt;typename Collection &gt; </td></tr>
+<tr class="memitem:a065306003e6957c501cb8c04063f06da"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a065306003e6957c501cb8c04063f06da">execute</a> (const Collection &amp;params, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;info)</td></tr>
+<tr class="memdesc:a065306003e6957c501cb8c04063f06da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (collection, sync with error code version).  <a href="#a065306003e6957c501cb8c04063f06da">More...</a><br /></td></tr>
+<tr class="separator:a065306003e6957c501cb8c04063f06da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab34b322ab6fc9a136617fec62886e5ca"><td class="memTemplParams" colspan="2"><a id="ab34b322ab6fc9a136617fec62886e5ca"></a>
 template&lt;typename Collection &gt; </td></tr>
-<tr class="memitem:af0d6e119cdff6ca122cf3bfced35424e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#af0d6e119cdff6ca122cf3bfced35424e">execute</a> (const Collection &amp;params) const</td></tr>
-<tr class="memdesc:af0d6e119cdff6ca122cf3bfced35424e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (collection, sync with exceptions code version). <br /></td></tr>
-<tr class="separator:af0d6e119cdff6ca122cf3bfced35424e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cc0a167bedff1714bea860385e4c6b2"><td class="memTemplParams" colspan="2">template&lt;typename Collection , typename CompletionToken &gt; </td></tr>
-<tr class="memitem:a6cc0a167bedff1714bea860385e4c6b2"><td class="memTemplItemLeft" align="right" valign="top">DEDUCED&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a6cc0a167bedff1714bea860385e4c6b2">async_execute</a> (const Collection &amp;params, CompletionToken &amp;&amp;token, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> *info=nullptr) const</td></tr>
-<tr class="memdesc:a6cc0a167bedff1714bea860385e4c6b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (collection, sync with exceptions code version).  <a href="#a6cc0a167bedff1714bea860385e4c6b2">More...</a><br /></td></tr>
-<tr class="separator:a6cc0a167bedff1714bea860385e4c6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7515232fefadf39b96d0576019bf1f1"><td class="memTemplParams" colspan="2">template&lt;typename ForwardIterator &gt; </td></tr>
-<tr class="memitem:ad7515232fefadf39b96d0576019bf1f1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ad7515232fefadf39b96d0576019bf1f1">execute</a> (ForwardIterator params_first, ForwardIterator params_last, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;) const</td></tr>
-<tr class="memdesc:ad7515232fefadf39b96d0576019bf1f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (iterator, sync with error code version).  <a href="#ad7515232fefadf39b96d0576019bf1f1">More...</a><br /></td></tr>
-<tr class="separator:ad7515232fefadf39b96d0576019bf1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4538248706057300ba884f54b0b079b1"><td class="memTemplParams" colspan="2"><a id="a4538248706057300ba884f54b0b079b1"></a>
+<tr class="memitem:ab34b322ab6fc9a136617fec62886e5ca"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ab34b322ab6fc9a136617fec62886e5ca">execute</a> (const Collection &amp;params)</td></tr>
+<tr class="memdesc:ab34b322ab6fc9a136617fec62886e5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (collection, sync with exceptions code version). <br /></td></tr>
+<tr class="separator:ab34b322ab6fc9a136617fec62886e5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd6c7eb41981dadb73545402ab709c4b"><td class="memTemplParams" colspan="2">template&lt;typename Collection , BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:afd6c7eb41981dadb73545402ab709c4b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#afd6c7eb41981dadb73545402ab709c4b">async_execute</a> (const Collection &amp;params, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a>))</td></tr>
+<tr class="memdesc:afd6c7eb41981dadb73545402ab709c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (collection, async without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version).  <a href="#afd6c7eb41981dadb73545402ab709c4b">More...</a><br /></td></tr>
+<tr class="separator:afd6c7eb41981dadb73545402ab709c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a970bf93c7d3df0736ed37c89dd66fca5"><td class="memTemplParams" colspan="2"><a id="a970bf93c7d3df0736ed37c89dd66fca5"></a>
+template&lt;typename Collection , BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:a970bf93c7d3df0736ed37c89dd66fca5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a970bf93c7d3df0736ed37c89dd66fca5">async_execute</a> (const Collection &amp;params, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a>))</td></tr>
+<tr class="memdesc:a970bf93c7d3df0736ed37c89dd66fca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (collection, async with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). <br /></td></tr>
+<tr class="separator:a970bf93c7d3df0736ed37c89dd66fca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ba5b8a19497ba2db36c7100c21fa4d"><td class="memTemplParams" colspan="2">template&lt;typename ForwardIterator &gt; </td></tr>
+<tr class="memitem:a93ba5b8a19497ba2db36c7100c21fa4d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a93ba5b8a19497ba2db36c7100c21fa4d">execute</a> (ForwardIterator params_first, ForwardIterator params_last, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
+<tr class="memdesc:a93ba5b8a19497ba2db36c7100c21fa4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (iterator, sync with error code version).  <a href="#a93ba5b8a19497ba2db36c7100c21fa4d">More...</a><br /></td></tr>
+<tr class="separator:a93ba5b8a19497ba2db36c7100c21fa4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa601af904dfe44d0afebf77f0e7994"><td class="memTemplParams" colspan="2"><a id="a1aa601af904dfe44d0afebf77f0e7994"></a>
 template&lt;typename ForwardIterator &gt; </td></tr>
-<tr class="memitem:a4538248706057300ba884f54b0b079b1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a4538248706057300ba884f54b0b079b1">execute</a> (ForwardIterator params_first, ForwardIterator params_last) const</td></tr>
-<tr class="memdesc:a4538248706057300ba884f54b0b079b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (iterator, sync with exceptions version). <br /></td></tr>
-<tr class="separator:a4538248706057300ba884f54b0b079b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8908589d94e864c8ef101e9084a2c69"><td class="memTemplParams" colspan="2">template&lt;typename ForwardIterator , typename CompletionToken &gt; </td></tr>
-<tr class="memitem:ae8908589d94e864c8ef101e9084a2c69"><td class="memTemplItemLeft" align="right" valign="top">DEDUCED&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ae8908589d94e864c8ef101e9084a2c69">async_execute</a> (ForwardIterator params_first, ForwardIterator params_last, CompletionToken &amp;&amp;token, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> *info=nullptr) const</td></tr>
-<tr class="memdesc:ae8908589d94e864c8ef101e9084a2c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (iterator, async version).  <a href="#ae8908589d94e864c8ef101e9084a2c69">More...</a><br /></td></tr>
-<tr class="separator:ae8908589d94e864c8ef101e9084a2c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa601af904dfe44d0afebf77f0e7994"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a1aa601af904dfe44d0afebf77f0e7994">execute</a> (ForwardIterator params_first, ForwardIterator params_last)</td></tr>
+<tr class="memdesc:a1aa601af904dfe44d0afebf77f0e7994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (iterator, sync with exceptions version). <br /></td></tr>
+<tr class="separator:a1aa601af904dfe44d0afebf77f0e7994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accdf6bac371e5b3fbc5db050737590c4"><td class="memTemplParams" colspan="2">template&lt;typename ForwardIterator , BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:accdf6bac371e5b3fbc5db050737590c4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#accdf6bac371e5b3fbc5db050737590c4">async_execute</a> (ForwardIterator params_first, ForwardIterator params_last, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a>))</td></tr>
+<tr class="memdesc:accdf6bac371e5b3fbc5db050737590c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (iterator, async without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version).  <a href="#accdf6bac371e5b3fbc5db050737590c4">More...</a><br /></td></tr>
+<tr class="separator:accdf6bac371e5b3fbc5db050737590c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c763740e2227dffd980cf39e68c6b41"><td class="memTemplParams" colspan="2"><a id="a5c763740e2227dffd980cf39e68c6b41"></a>
+template&lt;typename ForwardIterator , BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:a5c763740e2227dffd980cf39e68c6b41"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a5c763740e2227dffd980cf39e68c6b41">async_execute</a> (ForwardIterator params_first, ForwardIterator params_last, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a>))</td></tr>
+<tr class="memdesc:a5c763740e2227dffd980cf39e68c6b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a statement (iterator, async with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). <br /></td></tr>
+<tr class="separator:a5c763740e2227dffd980cf39e68c6b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe74e8a3f15e5df7731ae793ef1b6c43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#abe74e8a3f15e5df7731ae793ef1b6c43">close</a> (<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
 <tr class="memdesc:abe74e8a3f15e5df7731ae793ef1b6c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a prepared statement, deallocating it from the server (sync with error code version).  <a href="#abe74e8a3f15e5df7731ae793ef1b6c43">More...</a><br /></td></tr>
 <tr class="separator:abe74e8a3f15e5df7731ae793ef1b6c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,15 +198,19 @@ template&lt;typename ForwardIterator &gt; </td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a2f094c99678a01e1ef98394e4ecaa567">close</a> ()</td></tr>
 <tr class="memdesc:a2f094c99678a01e1ef98394e4ecaa567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a prepared statement, deallocating it from the server (sync with exceptions version). <br /></td></tr>
 <tr class="separator:a2f094c99678a01e1ef98394e4ecaa567"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e745279d2d50b8df4d46450108a46d5"><td class="memTemplParams" colspan="2"><a id="a9e745279d2d50b8df4d46450108a46d5"></a>
-template&lt;typename CompletionToken &gt; </td></tr>
-<tr class="memitem:a9e745279d2d50b8df4d46450108a46d5"><td class="memTemplItemLeft" align="right" valign="top">DEDUCED&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9e745279d2d50b8df4d46450108a46d5">async_close</a> (CompletionToken &amp;&amp;token, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> *info=nullptr)</td></tr>
-<tr class="memdesc:a9e745279d2d50b8df4d46450108a46d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a prepared statement, deallocating it from the server (async version). <br /></td></tr>
-<tr class="separator:a9e745279d2d50b8df4d46450108a46d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada56988ab3eae6e1fd3ba7b1c6af0d1b"><td class="memTemplParams" colspan="2">template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:ada56988ab3eae6e1fd3ba7b1c6af0d1b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ada56988ab3eae6e1fd3ba7b1c6af0d1b">async_close</a> (CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a>))</td></tr>
+<tr class="memdesc:ada56988ab3eae6e1fd3ba7b1c6af0d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a prepared statement, deallocating it from the server (async without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version).  <a href="#ada56988ab3eae6e1fd3ba7b1c6af0d1b">More...</a><br /></td></tr>
+<tr class="separator:ada56988ab3eae6e1fd3ba7b1c6af0d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9269df0a71ec5664c69678565cc912ac"><td class="memTemplParams" colspan="2"><a id="a9269df0a71ec5664c69678565cc912ac"></a>
+template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:a9269df0a71ec5664c69678565cc912ac"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a9269df0a71ec5664c69678565cc912ac">async_close</a> (<a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#ac8bb0db3c020b21769f30584f6c8407c">executor_type</a>))</td></tr>
+<tr class="memdesc:a9269df0a71ec5664c69678565cc912ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a prepared statement, deallocating it from the server (async with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). <br /></td></tr>
+<tr class="separator:a9269df0a71ec5664c69678565cc912ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aab7df2a99b87167d976974d259895e0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab7df2a99b87167d976974d259895e0a">&#9670;&nbsp;</a></span>execute() <span class="overload">[1/2]</span></h2>
+<a id="a065306003e6957c501cb8c04063f06da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a065306003e6957c501cb8c04063f06da">&#9670;&nbsp;</a></span>execute() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +240,7 @@ template&lt;typename Collection &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -229,18 +250,18 @@ template&lt;typename Collection &gt; </div>
 
 </div>
 </div>
-<a id="a6cc0a167bedff1714bea860385e4c6b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cc0a167bedff1714bea860385e4c6b2">&#9670;&nbsp;</a></span>async_execute() <span class="overload">[1/2]</span></h2>
+<a id="afd6c7eb41981dadb73545402ab709c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd6c7eb41981dadb73545402ab709c4b">&#9670;&nbsp;</a></span>async_execute() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Stream &gt; </div>
 <div class="memtemplate">
-template&lt;typename Collection , typename CompletionToken &gt; </div>
+template&lt;typename Collection , BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">DEDUCED <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">boost::mysql::prepared_statement</a>&lt; Stream &gt;::async_execute </td>
+          <td class="memname">auto <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">boost::mysql::prepared_statement</a>&lt; Stream &gt;::async_execute </td>
           <td>(</td>
           <td class="paramtype">const Collection &amp;&#160;</td>
           <td class="paramname"><em>params</em>, </td>
@@ -248,30 +269,25 @@ template&lt;typename Collection , typename CompletionToken &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">CompletionToken &amp;&amp;&#160;</td>
-          <td class="paramname"><em>token</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> *&#160;</td>
-          <td class="paramname"><em>info</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramtype">CompletionToken &amp;&amp;token &#160;</td>
+          <td class="paramname"><em>BOOST_ASIO_DEFAULT_COMPLETION_TOKEN</em>executor_type&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Executes a statement (collection, sync with exceptions code version). </p>
+<p>Executes a statement (collection, async without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). </p>
+<p>The handler signature for this operation is <code>void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd" title="An alias for boost::system error codes. ">boost::mysql::error_code</a>, <a class="el" href="classboost_1_1mysql_1_1resultset.html" title="Represents tabular data retrieved from the MySQL server. ">boost::mysql::resultset</a>&lt;Stream&gt;)</code>.</p>
 <p>It is <b>not</b> necessary to keep the collection of parameters or the values they may point to alive. </p>
 
 </div>
 </div>
-<a id="ad7515232fefadf39b96d0576019bf1f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7515232fefadf39b96d0576019bf1f1">&#9670;&nbsp;</a></span>execute() <span class="overload">[2/2]</span></h2>
+<a id="a93ba5b8a19497ba2db36c7100c21fa4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ba5b8a19497ba2db36c7100c21fa4d">&#9670;&nbsp;</a></span>execute() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +323,7 @@ template&lt;typename ForwardIterator &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -317,18 +333,18 @@ template&lt;typename ForwardIterator &gt; </div>
 
 </div>
 </div>
-<a id="ae8908589d94e864c8ef101e9084a2c69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8908589d94e864c8ef101e9084a2c69">&#9670;&nbsp;</a></span>async_execute() <span class="overload">[2/2]</span></h2>
+<a id="accdf6bac371e5b3fbc5db050737590c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accdf6bac371e5b3fbc5db050737590c4">&#9670;&nbsp;</a></span>async_execute() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Stream &gt; </div>
 <div class="memtemplate">
-template&lt;typename ForwardIterator , typename CompletionToken &gt; </div>
+template&lt;typename ForwardIterator , BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">DEDUCED <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">boost::mysql::prepared_statement</a>&lt; Stream &gt;::async_execute </td>
+          <td class="memname">auto <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">boost::mysql::prepared_statement</a>&lt; Stream &gt;::async_execute </td>
           <td>(</td>
           <td class="paramtype">ForwardIterator&#160;</td>
           <td class="paramname"><em>params_first</em>, </td>
@@ -342,24 +358,19 @@ template&lt;typename ForwardIterator , typename CompletionToken &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">CompletionToken &amp;&amp;&#160;</td>
-          <td class="paramname"><em>token</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> *&#160;</td>
-          <td class="paramname"><em>info</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramtype">CompletionToken &amp;&amp;token &#160;</td>
+          <td class="paramname"><em>BOOST_ASIO_DEFAULT_COMPLETION_TOKEN</em>executor_type&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Executes a statement (iterator, async version). </p>
+<p>Executes a statement (iterator, async without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). </p>
+<p>The handler signature for this operation is <code>void(<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd" title="An alias for boost::system error codes. ">boost::mysql::error_code</a>, <a class="el" href="classboost_1_1mysql_1_1resultset.html" title="Represents tabular data retrieved from the MySQL server. ">boost::mysql::resultset</a>&lt;Stream&gt;)</code>.</p>
 <p>The sequence [params_first, params_last) and the values that may be pointed by the elements of the sequence need <b>not</b> be kept alive. </p>
 
 </div>
@@ -395,6 +406,31 @@ template&lt;typename Stream &gt; </div>
 <p>Closes a prepared statement, deallocating it from the server (sync with error code version). </p>
 <p>This function may be used to free resources from the server. Closing the parent connection object causes all prepared statements associated with the connection to also be deallocated from the server. Thus, you should be using <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a2f094c99678a01e1ef98394e4ecaa567" title="Closes a prepared statement, deallocating it from the server (sync with exceptions version)...">close()</a> when reusing connection objects but creating and destroying prepared statements. If you do not reuse connections, or if you just create your prepared statements at application startup, it is not required to call this function.</p>
 <p>After calling this function, no further functions may be called on this prepared statement, other than assignment. Failing to do so results in undefined behavior. </p>
+
+</div>
+</div>
+<a id="ada56988ab3eae6e1fd3ba7b1c6af0d1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada56988ab3eae6e1fd3ba7b1c6af0d1b">&#9670;&nbsp;</a></span>async_close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Stream &gt; </div>
+<div class="memtemplate">
+template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">boost::mysql::prepared_statement</a>&lt; Stream &gt;::async_close </td>
+          <td>(</td>
+          <td class="paramtype">CompletionToken &amp;&amp;token &#160;</td>
+          <td class="paramname"><em>BOOST_ASIO_DEFAULT_COMPLETION_TOKEN</em>executor_type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Closes a prepared statement, deallocating it from the server (async without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). </p>
+<p>The handler signature for this operation is <code>void(boost::mysql::error_code)</code>. </p>
 
 </div>
 </div>

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['fetch_5fall_5fsignature',['fetch_all_signature',['../classboost_1_1mysql_1_1resultset.html#aa31b2e762cafef23552501a2833b67d6',1,'boost::mysql::resultset']]],
-  ['fetch_5fmany_5fsignature',['fetch_many_signature',['../classboost_1_1mysql_1_1resultset.html#a79c07b757c8b6ba997b9ce2767cb3715',1,'boost::mysql::resultset']]],
-  ['fetch_5fone_5fsignature',['fetch_one_signature',['../classboost_1_1mysql_1_1resultset.html#a6d0db90f1ee52806171463e05a3ae7a4',1,'boost::mysql::resultset']]]
+  ['tcp_5fconnection',['tcp_connection',['../group__connection.html#ga6f6ec5d6cd5090793d67d74dc3c84d51',1,'boost::mysql']]],
+  ['tcp_5fprepared_5fstatement',['tcp_prepared_statement',['../group__stmt.html#ga42f4eafb7797b04a582fd28e03244bd4',1,'boost::mysql']]],
+  ['tcp_5fresultset',['tcp_resultset',['../group__resultsets.html#gace8b7e3e61dc68ceac4d4d93e5a7d7c1',1,'boost::mysql']]],
+  ['time',['time',['../group__values.html#ga494d58627935592976a63af024f3fdaf',1,'boost::mysql']]]
 ];

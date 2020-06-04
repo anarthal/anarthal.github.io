@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['close_5fsignature',['close_signature',['../classboost_1_1mysql_1_1socket__connection.html#acbb66dcedccea93855fad18522a9dea4',1,'boost::mysql::socket_connection::close_signature()'],['../classboost_1_1mysql_1_1prepared__statement.html#a4542a7649ce18fa8422a2dd95a14f40c',1,'boost::mysql::prepared_statement::close_signature()']]],
-  ['connect_5fsignature',['connect_signature',['../classboost_1_1mysql_1_1socket__connection.html#a7c4445e88e3fc96a7649c56a7d03423c',1,'boost::mysql::socket_connection']]]
+  ['date',['date',['../group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767',1,'boost::mysql']]],
+  ['datetime',['datetime',['../group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742',1,'boost::mysql']]]
 ];

@@ -14,6 +14,7 @@ var NAVTREE =
         [ "Query, asynchronous with callbacks", "index.html#query_async_callbacks", null ],
         [ "Query, asynchronous with futures", "index.html#query_async_futures", null ],
         [ "Query, asynchronous with coroutines", "index.html#query_async_coroutines", null ],
+        [ "Query, asynchronous with C++20 coroutines", "index.html#query_async_coroutinescpp20", null ],
         [ "Prepared statements", "index.html#prepared_statements", null ],
         [ "Metadata", "index.html#metadata", null ],
         [ "UNIX domain sockets", "index.html#unix_socket", null ]
@@ -26,12 +27,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "classboost_1_1mysql_1_1connection.html",
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a155e29b88f534c76f3b372960d5ef786",
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a424a04a8c699f79e8c14686bb83ef733",
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a6b17bc7d12cf916f0c7f135517b9c125",
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a9be8773faa40a8720bc7613ff1b13318",
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8accaf2e2b9d95bf3beae29f0bf21b0bf7",
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8af86c7cfa9a511469d880b932ddab6c56"
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a122b06c1937768dd06a9e313e9923087",
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a3f8b7fb641e533c7082b5446a5fa9b08",
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a68b08c073d5df20f9597c8cb20c9953b",
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a97ad1f7d104f4e05a55731e95ece1fe3",
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac96fb1acfb9f85a31768f0314fb8a212",
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8af5978a64d91314d1b8e388e536e148a5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['handshake_5fsignature',['handshake_signature',['../classboost_1_1mysql_1_1connection.html#a2b32b323fdec91109e503cbf9bf12af7',1,'boost::mysql::connection']]]
+  ['unix_5fconnection',['unix_connection',['../group__connection.html#ga8d2c93f780b5cc5954499e145dc1b731',1,'boost::mysql']]],
+  ['unix_5fprepared_5fstatement',['unix_prepared_statement',['../group__stmt.html#ga398680da0b9b92d34e1141388ba6484c',1,'boost::mysql']]],
+  ['unix_5fresultset',['unix_resultset',['../group__resultsets.html#gaa49be938b905228fdf64709203f7353c',1,'boost::mysql']]]
 ];
