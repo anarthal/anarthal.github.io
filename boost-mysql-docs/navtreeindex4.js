@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a97a7db9ed0087a34adad7bb8201a5843":[1,1,2,680],
 "group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a97ad1f7d104f4e05a55731e95ece1fe3":[1,1,2,100],
 "group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a97b4c18298e9dc81f28dd8d9d690f811":[1,1,2,1223],
 "group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a9840472ad500089124a6e73a45b2ed52":[1,1,2,1099],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac7f051ac02958b635ef8ad9ac7151eae":[1,1,2,823],
 "group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac80a34e692316913ee019c12fd8442b3":[1,1,2,1240],
 "group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac817c6082b1cea0ee5dc4569270ced55":[1,1,2,203],
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac876e76120457f6ea1101ee1a09bc8c5":[1,1,2,944],
-"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac914d1b1a3feb3620e2cde7b2bda2095":[1,1,2,945]
+"group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ac876e76120457f6ea1101ee1a09bc8c5":[1,1,2,944]
 };

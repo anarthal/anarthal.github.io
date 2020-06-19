@@ -2,11 +2,11 @@ var group__resultsets =
 [
     [ "field_metadata", "classboost_1_1mysql_1_1field__metadata.html", [
       [ "field_metadata", "classboost_1_1mysql_1_1field__metadata.html#ae263b36829e14ab5de5b906a86c46012", null ],
-      [ "database", "classboost_1_1mysql_1_1field__metadata.html#a0f7ca1eef6a5baec33ef73f832ceb5f3", null ],
-      [ "table", "classboost_1_1mysql_1_1field__metadata.html#aa055f41a61322dbb07cdb8e3313ed30a", null ],
-      [ "original_table", "classboost_1_1mysql_1_1field__metadata.html#a70c1438a936d9b5cf74e773834c89c74", null ],
-      [ "field_name", "classboost_1_1mysql_1_1field__metadata.html#a68e76483692634b543da7a194786ae32", null ],
-      [ "original_field_name", "classboost_1_1mysql_1_1field__metadata.html#a59f149bdb58a3faead3d58ae6c71bd1e", null ],
+      [ "database", "classboost_1_1mysql_1_1field__metadata.html#a6ff0ea930a2e0c3baa6748c28d4c710d", null ],
+      [ "table", "classboost_1_1mysql_1_1field__metadata.html#a25e59de31ec856103fe8a8595c07edab", null ],
+      [ "original_table", "classboost_1_1mysql_1_1field__metadata.html#a6ba8c2c5aa39610d393ca488042b3b7a", null ],
+      [ "field_name", "classboost_1_1mysql_1_1field__metadata.html#aa3c6f412159254cd9e291bd11fbd1277", null ],
+      [ "original_field_name", "classboost_1_1mysql_1_1field__metadata.html#a32de44d12426ee1c672d0154e246a561", null ],
       [ "character_set", "classboost_1_1mysql_1_1field__metadata.html#a76525cadee30c160afd4df3b0d84dd2f", null ],
       [ "column_length", "classboost_1_1mysql_1_1field__metadata.html#ad867e0748efcc00cacc272e8a82cbc8a", null ],
       [ "type", "classboost_1_1mysql_1_1field__metadata.html#ae7df491e497e083433706c45152e4e38", null ],
@@ -48,7 +48,7 @@ var group__resultsets =
       [ "affected_rows", "classboost_1_1mysql_1_1resultset.html#a3769086ddc708c79d079875e838af476", null ],
       [ "last_insert_id", "classboost_1_1mysql_1_1resultset.html#a3ad3e2af6b4693728d4fb48a90ae7f31", null ],
       [ "warning_count", "classboost_1_1mysql_1_1resultset.html#a18866661285a1a6e655688daa3a6f088", null ],
-      [ "info", "classboost_1_1mysql_1_1resultset.html#a1f6abba2cd9270f5fde950f7f212c87a", null ]
+      [ "info", "classboost_1_1mysql_1_1resultset.html#afa99097f213752e5e67852f872c01e74", null ]
     ] ],
     [ "row", "classboost_1_1mysql_1_1row.html", [
       [ "row", "classboost_1_1mysql_1_1row.html#a19724d1a504e5799cb85bdcb553d3c5e", null ],

@@ -106,7 +106,7 @@ class boost::mysql::connection&lt; Stream &gt;</h3>
 
 <p>A connection to a MySQL server. </p>
 <p>This is the basic object to instantiate to use the MySQL-Asio library.</p>
-<p>Connections allow you to interact with the database server (e.g. you can issue queries using <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a>).</p>
+<p>Connections allow you to interact with the database server (e.g. you can issue queries using <a class="el" href="classboost_1_1mysql_1_1connection.html#a1c44d596c545e1c930bbeffbbd11067e" title="Executes a SQL text query (sync with error code version). ">connection::query</a>).</p>
 <p>Before being able to use a connection, you must connect it. This encompasses two steps:</p><ul>
 <li>Stream connection: you should make sure the Stream gets connected to whatever endpoint the MySQL server lives on. You can access the underlying Stream object by calling <a class="el" href="classboost_1_1mysql_1_1connection.html#ab689619ce2d691b2d6c4a1d65e6ec4eb" title="Retrieves the underlying Stream object. ">connection::next_layer()</a>. For a TCP socket, this is equivalent to connecting the socket.</li>
 <li>MySQL handshake: authenticates the connection to the MySQL server. You can do that by calling <a class="el" href="classboost_1_1mysql_1_1connection.html#ac7a16e8bee658880fde70d08730c5ab0" title="Performs the MySQL-level handshake (synchronous with error code version). ">connection::handshake()</a> or <a class="el" href="classboost_1_1mysql_1_1connection.html#a58e48f22fbc28c87a2a4c243d53514bd" title="Performs the MySQL-level handshake (asynchronous version without error_info). ">connection::async_handshake()</a>.</li>
@@ -176,38 +176,38 @@ template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code)) CompletionToken BO
 <tr class="memitem:a240768d28947ac1d415ba22593696640"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a240768d28947ac1d415ba22593696640">async_handshake</a> (const <a class="el" href="classboost_1_1mysql_1_1connection__params.html">connection_params</a> &amp;params, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
 <tr class="memdesc:a240768d28947ac1d415ba22593696640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the MySQL-level handshake (asynchronous version with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>). <br /></td></tr>
 <tr class="separator:a240768d28947ac1d415ba22593696640"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fc1d3e7604500bd643570d2b49ae891"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891">query</a> (std::string_view query_string, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
-<tr class="memdesc:a1fc1d3e7604500bd643570d2b49ae891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (sync with error code version).  <a href="#a1fc1d3e7604500bd643570d2b49ae891">More...</a><br /></td></tr>
-<tr class="separator:a1fc1d3e7604500bd643570d2b49ae891"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaf27b90e7f28e221a26c9cc17aaeb71"><td class="memItemLeft" align="right" valign="top"><a id="abaf27b90e7f28e221a26c9cc17aaeb71"></a>
-<a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#abaf27b90e7f28e221a26c9cc17aaeb71">query</a> (std::string_view query_string)</td></tr>
-<tr class="memdesc:abaf27b90e7f28e221a26c9cc17aaeb71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (sync with exceptions version). <br /></td></tr>
-<tr class="separator:abaf27b90e7f28e221a26c9cc17aaeb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad602a2d9818289fa09a00430d209da13"><td class="memTemplParams" colspan="2">template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
-<tr class="memitem:ad602a2d9818289fa09a00430d209da13"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#ad602a2d9818289fa09a00430d209da13">async_query</a> (std::string_view query_string, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
-<tr class="memdesc:ad602a2d9818289fa09a00430d209da13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (async version without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>).  <a href="#ad602a2d9818289fa09a00430d209da13">More...</a><br /></td></tr>
-<tr class="separator:ad602a2d9818289fa09a00430d209da13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a004e88e6dd1a690d3e83b154a235e35c"><td class="memTemplParams" colspan="2"><a id="a004e88e6dd1a690d3e83b154a235e35c"></a>
+<tr class="memitem:a1c44d596c545e1c930bbeffbbd11067e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a1c44d596c545e1c930bbeffbbd11067e">query</a> (boost::string_view query_string, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
+<tr class="memdesc:a1c44d596c545e1c930bbeffbbd11067e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (sync with error code version).  <a href="#a1c44d596c545e1c930bbeffbbd11067e">More...</a><br /></td></tr>
+<tr class="separator:a1c44d596c545e1c930bbeffbbd11067e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9405ad1feed3686436335e63c42eb4dd"><td class="memItemLeft" align="right" valign="top"><a id="a9405ad1feed3686436335e63c42eb4dd"></a>
+<a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a9405ad1feed3686436335e63c42eb4dd">query</a> (boost::string_view query_string)</td></tr>
+<tr class="memdesc:a9405ad1feed3686436335e63c42eb4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (sync with exceptions version). <br /></td></tr>
+<tr class="separator:a9405ad1feed3686436335e63c42eb4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a270c6c7de3e51db32f820d6fbe20b"><td class="memTemplParams" colspan="2">template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:a81a270c6c7de3e51db32f820d6fbe20b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a81a270c6c7de3e51db32f820d6fbe20b">async_query</a> (boost::string_view query_string, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
+<tr class="memdesc:a81a270c6c7de3e51db32f820d6fbe20b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (async version without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>).  <a href="#a81a270c6c7de3e51db32f820d6fbe20b">More...</a><br /></td></tr>
+<tr class="separator:a81a270c6c7de3e51db32f820d6fbe20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9957decc74422d61211195d03cea299c"><td class="memTemplParams" colspan="2"><a id="a9957decc74422d61211195d03cea299c"></a>
 template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
-<tr class="memitem:a004e88e6dd1a690d3e83b154a235e35c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a004e88e6dd1a690d3e83b154a235e35c">async_query</a> (std::string_view query_string, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
-<tr class="memdesc:a004e88e6dd1a690d3e83b154a235e35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (async version with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>). <br /></td></tr>
-<tr class="separator:a004e88e6dd1a690d3e83b154a235e35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32686019f0f6bd9de0f8e527ec0b28fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a32686019f0f6bd9de0f8e527ec0b28fd">prepare_statement</a> (std::string_view statement, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
-<tr class="memdesc:a32686019f0f6bd9de0f8e527ec0b28fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement in the server (sync with error code version).  <a href="#a32686019f0f6bd9de0f8e527ec0b28fd">More...</a><br /></td></tr>
-<tr class="separator:a32686019f0f6bd9de0f8e527ec0b28fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f4118d02d97af56dc16951d9fa33137"><td class="memItemLeft" align="right" valign="top"><a id="a3f4118d02d97af56dc16951d9fa33137"></a>
-<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a3f4118d02d97af56dc16951d9fa33137">prepare_statement</a> (std::string_view statement)</td></tr>
-<tr class="memdesc:a3f4118d02d97af56dc16951d9fa33137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement (sync with exceptions version). <br /></td></tr>
-<tr class="separator:a3f4118d02d97af56dc16951d9fa33137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0234386e97ec3608c856292400d6047"><td class="memTemplParams" colspan="2">template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, prepared_statement&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
-<tr class="memitem:af0234386e97ec3608c856292400d6047"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#af0234386e97ec3608c856292400d6047">async_prepare_statement</a> (std::string_view statement, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
-<tr class="memdesc:af0234386e97ec3608c856292400d6047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement (async version without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>).  <a href="#af0234386e97ec3608c856292400d6047">More...</a><br /></td></tr>
-<tr class="separator:af0234386e97ec3608c856292400d6047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adac3294fe8a38b52581409fe78964b20"><td class="memTemplParams" colspan="2"><a id="adac3294fe8a38b52581409fe78964b20"></a>
+<tr class="memitem:a9957decc74422d61211195d03cea299c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#a9957decc74422d61211195d03cea299c">async_query</a> (boost::string_view query_string, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
+<tr class="memdesc:a9957decc74422d61211195d03cea299c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a SQL text query (async version with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>). <br /></td></tr>
+<tr class="separator:a9957decc74422d61211195d03cea299c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae253524c49c61ca89a0ed3678040d11f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#ae253524c49c61ca89a0ed3678040d11f">prepare_statement</a> (boost::string_view statement, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
+<tr class="memdesc:ae253524c49c61ca89a0ed3678040d11f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement in the server (sync with error code version).  <a href="#ae253524c49c61ca89a0ed3678040d11f">More...</a><br /></td></tr>
+<tr class="separator:ae253524c49c61ca89a0ed3678040d11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe4e061abee5c30def5a98a2eae9123"><td class="memItemLeft" align="right" valign="top"><a id="afbe4e061abee5c30def5a98a2eae9123"></a>
+<a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt; Stream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#afbe4e061abee5c30def5a98a2eae9123">prepare_statement</a> (boost::string_view statement)</td></tr>
+<tr class="memdesc:afbe4e061abee5c30def5a98a2eae9123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement (sync with exceptions version). <br /></td></tr>
+<tr class="separator:afbe4e061abee5c30def5a98a2eae9123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaef010b2fdce5d8d9d8efb7269aa437b"><td class="memTemplParams" colspan="2">template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, prepared_statement&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
+<tr class="memitem:aaef010b2fdce5d8d9d8efb7269aa437b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#aaef010b2fdce5d8d9d8efb7269aa437b">async_prepare_statement</a> (boost::string_view statement, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
+<tr class="memdesc:aaef010b2fdce5d8d9d8efb7269aa437b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement (async version without <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>).  <a href="#aaef010b2fdce5d8d9d8efb7269aa437b">More...</a><br /></td></tr>
+<tr class="separator:aaef010b2fdce5d8d9d8efb7269aa437b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1424f6812c5313815566bd19a54d02b"><td class="memTemplParams" colspan="2"><a id="ae1424f6812c5313815566bd19a54d02b"></a>
 template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, prepared_statement&lt; Stream &gt;)) CompletionToken BOOST_ASIO_DEFAULT_COMPLETION_TOKEN_TYPE(executor_type) &gt; </td></tr>
-<tr class="memitem:adac3294fe8a38b52581409fe78964b20"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#adac3294fe8a38b52581409fe78964b20">async_prepare_statement</a> (std::string_view statement, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
-<tr class="memdesc:adac3294fe8a38b52581409fe78964b20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement (async version with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>). <br /></td></tr>
-<tr class="separator:adac3294fe8a38b52581409fe78964b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1424f6812c5313815566bd19a54d02b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#ae1424f6812c5313815566bd19a54d02b">async_prepare_statement</a> (boost::string_view statement, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1connection.html#ab6612c7403e0ecfdecc0a618f1e2ce0c">executor_type</a>))</td></tr>
+<tr class="memdesc:ae1424f6812c5313815566bd19a54d02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a statement (async version with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a>). <br /></td></tr>
+<tr class="separator:ae1424f6812c5313815566bd19a54d02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa589666697eba0a09c0300b94f21432"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1connection.html#afa589666697eba0a09c0300b94f21432">quit</a> (<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;)</td></tr>
 <tr class="memdesc:afa589666697eba0a09c0300b94f21432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the MySQL server that we want to end the session and quit the connection (sync with error code version).  <a href="#afa589666697eba0a09c0300b94f21432">More...</a><br /></td></tr>
 <tr class="separator:afa589666697eba0a09c0300b94f21432"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -349,8 +349,8 @@ template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code)) CompletionToken BO
 
 </div>
 </div>
-<a id="a1fc1d3e7604500bd643570d2b49ae891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fc1d3e7604500bd643570d2b49ae891">&#9670;&nbsp;</a></span>query()</h2>
+<a id="a1c44d596c545e1c930bbeffbbd11067e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c44d596c545e1c930bbeffbbd11067e">&#9670;&nbsp;</a></span>query()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -360,7 +360,7 @@ template&lt;typename Stream &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classboost_1_1mysql_1_1resultset.html">resultset</a>&lt;Stream&gt; <a class="el" href="classboost_1_1mysql_1_1connection.html">boost::mysql::connection</a>&lt; Stream &gt;::query </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramtype">boost::string_view&#160;</td>
           <td class="paramname"><em>query_string</em>, </td>
         </tr>
         <tr>
@@ -386,12 +386,12 @@ template&lt;typename Stream &gt; </div>
 <p>Executes a SQL text query (sync with error code version). </p>
 <p>Does not perform the actual retrieval of the data; use the various fetch functions within resultset to achieve that. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classboost_1_1mysql_1_1resultset.html" title="Represents tabular data retrieved from the MySQL server. ">resultset</a></dd></dl>
 <p>Note that query_string may contain any valid SQL, not just SELECT statements. If your query does not return any data, then the resultset will be empty.</p>
-<dl class="section warning"><dt>Warning</dt><dd>After <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">query()</a> has returned, you should read the entire resultset before calling any function that involves communication with the server over this connection (like <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a>, <a class="el" href="classboost_1_1mysql_1_1connection.html#a32686019f0f6bd9de0f8e527ec0b28fd" title="Prepares a statement in the server (sync with error code version). ">connection::prepare_statement</a> or <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a065306003e6957c501cb8c04063f06da" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>). Otherwise, the results are undefined. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>After <a class="el" href="classboost_1_1mysql_1_1connection.html#a1c44d596c545e1c930bbeffbbd11067e" title="Executes a SQL text query (sync with error code version). ">query()</a> has returned, you should read the entire resultset before calling any function that involves communication with the server over this connection (like <a class="el" href="classboost_1_1mysql_1_1connection.html#a1c44d596c545e1c930bbeffbbd11067e" title="Executes a SQL text query (sync with error code version). ">connection::query</a>, <a class="el" href="classboost_1_1mysql_1_1connection.html#ae253524c49c61ca89a0ed3678040d11f" title="Prepares a statement in the server (sync with error code version). ">connection::prepare_statement</a> or <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a065306003e6957c501cb8c04063f06da" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>). Otherwise, the results are undefined. </dd></dl>
 
 </div>
 </div>
-<a id="ad602a2d9818289fa09a00430d209da13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad602a2d9818289fa09a00430d209da13">&#9670;&nbsp;</a></span>async_query()</h2>
+<a id="a81a270c6c7de3e51db32f820d6fbe20b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81a270c6c7de3e51db32f820d6fbe20b">&#9670;&nbsp;</a></span>async_query()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,7 +403,7 @@ template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Strea
         <tr>
           <td class="memname">auto <a class="el" href="classboost_1_1mysql_1_1connection.html">boost::mysql::connection</a>&lt; Stream &gt;::async_query </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramtype">boost::string_view&#160;</td>
           <td class="paramname"><em>query_string</em>, </td>
         </tr>
         <tr>
@@ -425,8 +425,8 @@ template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, resultset&lt; Strea
 
 </div>
 </div>
-<a id="a32686019f0f6bd9de0f8e527ec0b28fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32686019f0f6bd9de0f8e527ec0b28fd">&#9670;&nbsp;</a></span>prepare_statement()</h2>
+<a id="ae253524c49c61ca89a0ed3678040d11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae253524c49c61ca89a0ed3678040d11f">&#9670;&nbsp;</a></span>prepare_statement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -436,7 +436,7 @@ template&lt;typename Stream &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classboost_1_1mysql_1_1prepared__statement.html">prepared_statement</a>&lt;Stream&gt; <a class="el" href="classboost_1_1mysql_1_1connection.html">boost::mysql::connection</a>&lt; Stream &gt;::prepare_statement </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramtype">boost::string_view&#160;</td>
           <td class="paramname"><em>statement</em>, </td>
         </tr>
         <tr>
@@ -465,8 +465,8 @@ template&lt;typename Stream &gt; </div>
 
 </div>
 </div>
-<a id="af0234386e97ec3608c856292400d6047"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0234386e97ec3608c856292400d6047">&#9670;&nbsp;</a></span>async_prepare_statement()</h2>
+<a id="aaef010b2fdce5d8d9d8efb7269aa437b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaef010b2fdce5d8d9d8efb7269aa437b">&#9670;&nbsp;</a></span>async_prepare_statement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,7 +478,7 @@ template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, prepared_statement&
         <tr>
           <td class="memname">auto <a class="el" href="classboost_1_1mysql_1_1connection.html">boost::mysql::connection</a>&lt; Stream &gt;::async_prepare_statement </td>
           <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramtype">boost::string_view&#160;</td>
           <td class="paramname"><em>statement</em>, </td>
         </tr>
         <tr>

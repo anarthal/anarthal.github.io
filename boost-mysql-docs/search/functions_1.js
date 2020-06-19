@@ -8,5 +8,5 @@ var searchData=
   ['connect',['connect',['../classboost_1_1mysql_1_1socket__connection.html#a6d5f78de5bbd45f3af40f5c7b22a3a70',1,'boost::mysql::socket_connection::connect(const endpoint_type &amp;endpoint, const connection_params &amp;params, error_code &amp;ec, error_info &amp;info)'],['../classboost_1_1mysql_1_1socket__connection.html#a445ab75ab3f7a0423841b195799da9f3',1,'boost::mysql::socket_connection::connect(const endpoint_type &amp;endpoint, const connection_params &amp;params)']]],
   ['connection',['connection',['../classboost_1_1mysql_1_1connection.html#a04a290a7b9320a99b29127daf4310aa3',1,'boost::mysql::connection']]],
   ['connection_5fcollation',['connection_collation',['../classboost_1_1mysql_1_1connection__params.html#a4cc351428fb67ac7c59945fd9b69f91e',1,'boost::mysql::connection_params']]],
-  ['connection_5fparams',['connection_params',['../classboost_1_1mysql_1_1connection__params.html#aaff4792b87f38e54fd9897ed2a24cf0a',1,'boost::mysql::connection_params']]]
+  ['connection_5fparams',['connection_params',['../classboost_1_1mysql_1_1connection__params.html#a6910578d0223805f329e1860b8ed1a24',1,'boost::mysql::connection_params']]]
 ];

@@ -148,7 +148,7 @@ var searchData=
   ['connect_5fto_5fmaster',['connect_to_master',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a7bdd59488ecba9535562e8b1d34b66a1',1,'boost::mysql']]],
   ['connection',['connection',['../classboost_1_1mysql_1_1connection.html',1,'boost::mysql::connection&lt; Stream &gt;'],['../classboost_1_1mysql_1_1connection.html#a04a290a7b9320a99b29127daf4310aa3',1,'boost::mysql::connection::connection()'],['../group__connection.html',1,'(Global Namespace)']]],
   ['connection_5fcollation',['connection_collation',['../classboost_1_1mysql_1_1connection__params.html#a4cc351428fb67ac7c59945fd9b69f91e',1,'boost::mysql::connection_params']]],
-  ['connection_5fparams',['connection_params',['../classboost_1_1mysql_1_1connection__params.html',1,'boost::mysql::connection_params'],['../classboost_1_1mysql_1_1connection__params.html#aaff4792b87f38e54fd9897ed2a24cf0a',1,'boost::mysql::connection_params::connection_params()']]],
+  ['connection_5fparams',['connection_params',['../classboost_1_1mysql_1_1connection__params.html',1,'boost::mysql::connection_params'],['../classboost_1_1mysql_1_1connection__params.html#a6910578d0223805f329e1860b8ed1a24',1,'boost::mysql::connection_params::connection_params()']]],
   ['connection_20parameters',['Connection parameters',['../group__connparams.html',1,'']]],
   ['consecutive_5freorg_5fpartitions',['consecutive_reorg_partitions',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8aee61227caee796d78dca2fae64290e62',1,'boost::mysql']]],
   ['corrupt_5fhelp_5fdb',['corrupt_help_db',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a6cd28ebdadab721a6012d8735c7efb43',1,'boost::mysql']]],

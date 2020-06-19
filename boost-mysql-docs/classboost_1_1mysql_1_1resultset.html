@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1resultset.html'
 class boost::mysql::resultset&lt; StreamType &gt;</h3>
 
 <p>Represents tabular data retrieved from the MySQL server. </p>
-<p>Returned as the result of a query (see <a class="el" href="classboost_1_1mysql_1_1connection.html#a1fc1d3e7604500bd643570d2b49ae891" title="Executes a SQL text query (sync with error code version). ">connection::query</a>, <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a065306003e6957c501cb8c04063f06da" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>).</p>
+<p>Returned as the result of a query (see <a class="el" href="classboost_1_1mysql_1_1connection.html#a1c44d596c545e1c930bbeffbbd11067e" title="Executes a SQL text query (sync with error code version). ">connection::query</a>, <a class="el" href="classboost_1_1mysql_1_1prepared__statement.html#a065306003e6957c501cb8c04063f06da" title="Executes a statement (collection, sync with error code version). ">prepared_statement::execute</a>).</p>
 <p>A resultset does not read all the retrieved information into memory directly. Instead, you use fetch_one, fetch_many or fetch_all to load rows progressively. This allows for better efficiency.</p>
 <p>A resultset can be in two states:</p><ul>
 <li>Complete, meaning that all data has already been retrieved for this resultset.</li>
@@ -148,7 +148,7 @@ StreamType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 const StreamType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#aab721984a1f933d61f0700e4ffdf2e24">next_layer</a> () const noexcept</td></tr>
 <tr class="memdesc:aab721984a1f933d61f0700e4ffdf2e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the stream object associated with the underlying connection. <br /></td></tr>
 <tr class="separator:aab721984a1f933d61f0700e4ffdf2e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319fffb72b1f7d43a37ab0d451cdf31b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classboost_1_1mysql_1_1row.html">row</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a319fffb72b1f7d43a37ab0d451cdf31b">fetch_one</a> (<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;<a class="el" href="classboost_1_1mysql_1_1resultset.html#a1f6abba2cd9270f5fde950f7f212c87a">info</a>)</td></tr>
+<tr class="memitem:a319fffb72b1f7d43a37ab0d451cdf31b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classboost_1_1mysql_1_1row.html">row</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a319fffb72b1f7d43a37ab0d451cdf31b">fetch_one</a> (<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;<a class="el" href="classboost_1_1mysql_1_1resultset.html#afa99097f213752e5e67852f872c01e74">info</a>)</td></tr>
 <tr class="memdesc:a319fffb72b1f7d43a37ab0d451cdf31b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches a single row (sync with error code version).  <a href="#a319fffb72b1f7d43a37ab0d451cdf31b">More...</a><br /></td></tr>
 <tr class="separator:a319fffb72b1f7d43a37ab0d451cdf31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50e17ad705fd19b85ded5e887fa35345"><td class="memItemLeft" align="right" valign="top"><a id="a50e17ad705fd19b85ded5e887fa35345"></a>
@@ -164,7 +164,7 @@ template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, const row *)) Compl
 <tr class="memitem:a1261f353e849ab258858461a4b6ffb40"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a1261f353e849ab258858461a4b6ffb40">async_fetch_one</a> (<a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1resultset.html#a13b43ea8631436ebeefa322cc94c5355">executor_type</a>))</td></tr>
 <tr class="memdesc:a1261f353e849ab258858461a4b6ffb40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches a single row (async with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). <br /></td></tr>
 <tr class="separator:a1261f353e849ab258858461a4b6ffb40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10542514617497b666e50b9639c495a9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classboost_1_1mysql_1_1owning__row.html">owning_row</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a10542514617497b666e50b9639c495a9">fetch_many</a> (std::size_t count, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;<a class="el" href="classboost_1_1mysql_1_1resultset.html#a1f6abba2cd9270f5fde950f7f212c87a">info</a>)</td></tr>
+<tr class="memitem:a10542514617497b666e50b9639c495a9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classboost_1_1mysql_1_1owning__row.html">owning_row</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a10542514617497b666e50b9639c495a9">fetch_many</a> (std::size_t count, <a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;<a class="el" href="classboost_1_1mysql_1_1resultset.html#afa99097f213752e5e67852f872c01e74">info</a>)</td></tr>
 <tr class="memdesc:a10542514617497b666e50b9639c495a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches at most count rows (sync with error code version).  <a href="#a10542514617497b666e50b9639c495a9">More...</a><br /></td></tr>
 <tr class="separator:a10542514617497b666e50b9639c495a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a198a812d0f55241682e9c4533bb5420d"><td class="memItemLeft" align="right" valign="top"><a id="a198a812d0f55241682e9c4533bb5420d"></a>
@@ -180,7 +180,7 @@ template&lt;BOOST_ASIO_COMPLETION_TOKEN_FOR(void(error_code, std::vector&lt; own
 <tr class="memitem:a527077c8f3957cac5ff58ef07d0c1a45"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a527077c8f3957cac5ff58ef07d0c1a45">async_fetch_many</a> (std::size_t count, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;output_info, CompletionToken &amp;&amp;token BOOST_ASIO_DEFAULT_COMPLETION_TOKEN(<a class="el" href="classboost_1_1mysql_1_1resultset.html#a13b43ea8631436ebeefa322cc94c5355">executor_type</a>))</td></tr>
 <tr class="memdesc:a527077c8f3957cac5ff58ef07d0c1a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches at most count rows (async with <a class="el" href="classboost_1_1mysql_1_1error__info.html" title="Additional information about error conditions. ">error_info</a> version). <br /></td></tr>
 <tr class="separator:a527077c8f3957cac5ff58ef07d0c1a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae55f09ab6291e867e67a3a1a30304df7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classboost_1_1mysql_1_1owning__row.html">owning_row</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#ae55f09ab6291e867e67a3a1a30304df7">fetch_all</a> (<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;<a class="el" href="classboost_1_1mysql_1_1resultset.html#a1f6abba2cd9270f5fde950f7f212c87a">info</a>)</td></tr>
+<tr class="memitem:ae55f09ab6291e867e67a3a1a30304df7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classboost_1_1mysql_1_1owning__row.html">owning_row</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#ae55f09ab6291e867e67a3a1a30304df7">fetch_all</a> (<a class="el" href="group__error.html#gaff8c71ba89eb874c8d2a7e1221942ccd">error_code</a> &amp;err, <a class="el" href="classboost_1_1mysql_1_1error__info.html">error_info</a> &amp;<a class="el" href="classboost_1_1mysql_1_1resultset.html#afa99097f213752e5e67852f872c01e74">info</a>)</td></tr>
 <tr class="memdesc:ae55f09ab6291e867e67a3a1a30304df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches all available rows (sync with error code version).  <a href="#ae55f09ab6291e867e67a3a1a30304df7">More...</a><br /></td></tr>
 <tr class="separator:ae55f09ab6291e867e67a3a1a30304df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfcc5250d85163e6492d98434c2dcb25"><td class="memItemLeft" align="right" valign="top"><a id="abfcc5250d85163e6492d98434c2dcb25"></a>
@@ -215,9 +215,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a18866661285a1a6e655688daa3a6f088"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a18866661285a1a6e655688daa3a6f088">warning_count</a> () const noexcept</td></tr>
 <tr class="memdesc:a18866661285a1a6e655688daa3a6f088"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of warnings produced by the SQL that generated this resultset.  <a href="#a18866661285a1a6e655688daa3a6f088">More...</a><br /></td></tr>
 <tr class="separator:a18866661285a1a6e655688daa3a6f088"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f6abba2cd9270f5fde950f7f212c87a"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#a1f6abba2cd9270f5fde950f7f212c87a">info</a> () const noexcept</td></tr>
-<tr class="memdesc:a1f6abba2cd9270f5fde950f7f212c87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additionat text information about the execution of the SQL that generated this resultset.  <a href="#a1f6abba2cd9270f5fde950f7f212c87a">More...</a><br /></td></tr>
-<tr class="separator:a1f6abba2cd9270f5fde950f7f212c87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa99097f213752e5e67852f872c01e74"><td class="memItemLeft" align="right" valign="top">boost::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1resultset.html#afa99097f213752e5e67852f872c01e74">info</a> () const noexcept</td></tr>
+<tr class="memdesc:afa99097f213752e5e67852f872c01e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additionat text information about the execution of the SQL that generated this resultset.  <a href="#afa99097f213752e5e67852f872c01e74">More...</a><br /></td></tr>
+<tr class="separator:afa99097f213752e5e67852f872c01e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a319fffb72b1f7d43a37ab0d451cdf31b"></a>
@@ -563,8 +563,8 @@ template&lt;typename StreamType &gt; </div>
 
 </div>
 </div>
-<a id="a1f6abba2cd9270f5fde950f7f212c87a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f6abba2cd9270f5fde950f7f212c87a">&#9670;&nbsp;</a></span>info()</h2>
+<a id="afa99097f213752e5e67852f872c01e74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa99097f213752e5e67852f872c01e74">&#9670;&nbsp;</a></span>info()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -575,7 +575,7 @@ template&lt;typename StreamType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view <a class="el" href="classboost_1_1mysql_1_1resultset.html">boost::mysql::resultset</a>&lt; StreamType &gt;::info </td>
+          <td class="memname">boost::string_view <a class="el" href="classboost_1_1mysql_1_1resultset.html">boost::mysql::resultset</a>&lt; StreamType &gt;::info </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>

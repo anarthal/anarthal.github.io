@@ -9,7 +9,7 @@ var searchData=
   ['da_5funknown_5ferror_5fnumber',['da_unknown_error_number',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8af0bdf70406d9e2838da7c87455b72713',1,'boost::mysql']]],
   ['data_5fout_5fof_5frange',['data_out_of_range',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8aa90e686993c41df9010ae268e253f682',1,'boost::mysql']]],
   ['data_5ftoo_5flong',['data_too_long',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8aa4bc9e5b8d7e28a4b9bad06d353bc5b3',1,'boost::mysql']]],
-  ['database',['database',['../classboost_1_1mysql_1_1connection__params.html#ad38c56d3940551edf17dbdb46537f406',1,'boost::mysql::connection_params::database()'],['../classboost_1_1mysql_1_1field__metadata.html#a0f7ca1eef6a5baec33ef73f832ceb5f3',1,'boost::mysql::field_metadata::database()']]],
+  ['database',['database',['../classboost_1_1mysql_1_1connection__params.html#a79020da65878731fc4c9e05d0eb86c1c',1,'boost::mysql::connection_params::database()'],['../classboost_1_1mysql_1_1field__metadata.html#a6ff0ea930a2e0c3baa6748c28d4c710d',1,'boost::mysql::field_metadata::database()']]],
   ['database_5fname',['database_name',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8aded71029ed304895d57098959b32ca9d',1,'boost::mysql']]],
   ['date',['date',['../group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767',1,'boost::mysql::date()'],['../group__resultsets.html#ggac967096c0bd13a9102ea14034766a395a5fc732311905cb27e82d67f4f6511f7f',1,'boost::mysql::date()']]],
   ['datetime',['datetime',['../group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742',1,'boost::mysql::datetime()'],['../group__resultsets.html#ggac967096c0bd13a9102ea14034766a395adfeaaeb4316477bd556ea5e8c3295887',1,'boost::mysql::datetime()']]],

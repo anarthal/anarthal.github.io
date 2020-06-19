@@ -70,6 +70,6 @@ var searchData=
   ['user_5flimit_5freached',['user_limit_reached',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a5517e7202202431af03d1df8eb69e53f',1,'boost::mysql']]],
   ['user_5flock_5fdeadlock',['user_lock_deadlock',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8ad8841a2c021b17ba82142831d59aef6e',1,'boost::mysql']]],
   ['user_5flock_5fwrong_5fname',['user_lock_wrong_name',['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a2da00276110088e6f1523714e161c106',1,'boost::mysql']]],
-  ['username',['username',['../classboost_1_1mysql_1_1connection__params.html#a07ff95b9a112c36f03baac1982912bde',1,'boost::mysql::connection_params::username()'],['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a14c4b06b824ec593239362517f538b29',1,'boost::mysql::username()']]],
+  ['username',['username',['../classboost_1_1mysql_1_1connection__params.html#aa57a3897888b52f33f37491bb31f978c',1,'boost::mysql::connection_params::username()'],['../group__error.html#gga555f5fc6f487336c8692c0ed0a38c6c8a14c4b06b824ec593239362517f538b29',1,'boost::mysql::username()']]],
   ['uses_5fssl',['uses_ssl',['../classboost_1_1mysql_1_1connection.html#aeb4bdd31a6f0055a386efe7f6368645f',1,'boost::mysql::connection']]]
 ];
