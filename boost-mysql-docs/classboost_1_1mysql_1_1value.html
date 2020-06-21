@@ -126,14 +126,14 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1value.html','')
 </ul>
 </li>
 <li>Date and time types:<ul>
-<li><p class="startli"><b>DATE</b>. Represented as a <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. All dates retrieved from the database are guaranteed to be in the range [<a class="el" href="namespaceboost_1_1mysql.html#ac914d5e53ff14bb984d93ddc58847879" title="The minimum allowed value for boost::mysql::date. ">boost::mysql::min_date</a>, <a class="el" href="namespaceboost_1_1mysql.html#a662703aaa41f703cb905c5ee5b3ebb8b" title="The maximum allowed value for boost::mysql::date. ">boost::mysql::max_date</a>]. Note that these limits are slightly more flexible than the official DATE limits.</p>
-<p class="startli">If sql_mode is set to ALLOW_INVALID_DATES, MySQL will accept invalid dates, like '2010-02-31'. Furthermore, if strict SQL mode is not enabled, MySQL will accept zero dates, like '0000-00-00', and dates with zero components, like '2010-00-20'. These dates are invalid and not representable as a <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
+<li><p class="startli"><b>DATE</b>. Represented as a <a class="el" href="group__values.html#ga5aee90bca96275ef12e3417f9776f63f" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. All dates retrieved from the database are guaranteed to be in the range [<a class="el" href="namespaceboost_1_1mysql.html#ac914d5e53ff14bb984d93ddc58847879" title="The minimum allowed value for boost::mysql::date (0000-01-01). ">boost::mysql::min_date</a>, <a class="el" href="namespaceboost_1_1mysql.html#a662703aaa41f703cb905c5ee5b3ebb8b" title="The maximum allowed value for boost::mysql::date (9999-12-31). ">boost::mysql::max_date</a>]. Note that these limits are slightly more flexible than the official DATE limits.</p>
+<p class="startli">If sql_mode is set to ALLOW_INVALID_DATES, MySQL will accept invalid dates, like '2010-02-31'. Furthermore, if strict SQL mode is not enabled, MySQL will accept zero dates, like '0000-00-00', and dates with zero components, like '2010-00-20'. These dates are invalid and not representable as a <a class="el" href="group__values.html#ga5aee90bca96275ef12e3417f9776f63f" title="Type representing MySQL DATE data type. ">boost::mysql::date</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
 </li>
-<li><p class="startli"><b>DATETIME</b>. MySQL representation of a time point without time zone, with a resolution of one microsecond. Represented as a <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. All datetimes retrieved from the database are guaranteed to be in the range [<a class="el" href="namespaceboost_1_1mysql.html#a266f0d72cb8da688f9964d182d86a403" title="The minimum allowed value for boost::mysql::datetime. ">boost::mysql::min_datetime</a>, <a class="el" href="namespaceboost_1_1mysql.html#aa2b851a00b8dd5d1ac6aa73f63ff9d13" title="The maximum allowed value for boost::mysql::datetime. ">boost::mysql::max_datetime</a>].</p>
-<p class="startli">If sql_mode is set to ALLOW_INVALID_DATES, MySQL will accept datetimes with invalid dates, like '2010-02-31 10:10:10'. Furthermore, if strict SQL mode is not enabled, MySQL will accept zero datetimes, like '0000-00-00 00:00:00', and datetimes with zero date components, like '2010-00-20 00:00:00'. These datetimes are invalid because they do not represent any real time point, and are thus not representable as a <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
+<li><p class="startli"><b>DATETIME</b>. MySQL representation of a time point without time zone, with a resolution of one microsecond. Represented as a <a class="el" href="group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. All datetimes retrieved from the database are guaranteed to be in the range [<a class="el" href="namespaceboost_1_1mysql.html#a266f0d72cb8da688f9964d182d86a403" title="The minimum allowed value for boost::mysql::datetime. ">boost::mysql::min_datetime</a>, <a class="el" href="namespaceboost_1_1mysql.html#aa2b851a00b8dd5d1ac6aa73f63ff9d13" title="The maximum allowed value for boost::mysql::datetime. ">boost::mysql::max_datetime</a>].</p>
+<p class="startli">If sql_mode is set to ALLOW_INVALID_DATES, MySQL will accept datetimes with invalid dates, like '2010-02-31 10:10:10'. Furthermore, if strict SQL mode is not enabled, MySQL will accept zero datetimes, like '0000-00-00 00:00:00', and datetimes with zero date components, like '2010-00-20 00:00:00'. These datetimes are invalid because they do not represent any real time point, and are thus not representable as a <a class="el" href="group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
 </li>
-<li><p class="startli"><b>TIMESTAMP</b>. Like DATETIME, it also represents a time point. When inserted, TIMESTAMPs are interpreted as local times, according to the variable time_zone, and converted to UTC for storage. When retrieved, they are converted back to the time zone indicated by time_zone. The retrieved value of a TIMESTAMP field is thus a time point in some local time zone, dictated by the current time_zone variable. As this variable can be changed programmatically, without the client knowing it, we represent TIMESTAMPs without their time zone, using <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. TIMESTAMP's range is narrower than DATETIME's, but we do not enforce it in the client.</p>
-<p class="startli">If strict SQL mode is not enabled, MySQL accepts zero TIMESTAMPs, like '0000-00-00 00:00:00'. These timestamps are invalid because they do not represent any real time point, and are thus not representable as a <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
+<li><p class="startli"><b>TIMESTAMP</b>. Like DATETIME, it also represents a time point. When inserted, TIMESTAMPs are interpreted as local times, according to the variable time_zone, and converted to UTC for storage. When retrieved, they are converted back to the time zone indicated by time_zone. The retrieved value of a TIMESTAMP field is thus a time point in some local time zone, dictated by the current time_zone variable. As this variable can be changed programmatically, without the client knowing it, we represent TIMESTAMPs without their time zone, using <a class="el" href="group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. TIMESTAMP's range is narrower than DATETIME's, but we do not enforce it in the client.</p>
+<p class="startli">If strict SQL mode is not enabled, MySQL accepts zero TIMESTAMPs, like '0000-00-00 00:00:00'. These timestamps are invalid because they do not represent any real time point, and are thus not representable as a <a class="el" href="group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d" title="Type representing MySQL DATETIME and TIMESTAMP data types. ">boost::mysql::datetime</a>. In this library, they are all represented as NULL values, instead (std::nullptr_t type). These values can be retrieved from the database in both text queries and prepared statements, but cannot be specified as parameters of prepared statements.</p>
 </li>
 <li><b>TIME</b>. A signed time duration, with a resolution of one microsecond. Represented as a <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf" title="Type representing MySQL TIME data type. ">boost::mysql::time</a> (alias for std::chrono::microseconds). Guaranteed to be in range [<a class="el" href="namespaceboost_1_1mysql.html#a2d5042c0a45183382c59ec3657223582" title="The minimum allowed value for boost::mysql::time. ">boost::mysql::min_time</a> and <a class="el" href="namespaceboost_1_1mysql.html#a3a8535cfaa5b3e6ab04e1c29428558ac" title="The maximum allowed value for boost::mysql::time. ">boost::mysql::max_time</a>].</li>
 </ul>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('classboost_1_1mysql_1_1value.html','')
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a3c46a8c2c8dca350625405f9e3b06a6e"><td class="memItemLeft" align="right" valign="top"><a id="a3c46a8c2c8dca350625405f9e3b06a6e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1value.html#a3c46a8c2c8dca350625405f9e3b06a6e">variant_type</a> = boost::variant2::variant&lt; std::nullptr_t, std::int64_t, std::uint64_t, boost::string_view, float, double, <a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">date</a>, <a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742">datetime</a>, <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a> &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1value.html#a3c46a8c2c8dca350625405f9e3b06a6e">variant_type</a> = boost::variant2::variant&lt; std::nullptr_t, std::int64_t, std::uint64_t, boost::string_view, float, double, <a class="el" href="group__values.html#ga5aee90bca96275ef12e3417f9776f63f">date</a>, <a class="el" href="group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d">datetime</a>, <a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">time</a> &gt;</td></tr>
 <tr class="memdesc:a3c46a8c2c8dca350625405f9e3b06a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of a variant representing the value. <br /></td></tr>
 <tr class="separator:a3c46a8c2c8dca350625405f9e3b06a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -216,9 +216,8 @@ BOOST_CXX14_CONSTEXPR bool&#160;</td><td class="memItemRight" valign="bottom"><a
 Related Functions</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p>(Note that these are not member functions.) </p>
 </td></tr>
-<tr class="memitem:a5c1c83013a1bdb83034921679c22b317"><td class="memItemLeft" align="right" valign="top"><a id="a5c1c83013a1bdb83034921679c22b317"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1value.html#a5c1c83013a1bdb83034921679c22b317">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classboost_1_1mysql_1_1value.html">value</a> &amp;v)</td></tr>
-<tr class="memdesc:a5c1c83013a1bdb83034921679c22b317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streams a value. <br /></td></tr>
+<tr class="memitem:a5c1c83013a1bdb83034921679c22b317"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1value.html#a5c1c83013a1bdb83034921679c22b317">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classboost_1_1mysql_1_1value.html">value</a> &amp;v)</td></tr>
+<tr class="memdesc:a5c1c83013a1bdb83034921679c22b317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streams a value.  <a href="#a5c1c83013a1bdb83034921679c22b317">More...</a><br /></td></tr>
 <tr class="separator:a5c1c83013a1bdb83034921679c22b317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f10dc2d0bb16163be535bc8d7c07849"><td class="memTemplParams" colspan="2">template&lt;typename... Types&gt; </td></tr>
 <tr class="memitem:a9f10dc2d0bb16163be535bc8d7c07849"><td class="memTemplItemLeft" align="right" valign="top">BOOST_CXX14_CONSTEXPR std::array&lt; <a class="el" href="classboost_1_1mysql_1_1value.html">value</a>, sizeof...(Types)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classboost_1_1mysql_1_1value.html#a9f10dc2d0bb16163be535bc8d7c07849">make_values</a> (Types &amp;&amp;... args)</td></tr>
@@ -439,6 +438,45 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a5c1c83013a1bdb83034921679c22b317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c1c83013a1bdb83034921679c22b317">&#9670;&nbsp;</a></span>operator<<()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classboost_1_1mysql_1_1value.html">value</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Streams a value. </p>
+<p>The value should be in the MySQL valid range of values. Concretely, if the value is a date, datetime or time, it should be in the [min_date, max_date], [min_datetime, max_datetime] or [min_time, max_time], respectively. Otherwise, the results are undefined. </p>
+
+</div>
+</div>
 <a id="a9f10dc2d0bb16163be535bc8d7c07849"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f10dc2d0bb16163be535bc8d7c07849">&#9670;&nbsp;</a></span>make_values()</h2>
 

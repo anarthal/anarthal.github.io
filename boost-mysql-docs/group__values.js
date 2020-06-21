@@ -16,7 +16,8 @@ var group__values =
       [ "operator<<", "classboost_1_1mysql_1_1value.html#a5c1c83013a1bdb83034921679c22b317", null ],
       [ "make_values", "classboost_1_1mysql_1_1value.html#a9f10dc2d0bb16163be535bc8d7c07849", null ]
     ] ],
-    [ "date", "group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767", null ],
-    [ "datetime", "group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742", null ],
+    [ "days", "group__values.html#ga55cabc70da59d1ea8bcae09f3370f18d", null ],
+    [ "date", "group__values.html#ga5aee90bca96275ef12e3417f9776f63f", null ],
+    [ "datetime", "group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d", null ],
     [ "time", "group__values.html#ga494d58627935592976a63af024f3fdaf", null ]
 ];

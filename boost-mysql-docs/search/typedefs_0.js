@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['date',['date',['../group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767',1,'boost::mysql']]],
-  ['datetime',['datetime',['../group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742',1,'boost::mysql']]]
+  ['date',['date',['../group__values.html#ga5aee90bca96275ef12e3417f9776f63f',1,'boost::mysql']]],
+  ['datetime',['datetime',['../group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d',1,'boost::mysql']]],
+  ['days',['days',['../group__values.html#ga55cabc70da59d1ea8bcae09f3370f18d',1,'boost::mysql']]]
 ];

@@ -110,19 +110,42 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:gabbc1cfc7d2af463a61fb35f62ab24767"><td class="memItemLeft" align="right" valign="top"><a id="gabbc1cfc7d2af463a61fb35f62ab24767"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#gabbc1cfc7d2af463a61fb35f62ab24767">boost::mysql::date</a> = ::date::sys_days</td></tr>
-<tr class="memdesc:gabbc1cfc7d2af463a61fb35f62ab24767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL DATE data type. <br /></td></tr>
-<tr class="separator:gabbc1cfc7d2af463a61fb35f62ab24767"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9eb5a9c851b05f29d6ebe0d424b5b742"><td class="memItemLeft" align="right" valign="top"><a id="ga9eb5a9c851b05f29d6ebe0d424b5b742"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga9eb5a9c851b05f29d6ebe0d424b5b742">boost::mysql::datetime</a> = ::date::sys_time&lt; std::chrono::microseconds &gt;</td></tr>
-<tr class="memdesc:ga9eb5a9c851b05f29d6ebe0d424b5b742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL DATETIME and TIMESTAMP data types. <br /></td></tr>
-<tr class="separator:ga9eb5a9c851b05f29d6ebe0d424b5b742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55cabc70da59d1ea8bcae09f3370f18d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga55cabc70da59d1ea8bcae09f3370f18d">boost::mysql::days</a> = std::chrono::duration&lt; int, std::ratio&lt; 3600 *24 &gt; &gt;</td></tr>
+<tr class="memdesc:ga55cabc70da59d1ea8bcae09f3370f18d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration representing a day (24 hours).  <a href="group__values.html#ga55cabc70da59d1ea8bcae09f3370f18d">More...</a><br /></td></tr>
+<tr class="separator:ga55cabc70da59d1ea8bcae09f3370f18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5aee90bca96275ef12e3417f9776f63f"><td class="memItemLeft" align="right" valign="top"><a id="ga5aee90bca96275ef12e3417f9776f63f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga5aee90bca96275ef12e3417f9776f63f">boost::mysql::date</a> = std::chrono::time_point&lt; std::chrono::system_clock, <a class="el" href="group__values.html#ga55cabc70da59d1ea8bcae09f3370f18d">days</a> &gt;</td></tr>
+<tr class="memdesc:ga5aee90bca96275ef12e3417f9776f63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL DATE data type. <br /></td></tr>
+<tr class="separator:ga5aee90bca96275ef12e3417f9776f63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8597710ffc10b0b95cb49a4b8c15a85d"><td class="memItemLeft" align="right" valign="top"><a id="ga8597710ffc10b0b95cb49a4b8c15a85d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga8597710ffc10b0b95cb49a4b8c15a85d">boost::mysql::datetime</a> = std::chrono::time_point&lt; std::chrono::system_clock, std::chrono::microseconds &gt;</td></tr>
+<tr class="memdesc:ga8597710ffc10b0b95cb49a4b8c15a85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL DATETIME and TIMESTAMP data types. <br /></td></tr>
+<tr class="separator:ga8597710ffc10b0b95cb49a4b8c15a85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga494d58627935592976a63af024f3fdaf"><td class="memItemLeft" align="right" valign="top"><a id="ga494d58627935592976a63af024f3fdaf"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__values.html#ga494d58627935592976a63af024f3fdaf">boost::mysql::time</a> = std::chrono::microseconds</td></tr>
 <tr class="memdesc:ga494d58627935592976a63af024f3fdaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing MySQL TIME data type. <br /></td></tr>
 <tr class="separator:ga494d58627935592976a63af024f3fdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga55cabc70da59d1ea8bcae09f3370f18d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga55cabc70da59d1ea8bcae09f3370f18d">&#9670;&nbsp;</a></span>days</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group__values.html#ga55cabc70da59d1ea8bcae09f3370f18d">boost::mysql::days</a> = typedef std::chrono::duration&lt;int, std::ratio&lt;3600 * 24&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;/home/ruben/workspace/mysql-asio/include/boost/mysql/value.hpp&gt;</code></p>
+
+<p>Duration representing a day (24 hours). </p>
+<p>Suitable to represent the range of dates MySQL offers. May differ in representation from std::chrono::days in C++20. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
