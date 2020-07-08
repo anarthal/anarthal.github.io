@@ -2,4 +2,4 @@ User-agent: *
 
 Disallow: /norobots/
 
-Sitemap: https://anarthal.github.io/sitemap.xml
+Sitemap: https://anarthal.github.io/myblog/sitemap.xml
