@@ -21,27 +21,42 @@ There is **a lot** of work yet to be done in Boost.MySQL. Roughly speaking, ther
 
 It's also important to understand what we're **not** trying to achieve:
 
-* We're not an ORM. We won't be implementing features like DDL and DML statement generation.
-* Boost.MySQL is and will be specific to MySQL/MariaDB. It won't attempt to be compatible with other SQL databases. We believe in the principle of *do one thing and do it well*.
+1. We're not an ORM. We won't be implementing features like DDL and DML statement generation.
+2. Boost.MySQL is and will be specific to MySQL/MariaDB. It won't attempt to be compatible with other SQL databases. We believe in the principle of *do one thing and do it well*.
 
-The following lines present the most prioritary features as the author understands them.
+The rest of the document presents the most prioritary features as the author understands them.
 
-## Feature #1: Client-side composed queries (escaping user-provided input)
+## Feature #1: client-side composed queries (escaping user-provided input)
 
-* The MySQL official client provides [`mysql_real_escape_string`](https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-escape-string.html) to sanitize pieces of user-provided string input and allow composing safe SQL queries.
-* We don't, we tell users to use prepared statements.
-* There is a limitation: 
+When using user-provided input in SQL queries, it must be properly sanitized to avoid SQL injection attacks. There are two approaches for doing this (pseudocode follows):
 
-> "*Parameter markers can be used only where data values should appear, not for SQL keywords, identifiers, and so forth.*"
+```cpp
+    // Option 1: use a prepared statement and let the server take care of it
+    conn.prepare_statement("SELECT * FROM users WHERE name = ?").execute(user_name);
 
-**Impact**: some use cases can't be achieved, or will be achieved in an insecure way (SQL injections):
-* Exporting tables based on user input - ETL pipelines.
-* Executing generated DDL statements - ORM or GUI.
+    // Option 2: create the query client-side. Requires a escaping routine
+    string sql = "SELECT * FROM users WHERE name = '" + escape_sql(user_name) + "'";
+    conn.query(sql);
+```
 
-**Complexities**:
-* Depends on MySQL character sets (as it needs to interpret the string), which have no representation in Boost.MySQL right now.
-* Depends on server state that may change dynamically - doable but it introduces complexity.
-* Security-critical - requires a heavy test suite.
+Option 1 is the safest and most used, and is fully supported. However, some use cases require using option 2:
+
+```cpp
+    // Option 1 doesn't work here: can't use placeholders for SQL identifiers
+    conn.prepare_statement("SELECT * FROM ? LIMIT 200").execute(table_name);
+
+    // Option 2 is the only option here. Right now, we're missing the escape_sql function
+    string sql = "SELECT * FROM `" + escape_sql(table_name) + "` LIMIT 200";
+    conn.query(sql);
+```
+
+**Impact**:
+* Some use cases, like exporting tables in ETL processes or executing generated DDL statements, can't be achieved.
+* Users may roll their own `escape_sql`, which almost always leads to security problems.
+
+As with everything with MySQL, it's much more involved than it looks like, as proper escaping depends on character sets and server statuses.
+
+TODO: see implementation notes
 
 ## Feature #2: stored procedures (multi-resultset)
 
@@ -56,7 +71,7 @@ The following lines present the most prioritary features as the author understan
 
 * This is also used by stored procedures. Running any stored procedure that returns data requires multi-resultset support.
 
-```
+```sql
     -- Calling this procedure requires multi-resultset
     CREATE PROCEDURE Procedure1()
     BEGIN
@@ -111,3 +126,17 @@ Up to here: 45 man-day estimates (?)
 * [Library] Connection pooling.
 * [Library] Creating connections from URL strings.
 * [Library] Docs improvements: comparisons, benchmarks...
+
+
+Impl notes:
+
+
+* The MySQL official client provides [`mysql_real_escape_string`](https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-escape-string.html) to sanitize pieces of user-provided string input and allow composing safe SQL queries.
+* We don't, we tell users to use prepared statements.
+* There is a limitation: 
+
+
+**Complexities**:
+* Depends on MySQL character sets (as it needs to interpret the string), which have no representation in Boost.MySQL right now.
+* Depends on server state that may change dynamically - doable but it introduces complexity.
+* Security-critical - requires a heavy test suite.
