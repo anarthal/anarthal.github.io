@@ -56,62 +56,73 @@ Option 1 is the safest and most used, and is fully supported. However, some use 
 
 As with everything with MySQL, it's much more involved than it looks like, as proper escaping depends on character sets and server statuses.
 
-TODO: see implementation notes
+Please read the implementation notes at the bottom of this document for technical details.
 
-## Feature #2: stored procedures (multi-resultset)
+## Feature #2: stored procedures and batch scripts (multi-resultset)
 
-* You normally run a SQL query and retrieve a resultset, containing metadata, rows and some info - see [this](https://www.boost.org/doc/libs/master/libs/mysql/doc/html/mysql/overview.html#mysql.overview.resultsets).
-* Configuration option to support a "multi-resultset" mode - where each operation may return several of these resultsets.
-* This is used by multiple queries: useful for script sourcing:
-```
-    -- Running this will return two resultsets
-    SELECT * FROM mytable;
-    SELECT * FROM othertable;
+In the most common case, when you run a SQL statement, you get a single table-like response, called a [*resultset*](https://www.boost.org/doc/libs/master/libs/mysql/doc/html/mysql/overview.html#mysql.overview.resultsets):
+
+```cpp
+    mysql::resultset result; // Will hold all rows in the users table
+    conn.query("SELECT * FROM users", result);
 ```
 
-* This is also used by stored procedures. Running any stored procedure that returns data requires multi-resultset support.
+The protocol allows running multiple statements in a go, which returns multiple resultsets. This is common in **batch scripts**. We don't have support for this yet, though:
+
+```cpp
+    // This will result in an error: multi-resultset is not yet supported
+    string sql = "SELECT * FROM users; SELECT * FROM companies";
+    conn.query(sql, result);
+```
+
+The same mechanism is used for stored procedures that retrieve any data. Given this procedure definition:
 
 ```sql
-    -- Calling this procedure requires multi-resultset
     CREATE PROCEDURE Procedure1()
     BEGIN
-        SELECT * FROM COMPANY;
+        SELECT * FROM companies;
     END
 ```
 
-**Impact**: users can't make use of stored procedures. Users can't run batch scripts. Has been requested by real users.
+Calling it using Boost.MySQL fails because of the lack of support for this protocol feature.
 
-**Complexities**: high and low level API, several tests, config value in handshake. My lack of knowledge of stored procedures.
+**Impact**:
+* Users can't make use of stored procedures, which has been already raised by a real user.
+* Users can't run batch scripts.
+
+Please read the implementation notes at the bottom of this document for technical details.
 
 ## Feature #3: parsing into compile-time data structures
 
-Currently, the only interface is variant-based: field and field_view, with semantics similar to json::value.
-Clumsy. In many use cases, the schema is known at compile-time, and parsing into a struct makes things easier.
-Easy to introduce customization points to parse special fields, like JSON.
-Involved decisions.
+To access data retrieved from MySQL, we currently support a variant-like interface, only. It's based on [`field_view`](https://www.boost.org/doc/libs/master/libs/mysql/doc/html/mysql/ref/boost__mysql__field_view.html), similar to `json::value`.
+It does the work, but it can be clumsy.
 
-High-level interface:
+In many use cases, the schema is known at compile-time, and parsing into a struct makes things easier. It's also easy to introduce customization points to parse special fields, like JSON.
 
-    struct my_row {
-        int id;
+This is what it could look like:
+
+```cpp
+    struct employee {
         std::string first_name;
         int salary;
     };
 
-    mysql::resultset<my_row> result;
-    conn.query(“SELECT id, first_name, salary FROM employees”, result);
-    boost::span<const my_row> range = result.rows();
+    // With variants
+    mysql::resultset v_result;
+    conn.query("SELECT first_name, salary FROM employees", v_result);
+    string_view first_name = v_result.at(0).at(0).as_string();
 
-Low-level interface:
+    // With structs
+    mysql::basic_resultset<employee> result;
+    conn.query("SELECT first_name, salary FROM employees", result);
+    string_view first_name = result.at(0).first_name;
+```
 
-    mysql::execution_state st;
-    conn.start_query(“SELECT id, first_name, salary FROM employees”, st);
-    my_row row;
-    while (conn.read_one_row(st, row)) {
-        // Use row
-    }
+**Impact**:
+* The library is more attractive to new potential users.
+* Using the library is less error-prone, which yields better safety and security.
 
-Up to here: 45 man-day estimates (?)
+Please read the implementation notes at the bottom of this document for technical details.
 
 ## Further features
 * [Security] Allow the user to specify max internal sizes for buffers (prevent DoS).
@@ -127,16 +138,27 @@ Up to here: 45 man-day estimates (?)
 * [Library] Creating connections from URL strings.
 * [Library] Docs improvements: comparisons, benchmarks...
 
+## Implementation notes
 
-Impl notes:
-
+### Escaping user-provided input
 
 * The MySQL official client provides [`mysql_real_escape_string`](https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-escape-string.html) to sanitize pieces of user-provided string input and allow composing safe SQL queries.
-* We don't, we tell users to use prepared statements.
-* There is a limitation: 
+* Escaping requires understanding the query string, to some extent, and that requires some level of support for MySQL character sets. The official implementation uses `my_ismbchar` and `my_mbcharlen_ptr` to iterate over the string. Blind escaping leads to vulnerabilities. We need to make a decision on what charsets to support.
+* Escaping depends on [`NO_BACKSLASH_ESCAPES`](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes) SQL mode being active or not, which can be changed using SQL. The correct approach here is to use information contained in the OK packets sent by the server to maintain state about whether this is active or not.
+* Escaping depends on the quoting context the string is being used on - depending on the use, strings can be backtick enclosed, single quoted or double quoted.
+* This is a security critical function and requires heavy testing.
 
+### Multi-resultset
 
-**Complexities**:
-* Depends on MySQL character sets (as it needs to interpret the string), which have no representation in Boost.MySQL right now.
-* Depends on server state that may change dynamically - doable but it introduces complexity.
-* Security-critical - requires a heavy test suite.
+* The same feature is used for multi-queries, stored procedures selecting data, and stored procedures with `OUT` parameters. Although they share implementation, they will require separate testing and some specialized API functions - there are design decision to be made here.
+* Ideally, support for multi-queries should be disabled by default, as it is a more secure default. An investigation needs to be conducted on whether this is possible.
+
+### Parsing into compile-time data structures
+
+* There are a lot of design decisions to be made. I plan to open a public discussion on the ML/GitHub to gather feedback.
+* Proper diagnostics should be taken into account to make using the library easier. Schema mismatches should be reported as early and clearly as possible.
+* The high-level API (as shown in this document) should be complemented with typed versions of low level functions like `read_one_row` and `read_some_rows`. These should also allow for using views for strings and blobs.
+* The high-level API can get more complex if we intend it to support multi-resultset in a type-safe manner.
+* The statement execution interface should also be enhanced to be consistent with whatever we support during parsing.
+* Some degree of type-erasing will be required in the implementation to avoid code bloat, which is probably already happening with statement execution.
+* We can support `std::tuple`s and Boost.Describe structs out of the box. We might want to also consider Boost.Pfr, or adding a second customisation point at the type level.
