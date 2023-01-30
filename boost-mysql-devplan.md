@@ -125,18 +125,25 @@ This is what it could look like:
 Please read the implementation notes at the bottom of this document for technical details.
 
 ## Further features
-* [Security] Allow the user to specify max internal sizes for buffers (prevent DoS).
-* [Security] Fuzzing & sanitizers.
-* [Protocol] Allow unknown default authentication plugins.
-* [Protocol] Statement fetch: allow using client-side cursors.
-* [Protocol] `LOAD DATA LOCAL INFILE`: high-speed loading for ETL processes.
-* [Protocol] Multi-factor authentication
-* [Protocol/Library] Pipeline mode.
-* [Protocol] Compression.
-* [Library] Optimizing build times: type-erasing and separate-build mode.
-* [Library] Connection pooling.
-* [Library] Creating connections from URL strings.
-* [Library] Docs improvements: comparisons, benchmarks...
+
+| Feature | Type | Description
+|----------|------|-----------
+| Max buffer sizes | Security | Allow the user to specify max internal sizes for buffers, which can help to prevent DoS attacks.
+| Fuzzing | Security | Run fuzz tests for deserialization routines to catch possible deserialization bugs. |
+| Sanitizers | Security | Run tests using sanitizers to catch further problems (we currently use Valgrind only).
+| Unknown default auth plugin | Protocol | Don't fail if the server's default authentication plugin is unknown. Can provide better compatibility with some servers.
+| Statement fetch | Protocol | Allow using client-side cursors with statements to fetch data progressively.
+| `LOAD DATA LOCAL INFILE` | Protocol | Support the `LOAD DATA LOCAL INFILE` statement, which can provide performance wins when loading whole tables. Useful in ETL processes.
+| Multi-factor authentication | Protocol | Support the new MFA authentication procedure used by MySQL 8.0.27+
+| LDAP and FIDO authentication | Protocol | Support LDAP and FIDO authentication plugins. These are not available in the open-source version of MySQL, though.
+| Pipeline mode | Protocol | Provide an interface to execute several requests at once, which saves server round-trips. Similar to Boost.Aedis. Not implemented by any other MySQL client library.
+| Compression | Protocol | Support the optional compression feature of MySQL protocol.
+| Separate build mode | Additional feature | Improves build times.
+| Type-erased connections | Additional feature | Support the "create a connection from a URL string" pattern, common in many applications. Can improve build times.
+| Connection pooling | Additional feature | Common in other libraries. May arguably be implemented by other higher-level components.
+| Docs improvements | Additional feature | Include comparisons and benchmarks.
+
+
 
 ## Implementation notes
 
