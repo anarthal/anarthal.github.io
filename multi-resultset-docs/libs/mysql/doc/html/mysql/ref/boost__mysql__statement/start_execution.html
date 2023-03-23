@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>statement::start_execution</title>
+<link rel="stylesheet" href="https://www.boost.org/doc/libs/1_80_0/doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="../../../index.html" title="Chapter 1. Boost.Mysql">
+<link rel="up" href="../boost__mysql__statement.html" title="statement">
+<link rel="prev" href="async_execute/overload2.html" title="statement::async_execute (2 of 2 overloads)">
+<link rel="next" href="start_execution/overload1.html" title="statement::start_execution (1 of 4 overloads)">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="https://www.boost.org/doc/libs/1_80_0/boost.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="async_execute/overload2.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__mysql__statement.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="start_execution/overload1.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="mysql.ref.boost__mysql__statement.start_execution"></a><a class="link" href="start_execution.html" title="statement::start_execution">statement::start_execution</a>
+</h5></div></div></div>
+<p>
+          <a class="indexterm" name="idp41475"></a>
+        </p>
+<p>
+          Starts a statement execution as a multi-function operation.
+        </p>
+<pre class="programlisting"><span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="../boost__mysql__FieldLikeTuple.html" title="FieldLikeTuple concept"><code class="literal"><span class="emphasis"><em>FieldLikeTuple</em></span></code></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">EnableIf</span> <span class="special">=</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">enable_if_field_like_tuple</span><span class="special">&lt;</span><span class="identifier">FieldLikeTuple</span><span class="special">&gt;&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="start_execution/overload1.html" title="statement::start_execution (1 of 4 overloads)">start_execution</a><span class="special">(</span>
+    <span class="keyword">const</span> <span class="identifier">FieldLikeTuple</span><span class="special">&amp;</span> <span class="identifier">params</span><span class="special">,</span>
+    <span class="identifier">execution_state</span><span class="special">&amp;</span> <span class="identifier">ex</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">err</span><span class="special">,</span>
+    <span class="identifier">server_diagnostics</span><span class="special">&amp;</span> <span class="identifier">diag</span><span class="special">);</span>
+  <span class="emphasis"><em>» <a class="link" href="start_execution/overload1.html" title="statement::start_execution (1 of 4 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="../boost__mysql__FieldLikeTuple.html" title="FieldLikeTuple concept"><code class="literal"><span class="emphasis"><em>FieldLikeTuple</em></span></code></a><span class="special">,</span>
+    <span class="keyword">class</span> <span class="identifier">EnableIf</span> <span class="special">=</span> <span class="identifier">detail</span><span class="special">::</span><span class="identifier">enable_if_field_like_tuple</span><span class="special">&lt;</span><span class="identifier">FieldLikeTuple</span><span class="special">&gt;&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="start_execution/overload2.html" title="statement::start_execution (2 of 4 overloads)">start_execution</a><span class="special">(</span>
+    <span class="keyword">const</span> <span class="identifier">FieldLikeTuple</span><span class="special">&amp;</span> <span class="identifier">params</span><span class="special">,</span>
+    <span class="identifier">execution_state</span><span class="special">&amp;</span> <span class="identifier">st</span><span class="special">);</span>
+  <span class="emphasis"><em>» <a class="link" href="start_execution/overload2.html" title="statement::start_execution (2 of 4 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="../boost__mysql__FieldViewFwdIterator.html" title="FieldViewFwdIterator concept"><code class="literal"><span class="emphasis"><em>FieldViewFwdIterator</em></span></code></a><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="start_execution/overload3.html" title="statement::start_execution (3 of 4 overloads)">start_execution</a><span class="special">(</span>
+    <span class="identifier">FieldViewFwdIterator</span> <span class="identifier">params_first</span><span class="special">,</span>
+    <span class="identifier">FieldViewFwdIterator</span> <span class="identifier">params_last</span><span class="special">,</span>
+    <span class="identifier">execution_state</span><span class="special">&amp;</span> <span class="identifier">st</span><span class="special">,</span>
+    <span class="identifier">error_code</span><span class="special">&amp;</span> <span class="identifier">ec</span><span class="special">,</span>
+    <span class="identifier">server_diagnostics</span><span class="special">&amp;</span> <span class="identifier">diag</span><span class="special">);</span>
+  <span class="emphasis"><em>» <a class="link" href="start_execution/overload3.html" title="statement::start_execution (3 of 4 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+
+<span class="keyword">template</span><span class="special">&lt;</span>
+    <span class="keyword">class</span> <a class="link" href="../boost__mysql__FieldViewFwdIterator.html" title="FieldViewFwdIterator concept"><code class="literal"><span class="emphasis"><em>FieldViewFwdIterator</em></span></code></a><span class="special">&gt;</span>
+<span class="keyword">void</span>
+<a class="link" href="start_execution/overload4.html" title="statement::start_execution (4 of 4 overloads)">start_execution</a><span class="special">(</span>
+    <span class="identifier">FieldViewFwdIterator</span> <span class="identifier">params_first</span><span class="special">,</span>
+    <span class="identifier">FieldViewFwdIterator</span> <span class="identifier">params_last</span><span class="special">,</span>
+    <span class="identifier">execution_state</span><span class="special">&amp;</span> <span class="identifier">st</span><span class="special">);</span>
+  <span class="emphasis"><em>» <a class="link" href="start_execution/overload4.html" title="statement::start_execution (4 of 4 overloads)"><code class="computeroutput"><span class="identifier">more</span><span class="special">...</span></code></a></em></span>
+</pre>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="async_execute/overload2.html"><img src="../../../images/prev.png" alt="Prev"></a><a accesskey="u" href="../boost__mysql__statement.html"><img src="../../../images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="start_execution/overload1.html"><img src="../../../images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
