@@ -1,0 +1,164 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>statement</title>
+<link rel="stylesheet" href="../../../../../../../doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="../../../index.html" title="Chapter 1. Boost.MySQL">
+<link rel="up" href="../../../pt01.html" title="Part Two: Reference. ">
+<link rel="prev" href="boost__mysql__rows_view/operator__not__eq_.html" title="rows_view::operator!=">
+<link rel="next" href="boost__mysql__statement/statement.html" title="statement::statement">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__mysql__rows_view/operator__not__eq_.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../pt01.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="boost__mysql__statement/statement.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="mysql.connection_pool.ref.boost__mysql__statement"></a><a class="link" href="boost__mysql__statement.html" title="statement">statement</a>
+</h5></div></div></div>
+<p>
+          Represents a server-side prepared statement.
+        </p>
+<h6>
+<a name="mysql.connection_pool.ref.boost__mysql__statement.h0"></a>
+          <span class="phrase"><a name="mysql.connection_pool.ref.boost__mysql__statement.synopsis"></a></span><a class="link" href="boost__mysql__statement.html#mysql.connection_pool.ref.boost__mysql__statement.synopsis">Synopsis</a>
+        </h6>
+<p>
+          Defined in header <code class="literal">&lt;<a class="ulink" href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/statement.hpp" target="_top">boost/mysql/statement.hpp</a>&gt;</code>
+        </p>
+<pre class="programlisting"><span class="keyword">class</span> <span class="identifier">statement</span>
+</pre>
+<h6>
+<a name="mysql.connection_pool.ref.boost__mysql__statement.h1"></a>
+          <span class="phrase"><a name="mysql.connection_pool.ref.boost__mysql__statement.member_functions"></a></span><a class="link" href="boost__mysql__statement.html#mysql.connection_pool.ref.boost__mysql__statement.member_functions">Member
+          Functions</a>
+        </h6>
+<div class="informaltable"><table class="informaltable" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                  <p>
+                    Name
+                  </p>
+                </th>
+<th>
+                  <p>
+                    Description
+                  </p>
+                </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">bind</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Binds parameters to a statement. <br><span class="silver">—</span><br>Binds
+                    parameters to a statement (iterator range overload).
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">id</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns a server-side identifier for the statement (unique in
+                    a per-connection basis).
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">num_params</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the number of parameters that should be provided when
+                    executing the statement.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">statement</a> <span class="silver">[constructor]</span></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Default constructor.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">valid</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the object represents an actual server statement.
+                  </p>
+                </td>
+</tr>
+</tbody>
+</table></div>
+<h6>
+<a name="mysql.connection_pool.ref.boost__mysql__statement.h2"></a>
+          <span class="phrase"><a name="mysql.connection_pool.ref.boost__mysql__statement.description"></a></span><a class="link" href="boost__mysql__statement.html#mysql.connection_pool.ref.boost__mysql__statement.description">Description</a>
+        </h6>
+<p>
+          This is a lightweight class, holding a handle to a server-side prepared
+          statement.
+        </p>
+<p>
+          Note that statement's destructor doesn't deallocate the statement from
+          the server, as this implies a network transfer that may fail.
+        </p>
+<h6>
+<a name="mysql.connection_pool.ref.boost__mysql__statement.h3"></a>
+          <span class="phrase"><a name="mysql.connection_pool.ref.boost__mysql__statement.thread_safety"></a></span><a class="link" href="boost__mysql__statement.html#mysql.connection_pool.ref.boost__mysql__statement.thread_safety">Thread
+          safety</a>
+        </h6>
+<p>
+          Distinct objects: safe.
+        </p>
+<p>
+          Shared objects: unsafe.
+        </p>
+<p>
+          Convenience header <code class="literal">&lt;<a class="ulink" href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql.hpp" target="_top">boost/mysql.hpp</a>&gt;</code>
+        </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__mysql__rows_view/operator__not__eq_.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../pt01.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="boost__mysql__statement/statement.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
