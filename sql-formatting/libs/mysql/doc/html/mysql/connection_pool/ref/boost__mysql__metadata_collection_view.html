@@ -1,0 +1,366 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>metadata_collection_view</title>
+<link rel="stylesheet" href="../../../../../../../doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="../../../index.html" title="Chapter 1. Boost.MySQL">
+<link rel="up" href="../../../pt01.html" title="Part Two: Reference. ">
+<link rel="prev" href="boost__mysql__string_view.html" title="string_view">
+<link rel="next" href="boost__mysql__error_code.html" title="error_code">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__mysql__string_view.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../pt01.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="boost__mysql__error_code.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="mysql.connection_pool.ref.boost__mysql__metadata_collection_view"></a><a class="link" href="boost__mysql__metadata_collection_view.html" title="metadata_collection_view">metadata_collection_view</a>
+</h5></div></div></div>
+<p>
+          <a class="indexterm" name="idp82611"></a>
+        </p>
+<p>
+          A read-only view of a collection of <a class="link" href="../../../"><code class="computeroutput"><span class="identifier">metadata</span></code></a> objects.
+        </p>
+<h6>
+<a name="mysql.connection_pool.ref.boost__mysql__metadata_collection_view.h0"></a>
+          <span class="phrase"><a name="mysql.connection_pool.ref.boost__mysql__metadata_collection_view.synopsis"></a></span><a class="link" href="boost__mysql__metadata_collection_view.html#mysql.connection_pool.ref.boost__mysql__metadata_collection_view.synopsis">Synopsis</a>
+        </h6>
+<p>
+          Defined in header <code class="literal">&lt;<a class="ulink" href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/metadata_collection_view.hpp" target="_top">boost/mysql/metadata_collection_view.hpp</a>&gt;</code>
+        </p>
+<pre class="programlisting"><span class="keyword">using</span> <span class="identifier">metadata_collection_view</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">span</span><span class="special">&lt;</span> <span class="keyword">const</span> <span class="identifier">metadata</span> <span class="special">&gt;;</span>
+</pre>
+<h6>
+<a name="mysql.connection_pool.ref.boost__mysql__metadata_collection_view.h1"></a>
+          <span class="phrase"><a name="mysql.connection_pool.ref.boost__mysql__metadata_collection_view.member_functions"></a></span><a class="link" href="boost__mysql__metadata_collection_view.html#mysql.connection_pool.ref.boost__mysql__metadata_collection_view.member_functions">Member
+          Functions</a>
+        </h6>
+<div class="informaltable"><table class="informaltable" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+                  <p>
+                    Name
+                  </p>
+                </th>
+<th>
+                  <p>
+                    Description
+                  </p>
+                </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">column_collation</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the ID of the collation that fields belonging to this
+                    column use.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">column_length</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the maximum length of the column.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">column_name</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the actual name of the column.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">database</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the name of the database (schema) the column belongs
+                    to.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">decimals</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the number of decimals of the column.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">has_no_default_value</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column does not have a default value.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_auto_increment</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column is defined as <code class="computeroutput"><span class="identifier">AUTO_INCREMENT</span></code>.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_multiple_key</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column is part of a <code class="computeroutput"><span class="identifier">KEY</span></code>
+                    (but not a <code class="computeroutput"><span class="identifier">UNIQUE</span> <span class="identifier">KEY</span></code> or <code class="computeroutput"><span class="identifier">PRIMARY</span>
+                    <span class="identifier">KEY</span></code>).
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_not_null</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column is not allowed to be NULL, <code class="computeroutput"><span class="keyword">false</span></code>
+                    if it is nullable.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_primary_key</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column is part of a <code class="computeroutput"><span class="identifier">PRIMARY</span>
+                    <span class="identifier">KEY</span></code>.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_set_to_now_on_update</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column is defined as <code class="computeroutput"><span class="identifier">ON</span>
+                    <span class="identifier">UPDATE</span> <span class="identifier">CURRENT_TIMESTAMP</span></code>.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_unique_key</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column is part of a <code class="computeroutput"><span class="identifier">UNIQUE</span>
+                    <span class="identifier">KEY</span></code> (but not a <code class="computeroutput"><span class="identifier">PRIMARY</span> <span class="identifier">KEY</span></code>).
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_unsigned</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column has no sign (is <code class="computeroutput"><span class="identifier">UNSIGNED</span></code>).
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">is_zerofill</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns <code class="computeroutput"><span class="keyword">true</span></code> if
+                    the column is defined as <code class="computeroutput"><span class="identifier">ZEROFILL</span></code>
+                    (padded to its maximum length by zeros).
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">metadata</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Default constructor. <br><span class="silver">—</span><br>Move constructor.
+                    <br><span class="silver">—</span><br>Copy constructor.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">operator=</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Move assignment. <br><span class="silver">—</span><br>Copy assignment.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">original_column_name</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the original (physical) name of the column.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">original_table</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the name of the physical table the column belongs to.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">table</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the name of the virtual table the column belongs to.
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">type</a></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Returns the type of the column (see <a class="link" href="../../../"><code class="computeroutput"><span class="identifier">column_type</span></code></a> for more
+                    info).
+                  </p>
+                </td>
+</tr>
+<tr>
+<td>
+                  <p>
+                    <span class="bold"><strong><a class="link" href="../../../">~metadata</a> <span class="silver">[destructor]</span></strong></span>
+                  </p>
+                </td>
+<td>
+                  <p>
+                    Destructor.
+                  </p>
+                </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+          This is a regular, value type. Instances of this class are not created
+          by the user directly, but by the library.
+        </p>
+<h6>
+<a name="mysql.connection_pool.ref.boost__mysql__metadata_collection_view.h2"></a>
+          <span class="phrase"><a name="mysql.connection_pool.ref.boost__mysql__metadata_collection_view.object_lifetimes"></a></span><a class="link" href="boost__mysql__metadata_collection_view.html#mysql.connection_pool.ref.boost__mysql__metadata_collection_view.object_lifetimes">Object
+          lifetimes</a>
+        </h6>
+<p>
+          The object doesn't own the storage for the <a class="link" href="../../../"><code class="computeroutput"><span class="identifier">metadata</span></code></a> objects. These are typically
+          owned by a <a class="link" href="../../../"><code class="computeroutput"><span class="identifier">results</span></code></a> or <a class="link" href="../../../"><code class="computeroutput"><span class="identifier">execution_state</span></code></a> object. This view
+          is valid as long as the memory allocated for the <a class="link" href="../../../"><code class="computeroutput"><span class="identifier">metadata</span></code></a> objects remain valid.
+        </p>
+<p>
+          Convenience header <code class="literal">&lt;<a class="ulink" href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql.hpp" target="_top">boost/mysql.hpp</a>&gt;</code>
+        </p>
+</div>
+<div class="copyright-footer"></div>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="boost__mysql__string_view.html"><img src="../../../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../../../pt01.html"><img src="../../../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../../../index.html"><img src="../../../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="boost__mysql__error_code.html"><img src="../../../../../../../doc/src/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>

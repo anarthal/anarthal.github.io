@@ -1,0 +1,540 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The statically-typed interface</title>
+<link rel="stylesheet" href="../../../../../doc/src/boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="../index.html" title="Chapter 1. Boost.MySQL">
+<link rel="up" href="../index.html" title="Chapter 1. Boost.MySQL">
+<link rel="prev" href="multi_function.html" title="Multi-function operations">
+<link rel="next" href="fields.html" title="Fields">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="../../../../../boost.png"></td>
+<td align="center"><a href="../../../../../index.html">Home</a></td>
+<td align="center"><a href="../../../../../libs/libraries.htm">Libraries</a></td>
+<td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
+<td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
+<td align="center"><a href="../../../../../more/index.htm">More</a></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="multi_function.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="fields.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="mysql.static"></a><a class="link" href="static.html" title="The statically-typed interface">The statically-typed interface</a>
+</h2></div></div></div>
+<p>
+      This section dives deeper on the static interface. If you prefer learning by
+      example, checkout these examples on <a class="link" href="examples/prepared_statements_cpp14.html" title="Using prepared statements with the static interface (C++14)">prepared
+      statements</a> and <a class="link" href="examples/stored_procedures_cpp14.html" title="Using stored procedures with the static interface (C++14)">stored
+      procedures</a> that use the static interface.
+    </p>
+<h4>
+<a name="mysql.static.h0"></a>
+      <span class="phrase"><a name="mysql.static.row_types"></a></span><a class="link" href="static.html#mysql.static.row_types">Row
+      types</a>
+    </h4>
+<p>
+      As we discussed in the overview section, the static interface requires us to
+      define the shape of our rows at compile-time. The library will use this definition
+      to validate data returned from the server, and will place this data into the
+      defined data structures.
+    </p>
+<p>
+      You may use Boost.Describe structs or <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span></code>s
+      for this purpose. In any case, using the static interface requires C++14.
+    </p>
+<p>
+      <a class="ulink" href="../../../../libs/describe/index.html" target="_top">Boost.Describe structs</a>
+      are the preferred way to define row types. These are regular structs annotated
+      with <code class="computeroutput"><span class="identifier">BOOST_DESCRIBE_STRUCT</span></code>:
+    </p>
+<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">post</span>
+<span class="special">{</span>
+    <span class="keyword">int</span> <span class="identifier">id</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">title</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">body</span><span class="special">;</span>
+<span class="special">};</span>
+
+<span class="comment">// Add reflection capabilities to post</span>
+<span class="identifier">BOOST_DESCRIBE_STRUCT</span><span class="special">(</span><span class="identifier">post</span><span class="special">,</span> <span class="special">(),</span> <span class="special">(</span><span class="identifier">id</span><span class="special">,</span> <span class="identifier">title</span><span class="special">,</span> <span class="identifier">body</span><span class="special">));</span>
+
+<span class="identifier">conn</span><span class="special">.</span><span class="identifier">execute</span><span class="special">(</span><span class="string">"SELECT id, title, body FROM posts"</span><span class="special">,</span> <span class="identifier">result</span><span class="special">);</span>
+
+<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">post</span><span class="special">&amp;</span> <span class="identifier">p</span><span class="special">:</span> <span class="identifier">result</span><span class="special">.</span><span class="identifier">rows</span><span class="special">())</span>
+<span class="special">{</span>
+    <span class="comment">// Process post as required</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Title: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">title</span> <span class="special">&lt;&lt;</span> <span class="string">"\n"</span> <span class="special">&lt;&lt;</span> <span class="identifier">p</span><span class="special">.</span><span class="identifier">body</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Columns in the query are matched to fields in the struct by name. If a struct
+      field cannot be matched to any query column, an error is issued. Extra columns
+      in the query are ignored.
+    </p>
+<p>
+      If your query contains columns with names that don't qualify as C++ identifiers,
+      you can use SQL aliases. For example:
+    </p>
+<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">statistics</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">company</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">int64_t</span> <span class="identifier">average</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">int64_t</span> <span class="identifier">max_value</span><span class="special">;</span>
+<span class="special">};</span>
+<span class="identifier">BOOST_DESCRIBE_STRUCT</span><span class="special">(</span><span class="identifier">statistics</span><span class="special">,</span> <span class="special">(),</span> <span class="special">(</span><span class="identifier">average</span><span class="special">,</span> <span class="identifier">max_value</span><span class="special">));</span>
+
+<span class="identifier">static_results</span><span class="special">&lt;</span><span class="identifier">statistics</span><span class="special">&gt;</span> <span class="identifier">result</span><span class="special">;</span>
+<span class="identifier">conn</span><span class="special">.</span><span class="identifier">execute</span><span class="special">(</span><span class="identifier">R</span><span class="string">"%(
+    SELECT
+        AVG(salary) AS average,
+        MAX(salary) AS max_value,
+        company_id AS company
+    FROM employees
+    GROUP BY company_id
+)%"</span><span class="special">,</span> <span class="identifier">result</span><span class="special">);</span>
+</pre>
+<p>
+      You can also use <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span></code>s as row types. This can be handy for
+      simple queries:
+    </p>
+<pre class="programlisting"><span class="identifier">static_results</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">int64_t</span><span class="special">&gt;&gt;</span> <span class="identifier">result</span><span class="special">;</span>
+<span class="identifier">conn</span><span class="special">.</span><span class="identifier">execute</span><span class="special">(</span><span class="string">"SELECT COUNT(*) FROM posts"</span><span class="special">,</span> <span class="identifier">result</span><span class="special">);</span>
+<span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Number of posts: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">get</span><span class="special">&lt;</span><span class="number">0</span><span class="special">&gt;(</span><span class="identifier">result</span><span class="special">.</span><span class="identifier">rows</span><span class="special">()[</span><span class="number">0</span><span class="special">])</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+</pre>
+<p>
+      Fields in tuples are matched to query columns by order. The query must return
+      as many columns as fields the tuple has, at least. Any extra trailing columns
+      in the query are ignored.
+    </p>
+<h4>
+<a name="mysql.static.h1"></a>
+      <span class="phrase"><a name="mysql.static.metadata_checking"></a></span><a class="link" href="static.html#mysql.static.metadata_checking">Metadata
+      checking</a>
+    </h4>
+<p>
+      The static interface will try to validate as soon as possible that the provided
+      row type is compatible with the schema returned by the server. This process
+      is known as <span class="bold"><strong>metadata checking</strong></span>, and is performed
+      before reading any data.
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+          <span class="bold"><strong>Type compatibility</strong></span>: the C++ type must
+          be able to represent any value that the MySQL type can represent. For example,
+          <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">int32_t</span></code> is compatible with <code class="computeroutput"><span class="identifier">TINYINT</span></code> (1 byte integer), but not with
+          <code class="computeroutput"><span class="identifier">BIGINT</span></code> (8 byte integer).
+          For a full list of allowable field types, <a class="link" href="static.html#mysql.static.field_types">refer
+          to this table</a>.
+        </li>
+<li class="listitem">
+          <span class="bold"><strong>Nullability</strong></span>: if MySQL reports that a column
+          can be <code class="computeroutput"><span class="identifier">NULL</span></code>, your type
+          must account for it. You can use <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">optional</span></code>
+          or <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span></code> for columns that may be <code class="computeroutput"><span class="identifier">NULL</span></code>.
+        </li>
+</ul></div>
+<p>
+      For example:
+    </p>
+<pre class="programlisting"><span class="keyword">struct</span> <span class="identifier">post</span>
+<span class="special">{</span>
+    <span class="keyword">int</span> <span class="identifier">id</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">title</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span><span class="special">&gt;</span> <span class="identifier">body</span><span class="special">;</span>
+<span class="special">};</span>
+<span class="identifier">BOOST_DESCRIBE_STRUCT</span><span class="special">(</span><span class="identifier">post</span><span class="special">,</span> <span class="special">(),</span> <span class="special">(</span><span class="identifier">id</span><span class="special">,</span> <span class="identifier">title</span><span class="special">,</span> <span class="identifier">body</span><span class="special">));</span>
+
+<span class="comment">// When retrieving rows, post::body::has_value() == false</span>
+<span class="comment">// if body is NULL in the database</span>
+</pre>
+<p>
+      You can also use <a class="link" href="ref/boost__mysql__non_null.html" title="non_null"><code class="literal">non_null</code></a>
+      to tell the static interface to disable the nullability check for a certain
+      field. This can be handy when using stored procedures, since you may have more
+      knowledge about nullability than MySQL. For a usage example, see <a class="link" href="examples/stored_procedures_cpp14.html" title="Using stored procedures with the static interface (C++14)">mysql.examples.stored_procedures_cpp14</a>.
+    </p>
+<h4>
+<a name="mysql.static.h2"></a>
+      <span class="phrase"><a name="mysql.static.multi_resultset"></a></span><a class="link" href="static.html#mysql.static.multi_resultset">Multi-resultset</a>
+    </h4>
+<p>
+      You can use the static interface when working with stored procedures or batched
+      queries. For example, given this procedure definition:
+    </p>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">proc</span> <span class="special">=</span> <span class="identifier">R</span><span class="string">"%(
+    CREATE PROCEDURE get_employees(pin_company_id IN CHAR(10))
+    BEGIN
+        START TRANSACTION READ ONLY;
+        SELECT name, tax_id FROM company WHERE id = pin_company_id;
+        SELECT first_name, last_name FROM employee WHERE company_id = pin_employee_id;
+    END
+)%"</span><span class="special">;</span>
+</pre>
+<p>
+      We will get 3 resultsets here: one for each <code class="computeroutput"><span class="identifier">SELECT</span></code>
+      statement, and a final empty resultset containing info about the <code class="computeroutput"><span class="identifier">CALL</span></code> statement. We can call this procedure
+      like this:
+    </p>
+<pre class="programlisting"><span class="comment">// Describes the first resultset</span>
+<span class="keyword">struct</span> <span class="identifier">company</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">name</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">tax_id</span><span class="special">;</span>
+<span class="special">};</span>
+<span class="identifier">BOOST_DESCRIBE_STRUCT</span><span class="special">(</span><span class="identifier">company</span><span class="special">,</span> <span class="special">(),</span> <span class="special">(</span><span class="identifier">name</span><span class="special">,</span> <span class="identifier">tax_id</span><span class="special">));</span>
+
+<span class="comment">// Describes the second resultset</span>
+<span class="keyword">struct</span> <span class="identifier">employee</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">first_name</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">last_name</span><span class="special">;</span>
+<span class="special">};</span>
+<span class="identifier">BOOST_DESCRIBE_STRUCT</span><span class="special">(</span><span class="identifier">employee</span><span class="special">,</span> <span class="special">(),</span> <span class="special">(</span><span class="identifier">first_name</span><span class="special">,</span> <span class="identifier">last_name</span><span class="special">));</span>
+
+<span class="comment">// The last resultset will always be empty.</span>
+<span class="comment">// We can use an empty tuple to represent it.</span>
+<span class="keyword">using</span> <span class="identifier">empty</span> <span class="special">=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">tuple</span><span class="special">&lt;&gt;;</span>
+
+<span class="comment">// We must list all the resultset types the operation returns as template arguments</span>
+<span class="identifier">static_results</span><span class="special">&lt;</span><span class="identifier">company</span><span class="special">,</span> <span class="identifier">employee</span><span class="special">,</span> <span class="identifier">empty</span><span class="special">&gt;</span> <span class="identifier">result</span><span class="special">;</span>
+<span class="identifier">conn</span><span class="special">.</span><span class="identifier">execute</span><span class="special">(</span><span class="string">"CALL get_employees('HGS')"</span><span class="special">,</span> <span class="identifier">result</span><span class="special">);</span>
+
+<span class="comment">// We can use rows&lt;0&gt;() to access the rows for the first resultset</span>
+<span class="keyword">if</span> <span class="special">(</span><span class="identifier">result</span><span class="special">.</span><span class="identifier">rows</span><span class="special">&lt;</span><span class="number">0</span><span class="special">&gt;().</span><span class="identifier">empty</span><span class="special">())</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Company not found"</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+<span class="keyword">else</span>
+<span class="special">{</span>
+    <span class="keyword">const</span> <span class="identifier">company</span><span class="special">&amp;</span> <span class="identifier">comp</span> <span class="special">=</span> <span class="identifier">result</span><span class="special">.</span><span class="identifier">rows</span><span class="special">&lt;</span><span class="number">0</span><span class="special">&gt;()[</span><span class="number">0</span><span class="special">];</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Company name: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">comp</span><span class="special">.</span><span class="identifier">name</span> <span class="special">&lt;&lt;</span> <span class="string">", tax_id: "</span> <span class="special">&lt;&lt;</span> <span class="identifier">comp</span><span class="special">.</span><span class="identifier">tax_id</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+
+<span class="comment">// rows&lt;1&gt;() will return the rows for the second resultset</span>
+<span class="keyword">for</span> <span class="special">(</span><span class="keyword">const</span> <span class="identifier">employee</span><span class="special">&amp;</span> <span class="identifier">emp</span> <span class="special">:</span> <span class="identifier">result</span><span class="special">.</span><span class="identifier">rows</span><span class="special">&lt;</span><span class="number">1</span><span class="special">&gt;())</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Employee "</span> <span class="special">&lt;&lt;</span> <span class="identifier">emp</span><span class="special">.</span><span class="identifier">first_name</span> <span class="special">&lt;&lt;</span> <span class="string">" "</span> <span class="special">&lt;&lt;</span> <span class="identifier">emp</span><span class="special">.</span><span class="identifier">last_name</span> <span class="special">&lt;&lt;</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">endl</span><span class="special">;</span>
+<span class="special">}</span>
+</pre>
+<p>
+      Use <a class="link" href="ref/boost__mysql__static_results/rows.html" title="static_results::rows"><code class="literal">static_results::rows</code></a>
+      with an explicit index to access each resultset's data. You can also use explicit
+      indices with the other accessor functions, like <a class="link" href="ref/boost__mysql__static_results/meta.html" title="static_results::meta"><code class="literal">static_results::meta</code></a>
+      and <a class="link" href="ref/boost__mysql__static_results/last_insert_id.html" title="static_results::last_insert_id"><code class="literal">static_results::last_insert_id</code></a>.
+    </p>
+<h4>
+<a name="mysql.static.h3"></a>
+      <span class="phrase"><a name="mysql.static.multi_function_operations"></a></span><a class="link" href="static.html#mysql.static.multi_function_operations">Multi-function
+      operations</a>
+    </h4>
+<p>
+      The <a class="link" href="ref/boost__mysql__static_execution_state.html" title="static_execution_state"><code class="literal">static_execution_state</code></a>
+      class is the static equivalent of <code class="computeroutput"><span class="identifier">execution_state</span></code>.
+      Like <code class="computeroutput"><span class="identifier">static_results</span></code>, we must
+      pass <code class="computeroutput"><span class="identifier">static_execution_state</span></code>
+      the row types returned by our query at compile time:
+    </p>
+<pre class="programlisting"><span class="keyword">const</span> <span class="keyword">char</span><span class="special">*</span> <span class="identifier">query</span> <span class="special">=</span> <span class="string">"SELECT first_name, last_name FROM employee WHERE company_id = pin_employee_id"</span><span class="special">;</span>
+
+<span class="keyword">struct</span> <span class="identifier">employee</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">first_name</span><span class="special">;</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="identifier">last_name</span><span class="special">;</span>
+<span class="special">};</span>
+<span class="identifier">BOOST_DESCRIBE_STRUCT</span><span class="special">(</span><span class="identifier">employee</span><span class="special">,</span> <span class="special">(),</span> <span class="special">(</span><span class="identifier">first_name</span><span class="special">,</span> <span class="identifier">last_name</span><span class="special">));</span>
+
+<span class="identifier">static_execution_state</span><span class="special">&lt;</span><span class="identifier">employee</span><span class="special">&gt;</span> <span class="identifier">st</span><span class="special">;</span>
+</pre>
+<p>
+      Like with <code class="computeroutput"><span class="identifier">execution_state</span></code>,
+      we use <a class="link" href="ref/boost__mysql__connection/start_execution.html" title="connection::start_execution"><code class="literal">connection::start_execution</code></a>
+      to start the operation and <a class="link" href="ref/boost__mysql__connection/read_some_rows.html" title="connection::read_some_rows"><code class="literal">connection::read_some_rows</code></a>
+      to read rows. However, in this case we must pass in a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">span</span></code> pointing
+      to storage where our rows will live:
+    </p>
+<pre class="programlisting"><span class="identifier">std</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="identifier">employee</span><span class="special">,</span> <span class="number">20</span><span class="special">&gt;</span> <span class="identifier">employees</span><span class="special">;</span>
+<span class="keyword">while</span> <span class="special">(</span><span class="identifier">st</span><span class="special">.</span><span class="identifier">should_read_rows</span><span class="special">())</span>
+<span class="special">{</span>
+    <span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">read_rows</span> <span class="special">=</span> <span class="identifier">conn</span><span class="special">.</span><span class="identifier">read_some_rows</span><span class="special">(</span><span class="identifier">st</span><span class="special">,</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">span</span><span class="special">&lt;</span><span class="identifier">employee</span><span class="special">&gt;(</span><span class="identifier">ord</span><span class="special">));</span>
+    <span class="keyword">for</span> <span class="special">(</span><span class="identifier">std</span><span class="special">::</span><span class="identifier">size_t</span> <span class="identifier">i</span> <span class="special">=</span> <span class="number">0</span><span class="special">;</span> <span class="identifier">i</span> <span class="special">&lt;</span> <span class="identifier">read_rows</span><span class="special">;</span> <span class="special">++</span><span class="identifier">i</span><span class="special">)</span>
+    <span class="special">{</span>
+        <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="string">"Employee "</span> <span class="special">&lt;&lt;</span> <span class="identifier">employees</span><span class="special">[</span><span class="identifier">i</span><span class="special">].</span><span class="identifier">first_name</span> <span class="special">&lt;&lt;</span> <span class="string">" "</span> <span class="special">&lt;&lt;</span> <span class="identifier">employees</span><span class="special">[</span><span class="identifier">i</span><span class="special">].</span><span class="identifier">last_name</span> <span class="special">&lt;&lt;</span> <span class="char">'\n'</span><span class="special">;</span>
+    <span class="special">}</span>
+<span class="special">}</span>
+</pre>
+<p>
+      <code class="computeroutput"><span class="identifier">static_execution_state</span></code> can
+      also be used with operations that return multiple resultsets.
+    </p>
+<p>
+      TODO: point to examples
+    </p>
+<h4>
+<a name="mysql.static.h4"></a>
+      <span class="phrase"><a name="mysql.static.field_type_reference"></a></span><a class="link" href="static.html#mysql.static.field_type_reference">Field
+      type reference</a>
+    </h4>
+<div class="informaltable">
+<a name="mysql.static.field_types"></a><table class="informaltable" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>
+              <p>
+                C++ type
+              </p>
+            </th>
+<th>
+              <p>
+                Compatible with...
+              </p>
+            </th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">int8_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint8_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">int16_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a> <br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/year.html" target="_top"><code class="computeroutput"><span class="identifier">YEAR</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint16_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code> <br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/year.html" target="_top"><code class="computeroutput"><span class="identifier">YEAR</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">int32_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">MEDIUMINT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">MEDIUMINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">INT</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/year.html" target="_top"><code class="computeroutput"><span class="identifier">YEAR</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint32_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">MEDIUMINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">INT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/year.html" target="_top"><code class="computeroutput"><span class="identifier">YEAR</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">int64_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">MEDIUMINT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">MEDIUMINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">INT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">INT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">BIGINT</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/year.html" target="_top"><code class="computeroutput"><span class="identifier">YEAR</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">uint64_t</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">TINYINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">SMALLINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">MEDIUMINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">INT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_top"><code class="computeroutput"><span class="identifier">BIGINT</span></code></a> <code class="computeroutput"><span class="identifier">UNSIGNED</span></code><br>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/year.html" target="_top"><code class="computeroutput"><span class="identifier">YEAR</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/bit-type.html" target="_top"><code class="computeroutput"><span class="identifier">BIT</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="keyword">float</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/floating-point-types.html" target="_top"><code class="computeroutput"><span class="identifier">FLOAT</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="keyword">double</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/floating-point-types.html" target="_top"><code class="computeroutput"><span class="identifier">FLOAT</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/floating-point-types.html" target="_top"><code class="computeroutput"><span class="identifier">DOUBLE</span></code></a><br>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">date</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/datetime.html" target="_top"><code class="computeroutput"><span class="identifier">DATE</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">datetime</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/datetime.html" target="_top"><code class="computeroutput"><span class="identifier">DATETIME</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/datetime.html" target="_top"><code class="computeroutput"><span class="identifier">TIMESTAMP</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">time</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/time.html" target="_top"><code class="computeroutput"><span class="identifier">TIME</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_string</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">,</span> <span class="identifier">Traits</span><span class="special">,</span>
+                <span class="identifier">Allocator</span><span class="special">&gt;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/char.html" target="_top"><code class="computeroutput"><span class="identifier">CHAR</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/char.html" target="_top"><code class="computeroutput"><span class="identifier">VARCHAR</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/blob.html" target="_top"><code class="computeroutput"><span class="identifier">TEXT</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/enum.html" target="_top"><code class="computeroutput"><span class="identifier">ENUM</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/set.html" target="_top"><code class="computeroutput"><span class="identifier">SET</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/json.html" target="_top"><code class="computeroutput"><span class="identifier">JSON</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html" target="_top"><code class="computeroutput"><span class="identifier">DECIMAL</span></code></a>/<a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html" target="_top"><code class="computeroutput"><span class="identifier">NUMERIC</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">basic_vector</span><span class="special">&lt;</span><span class="keyword">unsigned</span> <span class="keyword">char</span><span class="special">,</span> <span class="identifier">Allocator</span><span class="special">&gt;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html" target="_top"><code class="computeroutput"><span class="identifier">BINARY</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html" target="_top"><code class="computeroutput"><span class="identifier">VARBINARY</span></code></a>, <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/blob.html" target="_top"><code class="computeroutput"><span class="identifier">BLOB</span></code></a><br> <a class="ulink" href="https://dev.mysql.com/doc/refman/8.0/en/spatial-type-overview.html" target="_top"><code class="computeroutput"><span class="identifier">GEOMETRY</span></code></a>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                Any type compatible with <code class="computeroutput"><span class="identifier">T</span></code>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span></code>
+              </p>
+            </td>
+<td>
+              <p>
+                Any type compatible with <code class="computeroutput"><span class="identifier">T</span></code>
+              </p>
+            </td>
+</tr>
+<tr>
+<td>
+              <p>
+                <a class="link" href="ref/boost__mysql__non_null.html" title="non_null"><code class="literal"><code class="computeroutput"><span class="identifier">non_null</span><span class="special">&lt;</span><span class="identifier">T</span><span class="special">&gt;</span></code></code></a>
+              </p>
+            </td>
+<td>
+              <p>
+                Any type compatible with <code class="computeroutput"><span class="identifier">T</span></code>
+              </p>
+            </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="multi_function.html"><img src="../../../../../doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="../../../../../doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../../../../../doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="fields.html"><img src="../../../../../doc/src/images/next.png" alt="Next"></a>
+</div>
+</body>
+</html>
