@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SSL/TLS</title>
-<link rel="stylesheet" href="https://boost.org/doc/libs/1_84_0/doc/src/boostbook.css" type="text/css">
+<link rel="stylesheet" href="https://www.boost.org/doc/libs/1_84_0/doc/src/boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="../index.html" title="Chapter 1. Boost.MySQL">
 <link rel="up" href="../index.html" title="Chapter 1. Boost.MySQL">
@@ -12,16 +12,16 @@
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
-<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="https://boost.org/doc/libs/1_84_0/boost.png"></td>
-<td align="center"><a href="https://boost.org/doc/libs/1_84_0/index.html">Home</a></td>
-<td align="center"><a href="https://boost.org/doc/libs/1_84_0/libs/libraries.htm">Libraries</a></td>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="https://www.boost.org/doc/libs/1_84_0/boost.png"></td>
+<td align="center"><a href="https://www.boost.org/doc/libs/1_84_0/index.html">Home</a></td>
+<td align="center"><a href="https://www.boost.org/doc/libs/1_84_0/libs/libraries.htm">Libraries</a></td>
 <td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
 <td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
-<td align="center"><a href="https://boost.org/doc/libs/1_84_0/more/index.htm">More</a></td>
+<td align="center"><a href="https://www.boost.org/doc/libs/1_84_0/more/index.htm">More</a></td>
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="async.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="other_streams.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="async.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="other_streams.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
@@ -40,8 +40,8 @@
 <p>
       To use SSL/TLS, you must use a <a class="link" href="ref/boost__mysql__connection.html" title="connection"><code class="literal">connection</code></a>
       with a <a class="link" href="ref/boost__mysql__Stream.html" title="Stream concept"><code class="literal">Stream</code></a>
-      that supports SSL. A SSL-enabled stream must inherit from <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__stream_base.html" target="_top"><code class="literal">boost::asio::ssl::stream_base</code></a>.
-      This includes both <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__stream.html" target="_top"><code class="literal">boost::asio::ssl::stream</code></a>
+      that supports SSL. A SSL-enabled stream must inherit from <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__stream_base.html" target="_top"><code class="literal">boost::asio::ssl::stream_base</code></a>.
+      This includes both <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__stream.html" target="_top"><code class="literal">boost::asio::ssl::stream</code></a>
       and <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">beast</span><span class="special">::</span><span class="identifier">ssl_stream</span></code>.
     </p>
 <p>
@@ -67,7 +67,7 @@
       are implemented in terms of the former, and thus also perform the TLS handshake.
     </p>
 <p>
-      This approach contrasts with libraries like <a class="ulink" href="https://boost.org/doc/libs/1_84_0/libs/beast/index.html" target="_top">Boost.Beast</a>,
+      This approach contrasts with libraries like <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/libs/beast/index.html" target="_top">Boost.Beast</a>,
       where it's the user resposibility to invoke the SSL handshake on the underlying
       stream before performing any operation.
     </p>
@@ -79,10 +79,10 @@
       feature (see below for more info).
     </p>
 <p>
-      You can set any SSL/TLS parameters on the <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__context.html" target="_top"><code class="literal">boost::asio::ssl::context</code></a>
+      You can set any SSL/TLS parameters on the <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__context.html" target="_top"><code class="literal">boost::asio::ssl::context</code></a>
       required to create a <a class="link" href="ref/boost__mysql__connection.html" title="connection"><code class="literal">connection</code></a>
       using a SSL-enabled stream type. This context will be passed to the stream's
-      constructor. You can configure any setting allowed by <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__context.html" target="_top"><code class="literal">boost::asio::ssl::context</code></a>,
+      constructor. You can configure any setting allowed by <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/ssl__context.html" target="_top"><code class="literal">boost::asio::ssl::context</code></a>,
       including SSL certificate validation. Check <a class="link" href="examples/ssl.html" title="Setting SSL options">this
       example</a> for an example on this topic.
     </p>
@@ -153,7 +153,7 @@
 <div class="copyright-footer"></div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="async.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="other_streams.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="async.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="other_streams.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>

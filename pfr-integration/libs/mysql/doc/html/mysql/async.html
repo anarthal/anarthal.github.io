@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Going async</title>
-<link rel="stylesheet" href="https://boost.org/doc/libs/1_84_0/doc/src/boostbook.css" type="text/css">
+<link rel="stylesheet" href="https://www.boost.org/doc/libs/1_84_0/doc/src/boostbook.css" type="text/css">
 <meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="../index.html" title="Chapter 1. Boost.MySQL">
 <link rel="up" href="../index.html" title="Chapter 1. Boost.MySQL">
@@ -12,26 +12,26 @@
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr>
-<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="https://boost.org/doc/libs/1_84_0/boost.png"></td>
-<td align="center"><a href="https://boost.org/doc/libs/1_84_0/index.html">Home</a></td>
-<td align="center"><a href="https://boost.org/doc/libs/1_84_0/libs/libraries.htm">Libraries</a></td>
+<td valign="top"><img alt="Boost C++ Libraries" width="277" height="86" src="https://www.boost.org/doc/libs/1_84_0/boost.png"></td>
+<td align="center"><a href="https://www.boost.org/doc/libs/1_84_0/index.html">Home</a></td>
+<td align="center"><a href="https://www.boost.org/doc/libs/1_84_0/libs/libraries.htm">Libraries</a></td>
 <td align="center"><a href="http://www.boost.org/users/people.html">People</a></td>
 <td align="center"><a href="http://www.boost.org/users/faq.html">FAQ</a></td>
-<td align="center"><a href="https://boost.org/doc/libs/1_84_0/more/index.htm">More</a></td>
+<td align="center"><a href="https://www.boost.org/doc/libs/1_84_0/more/index.htm">More</a></td>
 </tr></table>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="meta.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="ssl.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="meta.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="ssl.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="mysql.async"></a><a class="link" href="async.html" title="Going async">Going async</a>
 </h2></div></div></div>
 <p>
-      Following <a class="ulink" href="https://boost.org/doc/libs/1_84_0/libs/asio/index.html" target="_top">Boost.Asio</a>'s convention,
+      Following <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/libs/asio/index.html" target="_top">Boost.Asio</a>'s convention,
       all network operations have asynchronous versions with the same name prefixed
       by <code class="computeroutput"><span class="identifier">async_</span></code>. The last parameter
-      to async operations is a <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/asynchronous_operations.html#boost_asio.reference.asynchronous_operations.completion_tokens_and_handlers" target="_top"><span class="emphasis"><em>CompletionToken</em></span></a>,
+      to async operations is a <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/asynchronous_operations.html#boost_asio.reference.asynchronous_operations.completion_tokens_and_handlers" target="_top"><span class="emphasis"><em>CompletionToken</em></span></a>,
       which dictates how the asynchronous operation will be managed and the function's
       return type. These <code class="computeroutput"><span class="identifier">async_</span></code> functions
       are called async initiating functions.
@@ -94,7 +94,7 @@
 <li class="listitem">
 <p class="simpara">
           <span class="bold"><strong>Futures</strong></span>. In this case, you pass in the
-          constant <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_future.html" target="_top"><code class="literal">boost::asio::use_future</code></a>
+          constant <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_future.html" target="_top"><code class="literal">boost::asio::use_future</code></a>
           as completion token. The initiating function will return one of the following:
           <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
@@ -122,8 +122,8 @@
 <li class="listitem">
 <p class="simpara">
           <span class="bold"><strong>Stackful coroutines</strong></span>. In this case, you
-          pass in a <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/yield_context.html" target="_top"><code class="literal">boost::asio::yield_context</code></a>.
-          To obtain one of these, you should use <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/spawn.html" target="_top"><code class="literal">boost::asio::spawn</code></a>
+          pass in a <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/yield_context.html" target="_top"><code class="literal">boost::asio::yield_context</code></a>.
+          To obtain one of these, you should use <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/spawn.html" target="_top"><code class="literal">boost::asio::spawn</code></a>
           to create a new coroutine. The initiating function will return:
           <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
@@ -137,7 +137,7 @@
 </ul></div>
         </p>
 <p class="simpara">
-          If you use <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/basic_yield_context/operator_lb__rb_.html" target="_top"><code class="literal">boost::asio::yield_context::operator[]</code></a>,
+          If you use <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/basic_yield_context/operator_lb__rb_.html" target="_top"><code class="literal">boost::asio::yield_context::operator[]</code></a>,
           the operation will set the given <a class="link" href="ref/boost__mysql__error_code.html" title="error_code"><code class="literal">error_code</code></a>
           when it fails. Otherwise, the function will throw a exception. Note that
           this exception is thrown by Asio itself, and thus will always be of type
@@ -146,7 +146,7 @@
           function.
         </p>
 <p class="simpara">
-          You need to link against <a class="ulink" href="https://boost.org/doc/libs/1_84_0/libs/context/index.html" target="_top">Boost.Context</a>
+          You need to link against <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/libs/context/index.html" target="_top">Boost.Context</a>
           to use these coroutines.
         </p>
 <p class="simpara">
@@ -157,15 +157,15 @@
 <li class="listitem">
 <p class="simpara">
           <span class="bold"><strong>C++20 coroutines</strong></span>. In this case, you pass
-          in the constant <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_awaitable.html" target="_top"><code class="literal">boost::asio::use_awaitable</code></a>
+          in the constant <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/use_awaitable.html" target="_top"><code class="literal">boost::asio::use_awaitable</code></a>
           as completion token. The initiating function will return:
           <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
 <li class="listitem">
-                <code class="literal"><a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/awaitable.html" target="_top"><code class="literal">boost::asio::awaitable&lt;void&gt;</code></a></code>,
+                <code class="literal"><a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/awaitable.html" target="_top"><code class="literal">boost::asio::awaitable&lt;void&gt;</code></a></code>,
                 if the completion handler has the form given by 1).
               </li>
 <li class="listitem">
-                <code class="literal"><a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/awaitable.html" target="_top"><code class="literal">boost::asio::awaitable&lt;T&gt;</code></a></code>,
+                <code class="literal"><a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/awaitable.html" target="_top"><code class="literal">boost::asio::awaitable&lt;T&gt;</code></a></code>,
                 if the completion handler has the form given by 2).
               </li>
 </ul></div>
@@ -176,7 +176,7 @@
           will throw an exception. Note that this exception is thrown by Asio itself,
           and thus will always be of type <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">system</span><span class="special">::</span><span class="identifier">system_error</span></code>.
           To obtain an <a class="link" href="ref/boost__mysql__error_with_diagnostics.html" title="error_with_diagnostics"><code class="literal">error_with_diagnostics</code></a>
-          we suggest using the <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/as_tuple.html" target="_top"><code class="literal">boost::asio::as_tuple</code></a>
+          we suggest using the <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/as_tuple.html" target="_top"><code class="literal">boost::asio::as_tuple</code></a>
           completion token, which will make <code class="computeroutput"><span class="identifier">co_await</span></code>
           report failures using error codes, and the <a class="link" href="ref/boost__mysql__throw_on_error.html" title="throw_on_error"><code class="literal">throw_on_error</code></a>
           function.
@@ -187,7 +187,7 @@
         </p>
 </li>
 <li class="listitem">
-          Any other type that satisfies the <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/asynchronous_operations.html#boost_asio.reference.asynchronous_operations.completion_tokens_and_handlers" target="_top"><span class="emphasis"><em>CompletionToken</em></span></a>
+          Any other type that satisfies the <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/asynchronous_operations.html#boost_asio.reference.asynchronous_operations.completion_tokens_and_handlers" target="_top"><span class="emphasis"><em>CompletionToken</em></span></a>
           type requirements. We have listed the most common ones here, but you can
           craft your own and use it with this library's async operations.
         </li>
@@ -198,9 +198,9 @@
       and timeouts</a>
     </h4>
 <p>
-      All async operations in this library support <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/overview/core/cancellation.html" target="_top">per-operation
+      All async operations in this library support <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/overview/core/cancellation.html" target="_top">per-operation
       cancellation</a>. All operations support only the <code class="computeroutput"><span class="identifier">terminal</span></code>
-      <a class="ulink" href="https://boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/cancellation_type.html" target="_top"><code class="literal">boost::asio::cancellation_type</code></a>.
+      <a class="ulink" href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio/reference/cancellation_type.html" target="_top"><code class="literal">boost::asio::cancellation_type</code></a>.
       This means that, if an async operation is cancelled, the <a class="link" href="ref/boost__mysql__connection.html" title="connection"><code class="literal">connection</code></a>
       object is left in an unspecified state, after which you should close or destroy
       the connection. In particular, it is <span class="bold"><strong>not</strong></span> safe
@@ -223,7 +223,7 @@
 <div class="copyright-footer"></div>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="meta.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="ssl.html"><img src="https://boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
+<a accesskey="p" href="meta.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/prev.png" alt="Prev"></a><a accesskey="u" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/home.png" alt="Home"></a><a accesskey="n" href="ssl.html"><img src="https://www.boost.org/doc/libs/1_84_0/doc/src/images/next.png" alt="Next"></a>
 </div>
 </body>
 </html>
