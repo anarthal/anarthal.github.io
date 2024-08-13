@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/rows_view.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/rows_view.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlrows_view"><a class="anchor" href="#_boostmysqlrows_view"></a>boost::mysql::rows_view</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/rows_view.hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>A non-owning read-only reference to a sequence of rows.</p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class rows_view;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Models a non-owning matrix-like container. Indexing a <code>rows_view</code> object (by using iterators, <a href="rows_view/at.html" class="xref page">at</a> or <a href="rows_view/operator-lb-rb.html" class="xref page">operator[</a>]) returns a <a href="row_view.html" class="xref page">row_view</a> object, representing a single row. All rows in the collection are the same size (as given by <a href="rows_view/num_columns.html" class="xref page">num_columns</a>).</p>
+</div>
+<div class="paragraph">
+<p>A <code>rows_view</code> object points to memory owned by an external entity (like <code>string_view</code> does). The validity of a <code>rows_view</code> object depends on how it was obtained:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If it was constructed from a <a href="rows.html" class="xref page">rows</a> object (by calling <a href="rows/operator-rows_view.html" class="xref page">operator rows_view</a>), the view acts as a reference to the <code>rows&#8217; allocated memory, and is valid as long as references to that `rows</code> elements are valid.</p>
+</li>
+<li>
+<p>If it was obtained by calling <a href="connection/read_some_rows.html" class="xref page">read_some_rows</a> it&#8217;s valid until the <code>connection</code> performs the next network call or is destroyed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="row_view.html" class="xref page">row_view</a>'s and <a href="field_view.html" class="xref page">field_view</a>'s obtained by using a <code>rows_view</code> object are valid as long as the underlying storage that <code>*this</code> points to is valid. Destroying <code>*this</code> doesn&#8217;t invalidate such references.</p>
+</div>
+<div class="paragraph">
+<p>Calling any member function on an invalid view results in undefined behavior.</p>
+</div>
+<div class="paragraph">
+<p>Instances of this class are usually created by the library, not by the user.</p>
+</div>
+<div class="sect2">
+<h3 id="_member_types"><a class="anchor" href="#_member_types"></a>Member types</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/iterator.html" class="xref page"><code class="link-to-entity bg-white">iterator</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A random access iterator to an element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/const_iterator.html" class="xref page"><code class="link-to-entity bg-white">const_iterator</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A random access iterator to an element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/value_type.html" class="xref page"><code class="link-to-entity bg-white">value_type</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A type that can hold elements in this collection with value semantics.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/reference.html" class="xref page"><code class="link-to-entity bg-white">reference</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The reference type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/const_reference.html" class="xref page"><code class="link-to-entity bg-white">const_reference</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The reference type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/size_type.html" class="xref page"><code class="link-to-entity bg-white">size_type</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An unsigned integer type to represent sizes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/difference_type.html" class="xref page"><code class="link-to-entity bg-white">difference_type</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A signed integer type used to represent differences.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member functions</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/rows_view.html" class="xref page"><code class="link-to-entity bg-white">rows_view</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Construct an empty (but valid) view.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/begin.html" class="xref page"><code class="link-to-entity bg-white">begin</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns an iterator to the first element in the collection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/end.html" class="xref page"><code class="link-to-entity bg-white">end</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns an iterator to one-past-the-last element in the collection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/at.html" class="xref page"><code class="link-to-entity bg-white">at</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the i-th row or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/operator-lb-rb.html" class="xref page"><code class="link-to-entity bg-white">operator[</a></code>]</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the i-th row (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/front.html" class="xref page"><code class="link-to-entity bg-white">front</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the first row.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/back.html" class="xref page"><code class="link-to-entity bg-white">back</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the last row.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/empty.html" class="xref page"><code class="link-to-entity bg-white">empty</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns true if there are no rows in the collection (i.e. <code>this->size() == 0</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/size.html" class="xref page"><code class="link-to-entity bg-white">size</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the number of rows in the collection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/num_columns.html" class="xref page"><code class="link-to-entity bg-white">num_columns</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the number of elements each row in the collection has.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/operator-eq-eq.html" class="xref page"><code class="link-to-entity bg-white">operator==</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Equality operator.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="rows_view/operator-not-eq.html" class="xref page"><code class="link-to-entity bg-white">operator!=</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Inequality operator.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

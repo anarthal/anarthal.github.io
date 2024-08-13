@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/pooled_connection.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/pooled_connection.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlpooled_connection"><a class="anchor" href="#_boostmysqlpooled_connection"></a>boost::mysql::pooled_connection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/connection_pool.hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>(EXPERIMENTAL) A proxy to a connection owned by a pool that returns it to the pool when destroyed.</p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class pooled_connection;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A <code>pooled_connection</code> behaves like to a <code>std::unique_ptr</code>: it has exclusive ownership of an <a href="any_connection.html" class="xref page">any_connection</a> created by the pool. When destroyed, it returns the connection to the pool. A <code>pooled_connection</code> may own nothing. We say such a connection is invalid (<code>this->valid() == false</code>).</p>
+</div>
+<div class="paragraph">
+<p>This class is movable but not copyable.</p>
+</div>
+<div class="sect2">
+<h3 id="_object_lifetimes"><a class="anchor" href="#_object_lifetimes"></a>Object lifetimes</h3>
+<div class="paragraph">
+<p>While <code>*this</code> is alive, the <a href="connection_pool.html" class="xref page">connection_pool</a> internal data will be kept alive automatically. It&#8217;s safe to destroy the <code>connection_pool</code> object before <code>*this</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_thread_safety"><a class="anchor" href="#_thread_safety"></a>Thread safety</h3>
+<div class="paragraph">
+<p>By default, individual connections created by the pool are <strong>not</strong> thread-safe, even if the pool was created using <a href="pool_executor_params/thread_safe.html" class="xref page">thread_safe</a>.</p>
+</div>
+<div class="paragraph">
+<p>Distinct objects: safe.</p>
+</div>
+<div class="paragraph">
+<p>Shared objects: unsafe.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_experimental"><a class="anchor" href="#_experimental"></a>Experimental</h3>
+<div class="paragraph">
+<p>This part of the API is experimental, and may change in successive releases without previous notice.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member functions</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="pooled_connection/pooled_connection.html" class="xref page"><code class="link-to-entity bg-white">pooled_connection</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Constructs an invalid pooled connection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="pooled_connection/operator-eq.html" class="xref page"><code class="link-to-entity bg-white">operator=</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Move assignment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="pooled_connection/dtor-pooled_connection.html" class="xref page"><code class="link-to-entity bg-white">~pooled_connection</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Destructor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="pooled_connection/valid.html" class="xref page"><code class="link-to-entity bg-white">valid</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether the object owns a connection or not.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="pooled_connection/get.html" class="xref page"><code class="link-to-entity bg-white">get</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the connection owned by this object.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="pooled_connection/operator-arrow.html" class="xref page"><code class="link-to-entity bg-white">operator&#8594;</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the connection owned by this object.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="pooled_connection/return_without_reset.html" class="xref page"><code class="link-to-entity bg-white">return_without_reset</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the owned connection to the pool and marks it as not requiring reset.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

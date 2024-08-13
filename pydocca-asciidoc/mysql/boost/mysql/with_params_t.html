@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/with_params_t.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/with_params_t.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlwith_params_t"><a class="anchor" href="#_boostmysqlwith_params_t"></a>boost::mysql::with_params_t</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/with_params.hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>A query format string and format arguments that can be executed.</p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template&lt;
+    BOOST_MYSQL_FORMATTABLE... Formattable&gt;
+struct with_params_t;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Contains a query with placeholders (i.e. <code>{}</code>) and a set of parameters to expand such placeholders. Satisfies <code>ExecutionRequest</code> and can thus be passed to <a href="any_connection/execute.html" class="xref page">execute</a>, <a href="any_connection/start_execution.html" class="xref page">start_execution</a> and its async counterparts.</p>
+</div>
+<div class="paragraph">
+<p>When executed, client-side SQL formatting is invoked to expand the provided query with the supplied parameters. The resulting query is then sent to the server for execution. Formally, given a <code>conn</code> variable of <a href="any_connection.html" class="xref page">any_connection</a> type, the query is generated as if the following was called:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">format_sql(
+    this-&gt;query,
+    conn.format_opts().value(),
+    std::get&lt;i&gt;(this-&gt;args)... // for i in [0, sizeof...(Formattable))
+);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Objects of this type are usually created using <a href="with_params.html" class="xref page">with_params</a>, which creates <code>args</code> by calling <code>std::make_tuple</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_object_lifetimes"><a class="anchor" href="#_object_lifetimes"></a>Object lifetimes</h3>
+<div class="paragraph">
+<p>The format string <code>query</code> is stored as a view, as a compile-time string should be used in most cases. When using <a href="with_params.html" class="xref page">with_params</a>, <code>args</code> will usually contain copies of the passed parameters (as per [@https://en.cppreference.com/w/cpp/utility/tuple/make_tuple <code>std::make_tuple</code>]), which is safe even when using async functions with deferred completion tokens. You may disable such copies using <code>std::ref</code>, as you would when using <code>std::make_tuple</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_errors"><a class="anchor" href="#_errors"></a>Errors</h3>
+<div class="paragraph">
+<p>When passed to <a href="any_connection/execute.html" class="xref page">execute</a>, <a href="any_connection/start_execution.html" class="xref page">start_execution</a> or its async counterparts, in addition to the usual network and server-generated errors, <code>with_params_t</code> may generate the following errors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Any errors generated by <a href="format_sql.html" class="xref page">format_sql</a>. This includes errors due to invalid format strings and unformattable arguments (e.g. invalid UTF-8).</p>
+</li>
+<li>
+<p><a href="client_errc.html" class="xref page">unknown_character_set</a> if the connection does not know the character set it&#8217;s using when the query is executed (i.e. <a href="any_connection/current_character_set.html" class="xref page">current_character_set</a> would return an error.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

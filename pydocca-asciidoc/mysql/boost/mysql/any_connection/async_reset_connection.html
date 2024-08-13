@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/any_connection/async_reset_connection.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/any_connection/async_reset_connection.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlany_connectionasync_reset_connection"><a class="anchor" href="#_boostmysqlany_connectionasync_reset_connection"></a>boost::mysql::any_connection::async_reset_connection</h2>
+<div class="sectionbody">
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 88.8888%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template&lt;
+    class CompletionToken&gt;auto
+async_reset_connection(
+    CompletionToken&amp;&amp; token);</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(1)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template&lt;
+    class CompletionToken&gt;auto
+async_reset_connection(
+    <a href="../diagnostics.html" class="xref page">diagnostics</a>&amp; diag,
+    CompletionToken&amp;&amp; token);</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(2)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Resets server-side session state, like variables and prepared statements.</p>
+</div>
+<div class="paragraph">
+<p>Resets all server-side state for the current session:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rolls back any active transactions and resets autocommit mode.</p>
+</li>
+<li>
+<p>Releases all table locks.</p>
+</li>
+<li>
+<p>Drops all temporary tables.</p>
+</li>
+<li>
+<p>Resets all session system variables to their default values (including the ones set by <code>SET NAMES</code>) and clears all user-defined variables.</p>
+</li>
+<li>
+<p>Closes all prepared statements.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A full reference on the affected session state can be found [@https://dev.mysql.com/doc/c-api/8.0/en/mysql-reset-connection.html here].</p>
+</div>
+<div class="paragraph">
+<p>This function will not reset the current physical connection and won&#8217;t cause re-authentication. It is faster than closing and re-opening a connection.</p>
+</div>
+<div class="paragraph">
+<p>The connection must be connected and authenticated before calling this function. This function involves communication with the server, and thus may fail.</p>
+</div>
+<div class="sect2">
+<h3 id="_warning_on_character_sets"><a class="anchor" href="#_warning_on_character_sets"></a>Warning on character sets</h3>
+<div class="paragraph">
+<p>This function will restore the connection&#8217;s character set and collation <strong>to the server&#8217;s default</strong>, and not to the one specified during connection establishment. Some servers have <code>latin1</code> as their default character set, which is not usually what you want. Since there is no way to know this character set, <a href="current_character_set.html" class="xref page">current_character_set</a> will return <code>nullptr</code> after the operation succeeds. We recommend always using <a href="set_character_set.html" class="xref page">set_character_set</a> or <a href="async_set_character_set.html" class="xref page">async_set_character_set</a> after calling this function.</p>
+</div>
+<div class="paragraph">
+<p>You can find the character set that your server will use after the reset by running:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">"SELECT @@global.character_set_client, @@global.character_set_results;"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_handler_signature"><a class="anchor" href="#_handler_signature"></a>Handler signature</h3>
+<div class="paragraph">
+<p>The handler signature for this operation is <code>void(boost::mysql::error_code)</code>.</p>
+</div>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/stage_response.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/stage_response.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlstage_response"><a class="anchor" href="#_boostmysqlstage_response"></a>boost::mysql::stage_response</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/pipeline.hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>(EXPERIMENTAL) A variant-like type holding the response of a single pipeline stage.</p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class stage_response;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a variant-like type, similar to <code>boost::system::result</code>. At any point in time, it can contain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <a href="statement.html" class="xref page">statement</a>. Will happen if the stage was a prepare statement that succeeded.</p>
+</li>
+<li>
+<p>A <a href="results.html" class="xref page">results</a>. Will happen if the stage was a query or statement execution that succeeded.</p>
+</li>
+<li>
+<p>An <a href="error_code.html" class="xref page">error_code</a>, <a href="diagnostics.html" class="xref page">diagnostics</a> pair. Will happen if the stage failed, or if it succeeded but it doesn&#8217;t yield a value (as in close statement, reset connection and set character set).</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_experimental"><a class="anchor" href="#_experimental"></a>Experimental</h3>
+<div class="paragraph">
+<p>This part of the API is experimental, and may change in successive releases without previous notice.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member functions</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/stage_response.html" class="xref page"><code class="link-to-entity bg-white">stage_response</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Default constructor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/has_statement.html" class="xref page"><code class="link-to-entity bg-white">has_statement</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns true if the object contains a statement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/has_results.html" class="xref page"><code class="link-to-entity bg-white">has_results</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns true if the object contains a results.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/error.html" class="xref page"><code class="link-to-entity bg-white">error</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the contained error code.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/diag.html" class="xref page"><code class="link-to-entity bg-white">diag</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the contained diagnostics (lvalue reference accessor).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/as_statement.html" class="xref page"><code class="link-to-entity bg-white">as_statement</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the contained statement or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/get_statement.html" class="xref page"><code class="link-to-entity bg-white">get_statement</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the contained statement (unchecked accessor).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/as_results.html" class="xref page"><code class="link-to-entity bg-white">as_results</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the contained results or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="stage_response/get_results.html" class="xref page"><code class="link-to-entity bg-white">get_results</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves the contained results (unchecked accessor).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

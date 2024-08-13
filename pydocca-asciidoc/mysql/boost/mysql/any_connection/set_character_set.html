@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/any_connection/set_character_set.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/any_connection/set_character_set.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlany_connectionset_character_set"><a class="anchor" href="#_boostmysqlany_connectionset_character_set"></a>boost::mysql::any_connection::set_character_set</h2>
+<div class="sectionbody">
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 88.8888%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">void
+set_character_set(
+    const <a href="../character_set.html" class="xref page">character_set</a>&amp; charset,
+    <a href="../error_code.html" class="xref page">error_code</a>&amp; err,
+    <a href="../diagnostics.html" class="xref page">diagnostics</a>&amp; diag);</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(1)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">void
+set_character_set(
+    const <a href="../character_set.html" class="xref page">character_set</a>&amp; charset);</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(2)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Sets the connection&#8217;s character set, as per SET NAMES.</p>
+</div>
+<div class="paragraph">
+<p>Sets the connection&#8217;s character set by running a [@https://dev.mysql.com/doc/refman/8.0/en/set-names.html <code>SET NAMES</code>] SQL statement, using the passed <a href="#boost/mysql/character_set/name.adoc" class="xref unresolved">name</a> as the charset name to set.</p>
+</div>
+<div class="paragraph">
+<p>This function will also update the value returned by <a href="current_character_set.html" class="xref page">current_character_set</a>, so prefer using this function over raw SQL statements.</p>
+</div>
+<div class="paragraph">
+<p>If the server was unable to set the character set to the requested value (e.g. because the server does not support the requested charset), this function will fail, as opposed to how <a href="connect.html" class="xref page">connect</a> behaves when an unsupported collation is passed. This is a limitation of MySQL servers.</p>
+</div>
+<div class="paragraph">
+<p>You need to perform connection establishment for this function to succeed, since it involves communicating with the server.</p>
+</div>
+<div class="sect2">
+<h3 id="_object_lifetimes"><a class="anchor" href="#_object_lifetimes"></a>Object lifetimes</h3>
+<div class="paragraph">
+<p><code>charset</code> will be copied as required, and does not need to be kept alive.</p>
+</div>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

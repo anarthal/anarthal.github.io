@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/formatter.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/formatter.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlformatter"><a class="anchor" href="#_boostmysqlformatter"></a>boost::mysql::formatter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/format_sql.hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>(EXPERIMENTAL) An extension point to customize SQL formatting.</p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template&lt;
+    class T&gt;
+struct formatter;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This type can be specialized for custom types to make them formattable. This makes them satisfy the <code>Formattable</code> concept, and thus usable in <a href="format_sql.html" class="xref page">format_sql</a> and similar functions.</p>
+</div>
+<div class="paragraph">
+<p>A <code>formatter</code> specialization for a type <code>T</code> should have the following form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">template &lt;&gt;
+struct formatter&lt;T&gt;
+{
+    const char* parse(const char* begin, const char* end); // parse format specs
+    void format(const T&amp; value, format_context_base&amp; ctx) const; // perform the actual formatting
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When a value with a custom formatter is formatted (using <a href="format_sql.html" class="xref page">format_sql</a> or a similar function), the library performs the following actions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An instance of <code>formatter<T></code> is default-constructed, where <code>T</code> is the type of the value being formatted after removing const and references.</p>
+</li>
+<li>
+<p>The <code>parse</code> function is invoked on the constructed instance, with <code>[begin, end)</code> pointing to the format specifier that the current replacement field has. If <code>parse</code> finds specifiers it understands, it should remember them, usually setting some flag in the <code>formatter</code> instance. <code>parse</code> must return an iterator to the first unparsed character in the range (or the <code>end</code> iterator, if everything was parsed). Some examples of what would get passed to <code>parse</code>:</p>
+</li>
+<li>
+<p>In <code>"SELECT {}"</code>, the range would be empty.</p>
+</li>
+<li>
+<p>In <code>"SELECT {:abc}"</code>, the range would be <code>"abc"</code>.</p>
+</li>
+<li>
+<p>In <code>"SELECT {0:i}"</code>, the range would be <code>"i"</code>.</p>
+</li>
+<li>
+<p>If <code>parse</code> didn&#8217;t manage to parse all the passed specifiers (i.e. if it returned an iterator different to the passed&#8217;s end), a <a href="client_errc.html" class="xref page">format_string_invalid_specifier</a> is emitted and the format operation finishes.</p>
+</li>
+<li>
+<p>Otherwise, <code>format</code> is invoked on the formatter instance, passing the value to be formatted and the <a href="format_context_base.html" class="xref page">format_context_base</a> where format operation is running. This function should perform the actual formatting, usually calling <a href="format_sql_to.html" class="xref page">format_sql_to</a> on the passed context.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t specialize <code>formatter</code> for built-in types, like <code>int</code>, <code>std::string</code> or optionals (formally, any type satisfying <code>WritableField</code>), as the specializations will be ignored.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

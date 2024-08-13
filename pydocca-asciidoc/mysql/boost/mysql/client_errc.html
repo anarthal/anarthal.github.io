@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/client_errc.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/client_errc.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlclient_errc"><a class="anchor" href="#_boostmysqlclient_errc"></a>boost::mysql::client_errc</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/client_errc.hpp&gt;</code></p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">enum class client_errc: int;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>MySQL client-defined error codes.</p>
+</div>
+<div class="paragraph">
+<p>These errors are produced by the client itself, rather than the server.</p>
+</div>
+<div class="sect2">
+<h3 id="_enumerators"><a class="anchor" href="#_enumerators"></a>Enumerators</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">incomplete_message</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An incomplete message was received from the server (indicates a deserialization error or packet mismatch).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">protocol_value_error</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An unexpected value was found in a server-received message (indicates a deserialization error or packet mismatch).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">server_unsupported</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The server does not support the minimum required capabilities to establish the connection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">extra_bytes</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unexpected extra bytes at the end of a message were received (indicates a deserialization error or packet mismatch).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">sequence_number_mismatch</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Mismatched sequence numbers (usually caused by a packet mismatch).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">unknown_auth_plugin</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The user employs an authentication plugin not known to this library.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">auth_plugin_requires_ssl</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The authentication plugin requires the connection to use SSL.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">wrong_num_params</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The number of parameters passed to the prepared statement does not match the number of actual parameters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">server_doesnt_support_ssl</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The connection mandates SSL, but the server doesn&#8217;t accept SSL connections.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">metadata_check_failed</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The static interface detected a mismatch between your C++ type definitions and what the server returned in the query.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">num_resultsets_mismatch</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The static interface detected a mismatch between the number of row types passed to <code>static_results</code> or <code>static_execution_state</code> and the number of resultsets returned by your query.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">row_type_mismatch</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The StaticRow type passed to read_some_rows does not correspond to the resultset type being read.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">static_row_parsing_error</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The static interface encountered an error when parsing a field into a C++ data structure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">timeout</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) An operation controlled by Boost.MySQL timed out.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">cancelled</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) An operation controlled by Boost.MySQL was cancelled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">pool_not_running</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) Getting a connection from a connection_pool failed because the pool is not running. Ensure that you&#8217;re calling connection_pool::async_run.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">invalid_encoding</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) An invalid byte sequence was found while trying to decode a string.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">unformattable_value</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) A formatting operation could not format one of its arguments.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">format_string_invalid_syntax</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) A format string containing invalid syntax was provided to a SQL formatting function.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">format_string_invalid_encoding</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) A format string with an invalid byte sequence was provided to a SQL formatting function.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">format_string_manual_auto_mix</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) A format string mixes manual (e.g. {0}) and automatic (e.g. {}) indexing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">format_string_invalid_specifier</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) The supplied format specifier (e.g. {:i}) is not supported by the type being formatted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">format_arg_not_found</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) A format argument referenced by a format string was not found. Check the number of format arguments passed and their names.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">unknown_character_set</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) The character set used by the connection is not known by the client. Use set_character_set or async_set_character_set before invoking operations that require a known charset.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">max_buffer_size_exceeded</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(EXPERIMENTAL) An operation attempted to read or write a packet larger than the maximum buffer size. Try increasing <a href="#boost/mysql/any_connection_params/max_buffer_size.adoc" class="xref unresolved">max_buffer_size</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

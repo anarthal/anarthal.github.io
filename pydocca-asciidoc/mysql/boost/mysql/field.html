@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/field.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/field.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlfield"><a class="anchor" href="#_boostmysqlfield"></a>boost::mysql::field</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/field.hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Variant-like class that can represent of any of the allowed database types.</p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class field;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a regular variant-like class that can represent any of the types that MySQL allows. It has value semantics (as opposed to <a href="field_view.html" class="xref page">field_view</a>). Instances of this class are not created by the library. They should be created by the user, when the reference semantics of <a href="field_view.html" class="xref page">field_view</a> are not appropriate.</p>
+</div>
+<div class="paragraph">
+<p>Like a variant, at any point, a <code>field</code> always contains a value of certain type. You can query the type using <a href="field/kind.html" class="xref page">kind</a> and the <code>is_xxx</code> functions like <a href="field/is_int64.html" class="xref page">is_int64</a>. Use <code>as_xxx</code> and <code>get_xxx</code> for checked and unchecked value access, respectively. You can mutate a <code>field</code> by calling the assignment operator, or using the lvalue references returned by <code>as_xxx</code> and <code>get_xxx</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member functions</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/field.html" class="xref page"><code class="link-to-entity bg-white">field</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Constructs a <code>field</code> holding NULL.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/operator-eq.html" class="xref page"><code class="link-to-entity bg-white">operator=</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Copy assignment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/dtor-field.html" class="xref page"><code class="link-to-entity bg-white">~field</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Destructor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/kind.html" class="xref page"><code class="link-to-entity bg-white">kind</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the type of the value this <code>field</code> is holding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_null.html" class="xref page"><code class="link-to-entity bg-white">is_null</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>NULL</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_int64.html" class="xref page"><code class="link-to-entity bg-white">is_int64</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>int64</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_uint64.html" class="xref page"><code class="link-to-entity bg-white">is_uint64</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>uint64</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_string.html" class="xref page"><code class="link-to-entity bg-white">is_string</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a string value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_blob.html" class="xref page"><code class="link-to-entity bg-white">is_blob</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a blob value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_float.html" class="xref page"><code class="link-to-entity bg-white">is_float</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>float</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_double.html" class="xref page"><code class="link-to-entity bg-white">is_double</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>double</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_date.html" class="xref page"><code class="link-to-entity bg-white">is_date</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>date</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_datetime.html" class="xref page"><code class="link-to-entity bg-white">is_datetime</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>datetime</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/is_time.html" class="xref page"><code class="link-to-entity bg-white">is_time</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether this <code>field</code> is holding a <code>time</code> value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_int64.html" class="xref page"><code class="link-to-entity bg-white">as_int64</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>std::int64_t</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_uint64.html" class="xref page"><code class="link-to-entity bg-white">as_uint64</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>std::uint64_t</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_string.html" class="xref page"><code class="link-to-entity bg-white">as_string</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>std::string</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_blob.html" class="xref page"><code class="link-to-entity bg-white">as_blob</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>blob</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_float.html" class="xref page"><code class="link-to-entity bg-white">as_float</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>float</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_double.html" class="xref page"><code class="link-to-entity bg-white">as_double</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>double</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_date.html" class="xref page"><code class="link-to-entity bg-white">as_date</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>date</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_datetime.html" class="xref page"><code class="link-to-entity bg-white">as_datetime</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>datetime</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/as_time.html" class="xref page"><code class="link-to-entity bg-white">as_time</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>time</code> value or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_int64.html" class="xref page"><code class="link-to-entity bg-white">get_int64</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>std::int64_t</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_uint64.html" class="xref page"><code class="link-to-entity bg-white">get_uint64</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>std::uint64_t</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_string.html" class="xref page"><code class="link-to-entity bg-white">get_string</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>std::string</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_blob.html" class="xref page"><code class="link-to-entity bg-white">get_blob</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>blob</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_float.html" class="xref page"><code class="link-to-entity bg-white">get_float</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>float</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_double.html" class="xref page"><code class="link-to-entity bg-white">get_double</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>double</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_date.html" class="xref page"><code class="link-to-entity bg-white">get_date</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>date</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_datetime.html" class="xref page"><code class="link-to-entity bg-white">get_datetime</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>datetime</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/get_time.html" class="xref page"><code class="link-to-entity bg-white">get_time</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retrieves a reference to the underlying <code>time</code> value (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="field/operator-field_view.html" class="xref page"><code class="link-to-entity bg-white">operator field_view</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Constructs a <a href="field_view.html" class="xref page">field_view</a> pointing to <code>*this</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

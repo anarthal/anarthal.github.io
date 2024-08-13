@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/results.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/results.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlresults"><a class="anchor" href="#_boostmysqlresults"></a>boost::mysql::results</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/results.hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Holds the results of a SQL query (dynamic interface).</p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class results;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This object can store the results of single and multi resultset queries. For the former, you use <a href="results/meta.html" class="xref page">meta</a>, <a href="rows.html" class="xref page">rows</a>, <a href="results/affected_rows.html" class="xref page">affected_rows</a> and so on. For the latter, this class is a random-access collection of <a href="resultset.html" class="xref page">resultset</a> objects.</p>
+</div>
+<div class="sect2">
+<h3 id="_thread_safety"><a class="anchor" href="#_thread_safety"></a>Thread safety</h3>
+<div class="paragraph">
+<p>Distinct objects: safe.</p>
+</div>
+<div class="paragraph">
+<p>Shared objects: unsafe.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_member_types"><a class="anchor" href="#_member_types"></a>Member types</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/iterator.html" class="xref page"><code class="link-to-entity bg-white">iterator</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A random access iterator to an element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/const_iterator.html" class="xref page"><code class="link-to-entity bg-white">const_iterator</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A random access iterator to an element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/value_type.html" class="xref page"><code class="link-to-entity bg-white">value_type</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A type that can hold elements in this collection with value semantics.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/reference.html" class="xref page"><code class="link-to-entity bg-white">reference</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The reference type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/const_reference.html" class="xref page"><code class="link-to-entity bg-white">const_reference</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The reference type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/size_type.html" class="xref page"><code class="link-to-entity bg-white">size_type</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An unsigned integer type to represent sizes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/difference_type.html" class="xref page"><code class="link-to-entity bg-white">difference_type</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A signed integer type used to represent differences.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member functions</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/results.html" class="xref page"><code class="link-to-entity bg-white">results</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Default constructor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/operator-eq.html" class="xref page"><code class="link-to-entity bg-white">operator=</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Copy assignment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/dtor-results.html" class="xref page"><code class="link-to-entity bg-white">~results</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Destructor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/has_value.html" class="xref page"><code class="link-to-entity bg-white">has_value</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether the object holds a valid result.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/rows.html" class="xref page"><code class="link-to-entity bg-white">rows</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the rows retrieved by the SQL query.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/meta.html" class="xref page"><code class="link-to-entity bg-white">meta</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns metadata about the columns in the query.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/affected_rows.html" class="xref page"><code class="link-to-entity bg-white">affected_rows</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the number of rows affected by the executed SQL statement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/last_insert_id.html" class="xref page"><code class="link-to-entity bg-white">last_insert_id</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the last insert ID produced by the executed SQL statement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/warning_count.html" class="xref page"><code class="link-to-entity bg-white">warning_count</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the number of warnings produced by the executed SQL statement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/info.html" class="xref page"><code class="link-to-entity bg-white">info</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns additional text information about the execution of the SQL statement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/begin.html" class="xref page"><code class="link-to-entity bg-white">begin</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns an iterator pointing to the first resultset that this object contains.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/end.html" class="xref page"><code class="link-to-entity bg-white">end</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns an iterator pointing to one-past-the-last resultset that this object contains.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/at.html" class="xref page"><code class="link-to-entity bg-white">at</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the i-th resultset or throws an exception.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/operator-lb-rb.html" class="xref page"><code class="link-to-entity bg-white">operator[</a></code>]</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the i-th resultset (unchecked access).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/front.html" class="xref page"><code class="link-to-entity bg-white">front</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the first resultset.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/back.html" class="xref page"><code class="link-to-entity bg-white">back</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the last resultset.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/empty.html" class="xref page"><code class="link-to-entity bg-white">empty</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns whether the collection contains any resultset.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/size.html" class="xref page"><code class="link-to-entity bg-white">size</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the number of resultsets that this collection contains.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="results/out_params.html" class="xref page"><code class="link-to-entity bg-white">out_params</code></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Returns the output parameters of a stored procedure call.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

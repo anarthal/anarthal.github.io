@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/any_connection/connect.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/any_connection/connect.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlany_connectionconnect"><a class="anchor" href="#_boostmysqlany_connectionconnect"></a>boost::mysql::any_connection::connect</h2>
+<div class="sectionbody">
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 88.8888%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">void
+connect(
+    const <a href="../connect_params.html" class="xref page">connect_params</a>&amp; params,
+    <a href="../error_code.html" class="xref page">error_code</a>&amp; ec,
+    <a href="../diagnostics.html" class="xref page">diagnostics</a>&amp; diag);</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(1)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">void
+connect(
+    const <a href="../connect_params.html" class="xref page">connect_params</a>&amp; params);</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(2)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Establishes a connection to a MySQL server.</p>
+</div>
+<div class="paragraph">
+<p>This function performs the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If a connection has already been established (by a previous call to <a href="#">connect</a> or <a href="async_connect.html" class="xref page">async_connect</a>), closes it at the transport layer (by closing any underlying socket) and discards any protocol state associated to it. (If you require a clean close, call <a href="close.html" class="xref page">close</a> or <a href="async_close.html" class="xref page">async_close</a> before using this function).</p>
+</li>
+<li>
+<p>If the connection is configured to use TCP (<code>params.server_address.type() == address_type::host_and_port</code>), resolves the passed hostname to a set of endpoints. An empty hostname is equivalent to <code>"localhost"</code>.</p>
+</li>
+<li>
+<p>Establishes the physical connection (performing the TCP or UNIX socket connect).</p>
+</li>
+<li>
+<p>Performs the MySQL handshake to establish a session. If the connection is configured to use TLS, the TLS handshake is performed as part of this step.</p>
+</li>
+<li>
+<p>If any of the above steps fail, the TCP or UNIX socket connection is closed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can configure some options using the <a href="../connect_params.html" class="xref page">connect_params</a> struct.</p>
+</div>
+<div class="paragraph">
+<p>The decision to use TLS or not is performed using the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the transport is not TCP (<code>params.server_address.type() != address_type::host_and_port</code>), the connection will never use TLS.</p>
+</li>
+<li>
+<p>If the transport is TCP, and <code>params.ssl == ssl_mode::disable</code>, the connection will not use TLS.</p>
+</li>
+<li>
+<p>If the transport is TCP, and <code>params.ssl == ssl_mode::enable</code>, the connection will use TLS only if the server supports it.</p>
+</li>
+<li>
+<p>If the transport is TCP, and <code>params.ssl == ssl_mode::require</code>, the connection will always use TLS. If the server doesn&#8217;t support it, this function will fail with <a href="../client_errc.html" class="xref page">server_doesnt_support_ssl</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If <code>params.connection_collation</code> is within a set of well-known collations, this function sets the current character set, such that <a href="current_character_set.html" class="xref page">current_character_set</a> returns a non-null value. The default collation (<code>utf8mb4_general_ci</code>) is the only one guaranteed to be in the set of well-known collations.</p>
+</div>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+</table>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/definitions.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/definitions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="definitions"><a class="anchor" href="#definitions"></a>Definitions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <em>list</em> is a&#8201;&#8212;&#8201;usually but not necessarily variadic&#8201;&#8212;&#8201;template class whose parameters are all types,
+for example <code>mp_list&lt;char[], void&gt;</code>, <code>mp_list&lt;&gt;</code>, <code>std::tuple&lt;int, float, char&gt;</code>, <code>std::pair&lt;int, float&gt;</code>, <code>std::shared_ptr&lt;X&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <em>metafunction</em> is a class template or a template alias whose parameters are all types, for example <code>std::add_pointer_t</code>,
+<code>std::is_const</code>, <code>mp_second</code>, <code>mp_push_front</code>, <code>mp_list</code>, <code>std::tuple</code>, <code>std::pair</code>, <code>std::shared_ptr</code>, or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">template&lt;class...&gt; using F1 = void;
+
+template&lt;class T&gt; using F2 = T*;
+
+template&lt;class... T&gt; using F3 = std::integral_constant&lt;std::size_t, sizeof...(T)&gt;;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A <em>quoted metafunction</em> is a class with a public metafunction member called <code>fn</code>, for example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">struct Q1 { template&lt;class...&gt; using fn = void; };
+
+struct Q2 { template&lt;class T&gt; using fn = T*; };
+
+struct Q3 { template&lt;class... T&gt; using fn =
+  std::integral_constant&lt;std::size_t, sizeof...(T)&gt;; };</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An <em>integral constant type</em> is a class with a public member <code>value</code> that is an integral constant in the C++ sense. For example,
+<code>std::integral_constant&lt;int, 7&gt;</code>, or</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>struct N { static int constexpr value = 2; };</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A <em>set</em> is a list whose elements are unique.</p>
+</div>
+<div class="paragraph">
+<p>A <em>map</em> is a list of lists, the inner lists having at least one element (the key.) The keys of the map must be unique. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">using M1 = std::tuple&lt;std::pair&lt;int, int*&gt;, std::pair&lt;float, float*&gt;,
+    std::pair&lt;void, void*&gt;&gt;;
+
+using M2 = mp_list&lt;mp_list&lt;int, int*&gt;, mp_list&lt;float&gt;,
+    mp_list&lt;char, char[1], char[2]&gt;&gt;;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A <em>value list</em> is a template class whose parameters are all values (non-type template parameters.) Value lists
+match <code>template&lt;auto&#8230;&#8203;&gt; class L</code>, and require C&#43;&#43;17 (because <code>auto</code> template parameters are a C&#43;&#43;17 feature.)</p>
+</div>
+<div class="paragraph">
+<p>Value lists are only supported by a handful of the primitives. Mp11&#8217;s primary focus is on type manipulation. For
+working with lists of values, the usual approach is to convert the value list to a type list using <code>mp_rename</code>,
+manipulate the type list, then convert back to a value list using <code>mp_rename_v</code>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

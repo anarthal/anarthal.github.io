@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Boost.MySQL docs</title>
+    <link rel="canonical" href="https://localhost/mysql/boost/mysql/column_type.html">
+    <meta name="generator" content="Antora 3.1.9">
+<link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/custom.css">  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://localhost">Boost.MySQL docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="mysql" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../reference.html">Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Boost.MySQL</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../index.html">Boost.MySQL</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="edit-this-page"><a href="file:///home/ruben/workspace/boost-root/libs/mysql/private/asciidoc/mysql/modules/ROOT/pages/boost/mysql/column_type.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_boostmysqlcolumn_type"><a class="anchor" href="#_boostmysqlcolumn_type"></a>boost::mysql::column_type</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defined in header <code class="link-to-entity bg-white">&lt;boost/mysql/column_type.hpp&gt;</code></p>
+</div>
+<div class="listingblock raw-code">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">enum class column_type;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Represents the database type of a MySQL column.</p>
+</div>
+<div class="paragraph">
+<p>This represents a database type, as opposed to <a href="field_kind.html" class="xref page">field_kind</a>, which represents a C++ type.</p>
+</div>
+<div class="paragraph">
+<p>Unless otherwise noted, the names in this enumeration directly correspond to the names of the types you would use in a <code>CREATE TABLE</code> statement to create a column of this type (e.g. <code>VARCHAR</code> corresponds to <a href="#">varchar</a>).</p>
+</div>
+<div class="sect2">
+<h3 id="_enumerators"><a class="anchor" href="#_enumerators"></a>Enumerators</h3>
+<table class="tableblock frame-none grid-rows stretch mt-0">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">tinyint</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>TINYINT</code> (signed and unsigned).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">smallint</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>SMALLINT</code> (signed and unsigned).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">mediumint</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>MEDIUMINT</code> (signed and unsigned).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">int_</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>INT</code> (signed and unsigned).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">bigint</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>BIGINT</code> (signed and unsigned).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">float_</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>FLOAT</code> (warning: FLOAT(p) where p &gt;= 24 creates a DOUBLE column).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">double_</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>DOUBLE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">decimal</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>DECIMAL</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">bit</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>BIT</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">year</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>YEAR</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">time</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>TIME</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">date</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>DATE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">datetime</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>DATETIME</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">timestamp</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>TIMESTAMP</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">char_</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>CHAR</code> (any length)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">varchar</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>VARCHAR</code> (any length)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">binary</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>BINARY</code> (any length)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">varbinary</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>VARBINARY</code> (any length)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">text</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>TEXT</code> types (<code>TINYTEXT</code>, <code>MEDIUMTEXT</code>, <code>TEXT</code> and <code>LONGTEXT</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">blob</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>BLOB</code> types (<code>TINYBLOB</code>, <code>MEDIUMBLOB</code>, <code>BLOB</code> and <code>LONGBLOB</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">enum_</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>ENUM</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">set</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>SET</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">json</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>JSON</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">geometry</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>GEOMETRY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code class="link-to-entity bg-white">unknown</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">None of the known types; maybe a new MySQL type we have no knowledge of.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
