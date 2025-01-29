@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::client&lowbar;errc :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/client_errc.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../_'</script>
+<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../overview.html">Overview</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="client_errc.html"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::client&lowbar;errc</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::client&lowbar;errc</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>MySQL client&hyphen;defined error codes&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/client_errc.hpp#L24">boost&sol;mysql&sol;client&lowbar;errc&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">enum class client&lowbar;errc : int;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_members"><a class="anchor" href="#_members"></a>Members</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>incomplete&lowbar;message</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An incomplete message was received from the server (indicates a deserialization error or packet mismatch)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>protocol&lowbar;value&lowbar;error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An unexpected value was found in a server&hyphen;received message (indicates a deserialization error or packet mismatch)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>server&lowbar;unsupported</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The server does not support the minimum required capabilities to establish the connection&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>extra&lowbar;bytes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unexpected extra bytes at the end of a message were received (indicates a deserialization error or packet mismatch)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sequence&lowbar;number&lowbar;mismatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mismatched sequence numbers (usually caused by a packet mismatch)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unknown&lowbar;auth&lowbar;plugin</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user employs an authentication plugin not known to this library&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>auth&lowbar;plugin&lowbar;requires&lowbar;ssl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The authentication plugin requires the connection to use SSL&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wrong&lowbar;num&lowbar;params</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of parameters passed to the prepared statement does not match the number of actual parameters&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>server&lowbar;doesnt&lowbar;support&lowbar;ssl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The connection mandates SSL, but the server doesn&apos;t accept SSL connections&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>metadata&lowbar;check&lowbar;failed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The static interface detected a mismatch between your C&plus;&plus; type definitions and what the server returned in the query&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>num&lowbar;resultsets&lowbar;mismatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The static interface detected a mismatch between the number of row types passed to <a href="static_results.html" class="xref page">static&lowbar;results</a> or <a href="static_execution_state.html" class="xref page">static&lowbar;execution&lowbar;state</a> and the number of resultsets returned by your query&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>row&lowbar;type&lowbar;mismatch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>StaticRow</code> type passed to read&lowbar;some&lowbar;rows does not correspond to the resultset type being read&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>static&lowbar;row&lowbar;parsing&lowbar;error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The static interface encountered an error when parsing a field into a C&plus;&plus; data structure&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pool&lowbar;not&lowbar;running</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Getting a connection from a connection&lowbar;pool was cancelled before the pool was run&period; Ensure that you&apos;re calling connection&lowbar;pool&colon;&colon;async&lowbar;run&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pool&lowbar;cancelled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Getting a connection from a connection&lowbar;pool failed because the pool was cancelled&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>no&lowbar;connection&lowbar;available</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Getting a connection from a connection&lowbar;pool was cancelled before a connection was available&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>invalid&lowbar;encoding</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An invalid byte sequence was found while trying to decode a string&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unformattable&lowbar;value</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A formatting operation could not format one of its arguments&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>format&lowbar;string&lowbar;invalid&lowbar;syntax</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A format string containing invalid syntax was provided to a SQL formatting function&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>format&lowbar;string&lowbar;invalid&lowbar;encoding</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A format string with an invalid byte sequence was provided to a SQL formatting function&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>format&lowbar;string&lowbar;manual&lowbar;auto&lowbar;mix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A format string mixes manual (e&period;g&period; &lcub;0&rcub;) and automatic (e&period;g&period; &lcub;&rcub;) indexing&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>format&lowbar;string&lowbar;invalid&lowbar;specifier</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The supplied format specifier (e&period;g&period; &lcub;&colon;i&rcub;) is not supported by the type being formatted&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>format&lowbar;arg&lowbar;not&lowbar;found</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A format argument referenced by a format string was not found&period; Check the number of format arguments passed and their names&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unknown&lowbar;character&lowbar;set</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The character set used by the connection is not known by the client&period; Use <a href="any_connection/set_character_set-0e.html" class="xref page">any&lowbar;connection&colon;&colon;set&lowbar;character&lowbar;set</a> or <a href="any_connection/async_set_character_set-05.html" class="xref page">any&lowbar;connection&colon;&colon;async&lowbar;set&lowbar;character&lowbar;set</a> before invoking operations that require a known charset&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>max&lowbar;buffer&lowbar;size&lowbar;exceeded</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An operation attempted to read or write a packet larger than the maximum buffer size&period; Try increasing <a href="any_connection_params/max_buffer_size.html" class="xref page">any&lowbar;connection&lowbar;params&colon;&colon;max&lowbar;buffer&lowbar;size</a>&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These errors are produced by the client itself, rather than the server&period;</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

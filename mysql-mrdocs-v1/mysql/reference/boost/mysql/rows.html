@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::rows :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/rows.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../_'</script>
+<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../overview.html">Overview</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="rows.html"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::rows</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::rows</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>An owning, read&hyphen;only sequence of rows&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/rows.hpp#L41">boost&sol;mysql&sol;rows&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class rows;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types"><a class="anchor" href="#_types"></a>Types</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/const_iterator.html" class="xref page"><code>const&lowbar;iterator</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A random access iterator to an element (TODO&colon; hide this)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/const_reference.html" class="xref page"><code>const&lowbar;reference</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reference type&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/difference_type.html" class="xref page"><code>difference&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A signed integer type used to represent differences&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/iterator.html" class="xref page"><code>iterator</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A random access iterator to an element (TODO&colon; hide this)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/reference.html" class="xref page"><code>reference</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reference type&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/size_type.html" class="xref page"><code>size&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An unsigned integer type to represent sizes&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/value_type.html" class="xref page"><code>value&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A type that can hold elements in this collection with value semantics&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/at.html" class="xref page"><code>at</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the i&hyphen;th row or throws an exception&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/back.html" class="xref page"><code>back</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the last row&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/begin.html" class="xref page"><code>begin</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an iterator to the first element in the collection&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/empty.html" class="xref page"><code>empty</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns true if there are no rows in the collection (i&period;e&period; <code>this&hyphen;&gt;size() &equals;&equals; 0</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/end.html" class="xref page"><code>end</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an iterator to one&hyphen;past&hyphen;the&hyphen;last element in the collection&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/front.html" class="xref page"><code>front</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the first row&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/num_columns.html" class="xref page"><code>num&lowbar;columns</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the number of elements each row in the collection has&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/2conversion.html" class="xref page"><code>operator rows&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a <a href="rows_view.html" class="xref page">rows&lowbar;view</a> that references <code>&ast;this</code>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/operator_assign.html" class="xref page"><code>operator&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy assignment&period;</p>
+<p class="tableblock">Move assignment&period;</p>
+<p class="tableblock">Replaces the contents of <code>&ast;this</code> with a <a href="rows_view.html" class="xref page">rows&lowbar;view</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/operator_subs.html" class="xref page"><code>operator&lsqb;&rsqb;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the i&hyphen;th row (unchecked access)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/2constructor.html" class="xref page"><code>rows</code></a>         <span class="small">[constructor]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Construct an empty <code>rows</code> object&period;</p>
+<p class="tableblock">Constructs a rows object from a <a href="rows_view.html" class="xref page">rows&lowbar;view</a>&period;</p>
+<p class="tableblock">Copy constructor&period;</p>
+<p class="tableblock">Move constructor&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/size.html" class="xref page"><code>size</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the number of rows in the collection&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="rows/2destructor.html" class="xref page"><code>&#126;rows</code></a> <span class="small">[destructor]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destructor&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Models an owning, matrix&hyphen;like container&period; Indexing a <code>rows</code> object (by using iterators, <a href="rows/at.html" class="xref page">rows&colon;&colon;at</a> or <a href="rows/operator_subs.html" class="xref page">rows&colon;&colon;operator&lsqb;&rsqb;)</a> returns a <a href="row_view.html" class="xref page">row&lowbar;view</a> object, representing a single row&period; All rows in the collection are the same size (as given by <a href="rows/num_columns.html" class="xref page">num&lowbar;columns</a>)&period;</p>
+</div>
+<div class="paragraph">
+<p>A <code>rows</code> object owns a chunk of memory in which it stores its elements&period; The <a href="rows_view.html" class="xref page">rows&lowbar;view</a> objects obtained on element access point into the <code>rows</code>&apos; internal storage&period; These views (and any <a href="row_view.html" class="xref page">row&lowbar;view</a> and <a href="field_view.html" class="xref page">field&lowbar;view</a> obtained from the former) behave like references, and are valid as long as pointers, iterators and references into the <code>rows</code> object remain valid&period;</p>
+</div>
+<div class="paragraph">
+<p>Although owning, <code>rows</code> is read&hyphen;only&period; It&apos;s optimized for memory re&hyphen;use&period;</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

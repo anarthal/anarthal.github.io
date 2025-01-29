@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../_'</script>
+<link rel="icon" href="../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../overview.html">Overview</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="mysql.html"><a href="../boost.html">boost</a>::mysql</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../boost.html">boost</a>::mysql</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Boost&period;MySQL library namespace&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types"><a class="anchor" href="#_types"></a>Types</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/any_address.html" class="xref page"><code>any&lowbar;address</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A server address, identifying how to physically connect to a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/any_connection.html" class="xref page"><code>any&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A connection to a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/any_connection_params.html" class="xref page"><code>any&lowbar;connection&lowbar;params</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configuration parameters that can be passed to <a href="mysql/any_connection.html" class="xref page">any&lowbar;connection</a>&apos;s constructor&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/bad_field_access.html" class="xref page"><code>bad&lowbar;field&lowbar;access</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exception type thrown when trying to access a <a href="mysql/field.html" class="xref page">field</a> or <a href="mysql/field_view.html" class="xref page">field&lowbar;view</a> with an incorrect type&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/basic_format_context.html" class="xref page"><code>basic&lowbar;format&lowbar;context</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format context for incremental SQL formatting&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/blob.html" class="xref page"><code>blob</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Owning type used to represent binary blobs&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/blob_view.html" class="xref page"><code>blob&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non&hyphen;owning type used to represent binary blobs&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/bound_statement_iterator_range.html" class="xref page"><code>bound&lowbar;statement&lowbar;iterator&lowbar;range</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A statement with bound parameters, represented as an iterator range&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/bound_statement_tuple.html" class="xref page"><code>bound&lowbar;statement&lowbar;tuple</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A statement with bound parameters, represented as a <code>std&colon;&colon;tuple</code>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/buffer_params.html" class="xref page"><code>buffer&lowbar;params</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) Buffer configuration parameters for a connection&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/character_set.html" class="xref page"><code>character&lowbar;set</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a MySQL character set&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/connect_params.html" class="xref page"><code>connect&lowbar;params</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters to be used with <a href="mysql/any_connection.html" class="xref page">any&lowbar;connection</a> connect functions&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/connection.html" class="xref page"><code>connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) A connection to a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/connection_pool.html" class="xref page"><code>connection&lowbar;pool</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A pool of connections of variable size&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/constant_string_view.html" class="xref page"><code>constant&lowbar;string&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string view that should be known at compile&hyphen;time&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/date.html" class="xref page"><code>date</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type representing MySQL <code>DATE</code> data type&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/datetime.html" class="xref page"><code>datetime</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type representing MySQL <code>DATETIME</code> and <code>TIMESTAMP</code> data types&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/days.html" class="xref page"><code>days</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration representing a day (24 hours)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/diagnostics.html" class="xref page"><code>diagnostics</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains additional information about errors&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/error_code.html" class="xref page"><code>error&lowbar;code</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An alias for boost&colon;&colon;system error codes&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/error_with_diagnostics.html" class="xref page"><code>error&lowbar;with&lowbar;diagnostics</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A system&lowbar;error with an embedded diagnostics object&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/execution_state.html" class="xref page"><code>execution&lowbar;state</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Holds state for multi&hyphen;function SQL execution operations (dynamic interface)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/field.html" class="xref page"><code>field</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variant&hyphen;like class that can represent of any of the allowed database types&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/field_view.html" class="xref page"><code>field&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non&hyphen;owning variant&hyphen;like class that can represent of any of the allowed database types&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/format_arg.html" class="xref page"><code>format&lowbar;arg</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A named format argument, to be used in initializer lists&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/format_context.html" class="xref page"><code>format&lowbar;context</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format context for incremental SQL formatting&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/format_context_base.html" class="xref page"><code>format&lowbar;context&lowbar;base</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base class for concrete format contexts&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/format_options.html" class="xref page"><code>format&lowbar;options</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Settings required to format SQL queries client&hyphen;side&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/format_sequence.html" class="xref page"><code>format&lowbar;sequence</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The return type of <a href="mysql/sequence.html" class="xref page">sequence</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/formattable_ref.html" class="xref page"><code>formattable&lowbar;ref</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A type&hyphen;erased reference to a <code>Formattable</code> value&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/formatter-03.html" class="xref page"><code>formatter</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An extension point to customize SQL formatting&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/formatter-05.html" class="xref page"><code>formatter&lt;format&lowbar;sequence&lt;Range, FormatFn&gt;&gt;</code></a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/handshake_params.html" class="xref page"><code>handshake&lowbar;params</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) Parameters defining how to perform the handshake with a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/host_and_port.html" class="xref page"><code>host&lowbar;and&lowbar;port</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A host and port identifying how to connect to a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/make_tuple_element_t.html" class="xref page"><code>make&lowbar;tuple&lowbar;element&lowbar;t</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type trait that applies the transformation performed by <code>std&colon;&colon;make&lowbar;tuple</code> to a single element&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/metadata.html" class="xref page"><code>metadata</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Metadata about a column in a SQL query&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/metadata_collection_view.html" class="xref page"><code>metadata&lowbar;collection&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A read&hyphen;only view of a collection of <a href="mysql/metadata.html" class="xref page">metadata</a> objects&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/pipeline_request.html" class="xref page"><code>pipeline&lowbar;request</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(EXPERIMENTAL) A pipeline request&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/pool_params.html" class="xref page"><code>pool&lowbar;params</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Configuration parameters for <a href="mysql/connection_pool.html" class="xref page">connection&lowbar;pool</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/pooled_connection.html" class="xref page"><code>pooled&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A proxy to a connection owned by a pool that returns it to the pool when destroyed&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/results.html" class="xref page"><code>results</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Holds the results of a SQL query (dynamic interface)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/resultset.html" class="xref page"><code>resultset</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An owning resultset, containing metadata, rows and additional info&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/resultset_view.html" class="xref page"><code>resultset&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A non&hyphen;owning reference to a resultset&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/row.html" class="xref page"><code>row</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An owning, read&hyphen;only sequence of fields&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/row_view.html" class="xref page"><code>row&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A non&hyphen;owning read&hyphen;only reference to a sequence of fields&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/rows.html" class="xref page"><code>rows</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An owning, read&hyphen;only sequence of rows&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/rows_view.html" class="xref page"><code>rows&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A non&hyphen;owning read&hyphen;only reference to a sequence of rows&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/sequence_range_t.html" class="xref page"><code>sequence&lowbar;range&lowbar;t</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of range produced by <a href="mysql/sequence.html" class="xref page">sequence</a> (TODO&colon; hide this)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/stage_response.html" class="xref page"><code>stage&lowbar;response</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(EXPERIMENTAL) A variant&hyphen;like type holding the response of a single pipeline stage&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/statement.html" class="xref page"><code>statement</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a server&hyphen;side prepared statement&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/static_execution_state.html" class="xref page"><code>static&lowbar;execution&lowbar;state</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Holds state for multi&hyphen;function SQL execution operations (static interface)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/static_results.html" class="xref page"><code>static&lowbar;results</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Holds the results of a SQL query (static interface)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/string_view.html" class="xref page"><code>string&lowbar;view</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type used to represent read&hyphen;only string references, similar to <code>std&colon;&colon;string&lowbar;view</code>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/tcp_connection.html" class="xref page"><code>tcp&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) A connection to MySQL over a TCP socket&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/tcp_ssl_connection.html" class="xref page"><code>tcp&lowbar;ssl&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) A connection to MySQL over a TCP socket using TLS&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/time.html" class="xref page"><code>time</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type representing MySQL <code>TIME</code> data type&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/underlying_row_t.html" class="xref page"><code>underlying&lowbar;row&lowbar;t</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type trait to retrieve the underlying row type (TODO&colon; see this)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/unix_connection.html" class="xref page"><code>unix&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) A connection to MySQL over a UNIX domain socket&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/unix_path.html" class="xref page"><code>unix&lowbar;path</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains a UNIX&hyphen;socket domain path&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/unix_ssl_connection.html" class="xref page"><code>unix&lowbar;ssl&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) A connection to MySQL over a UNIX domain socket over TLS&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/with_diagnostics_t.html" class="xref page"><code>with&lowbar;diagnostics&lowbar;t</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A completion token adapter used to include server diagnostics in exceptions&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/with_params_t.html" class="xref page"><code>with&lowbar;params&lowbar;t</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A query format string and format arguments that can be executed&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enums"><a class="anchor" href="#_enums"></a>Enums</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/address_type.html" class="xref page"><code>address&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of an address identifying a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/client_errc.html" class="xref page"><code>client&lowbar;errc</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MySQL client&hyphen;defined error codes&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/column_type.html" class="xref page"><code>column&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the database type of a MySQL column&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/common_server_errc.html" class="xref page"><code>common&lowbar;server&lowbar;errc</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Server&hyphen;defined error codes, shared between MySQL and MariaDB&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/field_kind.html" class="xref page"><code>field&lowbar;kind</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the possible C&plus;&plus; types a <code>field</code> or <code>field&lowbar;view</code> may have&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/metadata_mode.html" class="xref page"><code>metadata&lowbar;mode</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Describes how to handle metadata when running a query or statement&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/quoting_context.html" class="xref page"><code>quoting&lowbar;context</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifies the context which a string is being escaped for&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/ssl_mode.html" class="xref page"><code>ssl&lowbar;mode</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines how to perform SSL negotiation with the server&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/escape_string.html" class="xref page"><code>escape&lowbar;string</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Escapes a string, making it safe for query composition&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/format_sql.html" class="xref page"><code>format&lowbar;sql</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Composes a SQL query client&hyphen;side&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/format_sql_to.html" class="xref page"><code>format&lowbar;sql&lowbar;to</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Composes a SQL query client&hyphen;side appending it to a format context&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/get_client_category.html" class="xref page"><code>get&lowbar;client&lowbar;category</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the error&lowbar;category associated to <a href="mysql/client_errc.html" class="xref page">client&lowbar;errc</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/get_common_server_category.html" class="xref page"><code>get&lowbar;common&lowbar;server&lowbar;category</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the error&lowbar;category associated to <a href="mysql/common_server_errc.html" class="xref page">common&lowbar;server&lowbar;errc</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/get_mariadb_server_category.html" class="xref page"><code>get&lowbar;mariadb&lowbar;server&lowbar;category</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the error&lowbar;category associated to errors specific to MariaDB&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/get_mysql_server_category.html" class="xref page"><code>get&lowbar;mysql&lowbar;server&lowbar;category</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the error&lowbar;category associated to errors specific to MySQL&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/is_fatal_error.html" class="xref page"><code>is&lowbar;fatal&lowbar;error</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks whether an error requires re&hyphen;connection&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/make_error_code.html" class="xref page"><code>make&lowbar;error&lowbar;code</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an <a href="mysql/error_code.html" class="xref page">error&lowbar;code</a> from a <a href="mysql/client_errc.html" class="xref page">client&lowbar;errc</a>&period;</p>
+<p class="tableblock">Creates an <a href="mysql/error_code.html" class="xref page">error&lowbar;code</a> from a <a href="mysql/common_server_errc.html" class="xref page">common&lowbar;server&lowbar;errc</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/operator_not_eq.html" class="xref page"><code>operator!&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compares two diagnostics objects&period;</p>
+<p class="tableblock">Inequality operator&period;</p>
+<p class="tableblock">Tests for inequality&period;</p>
+<p class="tableblock">row row&colon;&colon;operator!&equals;(const row&amp;,const row&amp;)</p>
+<p class="tableblock">rows rows&colon;&colon;operator!&equals;(const rows&amp;, const rows&amp;)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/operator_lshift.html" class="xref page"><code>operator&lt;&lt;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Streams a <code>column&lowbar;type</code>&period;</p>
+<p class="tableblock">Streams a <code>field&lowbar;view</code>&period;</p>
+<p class="tableblock">Streams a <code>field</code>&period;</p>
+<p class="tableblock">Streams a date&period;</p>
+<p class="tableblock">Streams a datetime&period;</p>
+<p class="tableblock">Streams a field&lowbar;kind&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/operator_eq.html" class="xref page"><code>operator&equals;&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compares two diagnostics objects&period;</p>
+<p class="tableblock">Equality operator&period;</p>
+<p class="tableblock">Tests for equality&period;</p>
+<p class="tableblock">row row&colon;&colon;operator&equals;&equals;(const row&amp;,const row&amp;)</p>
+<p class="tableblock">rows rows&colon;&colon;operator&equals;&equals;(const rows&amp;, const rows&amp;)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/runtime.html" class="xref page"><code>runtime</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a <a href="mysql/constant_string_view.html" class="xref page">constant&lowbar;string&lowbar;view</a> from a runtime value&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/sequence.html" class="xref page"><code>sequence</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an object that, when formatted, applies a per&hyphen;element function to a range&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/throw_on_error.html" class="xref page"><code>throw&lowbar;on&lowbar;error</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Legacy) Throws an exception in case of error, including diagnostic information&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/with_diagnostics.html" class="xref page"><code>with&lowbar;diagnostics</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a <a href="mysql/with_diagnostics_t.html" class="xref page">with&lowbar;diagnostics&lowbar;t</a> from a completion token&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/with_params.html" class="xref page"><code>with&lowbar;params</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a query with parameters (client&hyphen;side SQL formatting) that can be executed&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_variables"><a class="anchor" href="#_variables"></a>Variables</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/ascii_charset.html" class="xref page"><code>ascii&lowbar;charset</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ascii character set&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/default_initial_read_buffer_size.html" class="xref page"><code>default&lowbar;initial&lowbar;read&lowbar;buffer&lowbar;size</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default initial size of the connection&apos;s internal buffer, in bytes&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/default_port.html" class="xref page"><code>default&lowbar;port</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default TCP port for the MySQL protocol&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/default_port_string.html" class="xref page"><code>default&lowbar;port&lowbar;string</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default TCP port for the MySQL protocol, as a string&period; Useful for hostname resolution&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/max_date.html" class="xref page"><code>max&lowbar;date</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum allowed value for <a href="mysql/date.html" class="xref page">date</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/max_datetime.html" class="xref page"><code>max&lowbar;datetime</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum allowed value for <a href="mysql/datetime.html" class="xref page">datetime</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/max_time.html" class="xref page"><code>max&lowbar;time</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum allowed value for <a href="mysql/time.html" class="xref page">time</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/min_date.html" class="xref page"><code>min&lowbar;date</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum allowed value for <a href="mysql/date.html" class="xref page">date</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/min_datetime.html" class="xref page"><code>min&lowbar;datetime</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum allowed value for <a href="mysql/datetime.html" class="xref page">datetime</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/min_time.html" class="xref page"><code>min&lowbar;time</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum allowed value for <a href="mysql/time.html" class="xref page">time</a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mysql/utf8mb4_charset.html" class="xref page"><code>utf8mb4&lowbar;charset</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The utf8mb4 character set (the one you should use by default)&period;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>
