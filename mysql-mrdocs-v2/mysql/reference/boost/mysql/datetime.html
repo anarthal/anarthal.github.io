@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::datetime :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/datetime.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../_'</script>
+<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../overview.html">Mytest</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="datetime.html"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::datetime</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::datetime</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Type representing MySQL <code>DATETIME</code> and <code>TIMESTAMP</code> data types&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/datetime.hpp#L53">boost&sol;mysql&sol;datetime&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class datetime;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types"><a class="anchor" href="#_types"></a>Types</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/local_time_point.html" class="xref page"><code>local&lowbar;time&lowbar;point</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>std&colon;&colon;chrono&colon;&colon;local&lowbar;time</code> that can represent any valid datetime, with microsecond resolution&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/time_point.html" class="xref page"><code>time&lowbar;point</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>std&colon;&colon;chrono&colon;&colon;time&lowbar;point</code> that can represent any valid datetime, with microsecond resolution&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/as_local_time_point.html" class="xref page"><code>as&lowbar;local&lowbar;time&lowbar;point</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Converts <code>&ast;this</code> into a local time point (checked access)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/as_time_point.html" class="xref page"><code>as&lowbar;time&lowbar;point</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Converts <code>&ast;this</code> into a <code>time&lowbar;point</code> (checked access)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/2constructor.html" class="xref page"><code>datetime</code></a>         <span class="small">[constructor]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Constructs a datetime from a <code>local&lowbar;time&lowbar;point</code>&period;</p>
+<p class="tableblock">Constructs a datetime from a <code>time&lowbar;point</code>&period;</p>
+<p class="tableblock">Constructs a datetime from its individual components&period;</p>
+<p class="tableblock">Constructs a zero datetime&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/day.html" class="xref page"><code>day</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the day component (1&hyphen;based)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/get_local_time_point.html" class="xref page"><code>get&lowbar;local&lowbar;time&lowbar;point</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Converts <code>&ast;this</code> into a <code>local&lowbar;time&lowbar;point</code> (unchecked access)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/get_time_point.html" class="xref page"><code>get&lowbar;time&lowbar;point</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Converts <code>&ast;this</code> into a <code>time&lowbar;point</code> (unchecked access)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/hour.html" class="xref page"><code>hour</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the hour component&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/microsecond.html" class="xref page"><code>microsecond</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the microsecond component&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/minute.html" class="xref page"><code>minute</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the minute component&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/month.html" class="xref page"><code>month</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the month component (1&hyphen;based)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/operator_not_eq.html" class="xref page"><code>operator!&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests for inequality&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/operator_eq.html" class="xref page"><code>operator&equals;&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests for equality&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/second.html" class="xref page"><code>second</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the second component&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/valid.html" class="xref page"><code>valid</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns <code>true</code> if <code>&ast;this</code> represents a valid <code>time&lowbar;point</code>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/year.html" class="xref page"><code>year</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the year component&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_static_member_functions"><a class="anchor" href="#_static_member_functions"></a>Static Member Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="datetime/now.html" class="xref page"><code>now</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the current system time as a datetime object&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Represents a Gregorian date and time broken by its year, month, day, hour, minute, second and microsecond components, without a time zone&period;</p>
+</div>
+<div class="paragraph">
+<p>This type is close to the protocol and should not be used as a vocabulary type&period; Instead, cast it to a <code>std&colon;&colon;chrono&colon;&colon;time&lowbar;point</code> by calling <a href="datetime/as_time_point.html" class="xref page">as&lowbar;time&lowbar;point</a>, <a href="datetime/get_time_point.html" class="xref page">get&lowbar;time&lowbar;point</a>, <a href="datetime/as_local_time_point.html" class="xref page">as&lowbar;local&lowbar;time&lowbar;point</a> or <a href="datetime/get_local_time_point.html" class="xref page">get&lowbar;local&lowbar;time&lowbar;point</a>&period;</p>
+</div>
+<div class="paragraph">
+<p>Datetimes retrieved from MySQL don&apos;t include any time zone information&period; Determining the time zone is left to the application&period; Thus, any time point obtained from this class should be interpreted as a local time in an unspecified time zone, like <code>std&colon;&colon;chrono&colon;&colon;local&lowbar;time</code>&period; For compatibility with older compilers, <a href="datetime/as_time_point.html" class="xref page">as&lowbar;time&lowbar;point</a> and <a href="datetime/get_time_point.html" class="xref page">get&lowbar;time&lowbar;point</a> return <code>system&lowbar;clock</code> time points&period; These should be interpreted as local times rather than UTC&period; Prefer using <a href="datetime/as_local_time_point.html" class="xref page">as&lowbar;local&lowbar;time&lowbar;point</a> or <a href="datetime/get_local_time_point.html" class="xref page">get&lowbar;local&lowbar;time&lowbar;point</a> if your compiler supports them, as they provide more accurate semantics&period;</p>
+</div>
+<div class="paragraph">
+<p>As opposed to <code>time&lowbar;point</code>, this type allows representing MySQL invalid and zero datetimes&period; These values are allowed by MySQL but don&apos;t represent real time points&period;</p>
+</div>
+<div class="paragraph">
+<p>Note&colon; using <code>std&colon;&colon;chrono</code> time zone functionality under MSVC may cause memory leaks to be reported&period; See <a href="https://github.com/microsoft/STL/issues/2047">this issue</a> for an explanation and <a href="https://github.com/microsoft/STL/issues/2504">this other issue</a> for a workaround&period;</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

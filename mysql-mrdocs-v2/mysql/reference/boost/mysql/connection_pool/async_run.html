@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::connection&lowbar;pool::async&lowbar;run :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/connection_pool/async_run.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../../_'</script>
+<link rel="icon" href="../../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../overview.html">Mytest</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="async_run.html"><a href="../../../boost.html">boost</a>::<a href="../../../boost/mysql.html">mysql</a>::<a href="../../../boost/mysql/connection_pool.html">connection&lowbar;pool</a>::async&lowbar;run</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../../boost.html">boost</a>::<a href="../../../boost/mysql.html">mysql</a>::<a href="../../../boost/mysql/connection_pool.html">connection&lowbar;pool</a>::async&lowbar;run</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Runs the pool task in charge of managing connections&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/connection_pool.hpp#L585">boost&sol;mysql&sol;connection&lowbar;pool&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template&lt;<a href="../../../boost.html" class="xref page">boost</a>::asio::completion&lowbar;token&lowbar;for&lt;void(<a href="../error_code.html" class="xref page">error&lowbar;code</a>)&gt; CompletionToken = <a href="../with_diagnostics_t.html" class="xref page">with&lowbar;diagnostics&lowbar;t</a>&lt;asio::deferred&lowbar;t&gt;&gt;
+auto
+async&lowbar;run(CompletionToken&amp;&amp; token = &lcub;&rcub;);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This function creates and connects new connections, and resets and pings already created ones&period; You need to call this function for <a href="async_get_connection-0f.html" class="xref page">async&lowbar;get&lowbar;connection</a> to succeed&period;</p>
+</div>
+<div class="paragraph">
+<p>The async operation will run indefinitely, until the pool is cancelled (by calling <a href="cancel.html" class="xref page">cancel</a> or using per&hyphen;operation cancellation on the <code>async&lowbar;run</code> operation)&period; The operation completes once all internal connection operations (including connects, pings and resets) complete&period;</p>
+</div>
+<div class="paragraph">
+<p>It is safe to call this function after calling <a href="cancel.html" class="xref page">cancel</a>&period;</p>
+</div>
+<div class="sect2">
+<h3 id="_preconditions"><a class="anchor" href="#_preconditions"></a>Preconditions</h3>
+<div class="paragraph">
+<p>This function can be called at most once for a single pool&period; Formally, <code>async&lowbar;run</code> hasn&apos;t been called before on <code>&ast;this</code> or any object used to move&hyphen;construct or move&hyphen;assign <code>&ast;this</code>&period;</p>
+</div>
+<div class="paragraph">
+<p>Additionally, <code>this&hyphen;&gt;valid() &equals;&equals; true</code>&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_object_lifetimes"><a class="anchor" href="#_object_lifetimes"></a>Object lifetimes</h3>
+<div class="paragraph">
+<p>While the operation is outstanding, the pool&apos;s internal data will be kept alive&period; It is safe to destroy <code>&ast;this</code> while the operation is outstanding&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_handler_signature"><a class="anchor" href="#_handler_signature"></a>Handler signature</h3>
+<div class="paragraph">
+<p>The handler signature for this operation is <code>void(boost&colon;&colon;mysql&colon;&colon;error&lowbar;code)</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_executor"><a class="anchor" href="#_executor"></a>Executor</h3>
+<div class="paragraph">
+<p>The final handler is executed using <code>token</code>&apos;s associated executor, or <code>this&hyphen;&gt;get&lowbar;executor()</code> if the token doesn&apos;t have an associated executor&period; The final handler is called as if it was submitted using <code>asio&colon;&colon;post</code>, and is never be called inline from within this function&period;</p>
+</div>
+<div class="paragraph">
+<p>If the pool was constructed with thread&hyphen;safety enabled, intermediate completion handlers are executed using an internal strand that wraps <code>this&hyphen;&gt;get&lowbar;executor()</code>&period; Otherwise, intermediate handlers are executed using <code>this&hyphen;&gt;get&lowbar;executor()</code>&period; In any case, the token&apos;s associated executor is only used for the final handler&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_peroperation_cancellation"><a class="anchor" href="#_peroperation_cancellation"></a>Per&hyphen;operation cancellation</h3>
+<div class="paragraph">
+<p>This operation supports per&hyphen;operation cancellation&period; Cancelling <code>async&lowbar;run</code> is equivalent to calling <a href="cancel.html" class="xref page">connection&lowbar;pool&colon;&colon;cancel</a>&period; The following <code>asio&colon;&colon;cancellation&lowbar;type&lowbar;t</code> values are supported&colon;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>asio&colon;&colon;cancellation&lowbar;type&lowbar;t&colon;&colon;terminal</code></p>
+</li>
+<li>
+<p><code>asio&colon;&colon;cancellation&lowbar;type&lowbar;t&colon;&colon;partial</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that <code>asio&colon;&colon;cancellation&lowbar;type&lowbar;t&colon;&colon;total</code> is not supported because invoking <code>async&lowbar;run</code> always has observable side effects&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_errors"><a class="anchor" href="#_errors"></a>Errors</h3>
+<div class="paragraph">
+<p>This function always complete successfully&period; The handler signature ensures maximum compatibility with Boost&period;Asio infrastructure&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_threadsafety"><a class="anchor" href="#_threadsafety"></a>Thread&hyphen;safety</h3>
+<div class="paragraph">
+<p>Reads the internal state handle&period; Mutates the pool state&period; If the pool was built with thread&hyphen;safety enabled, it can be called concurrently with other functions that don&apos;t modify the state handle&period;</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../../_/js/site.js" data-ui-root-path="../../../../../_"></script>
+<script async src="../../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

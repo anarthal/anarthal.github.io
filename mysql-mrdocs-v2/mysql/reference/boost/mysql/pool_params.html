@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::pool&lowbar;params :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/pool_params.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../_'</script>
+<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../overview.html">Mytest</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="pool_params.html"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::pool&lowbar;params</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::pool&lowbar;params</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Configuration parameters for <a href="connection_pool.html" class="xref page">connection&lowbar;pool</a>&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/pool_params.hpp#L31">boost&sol;mysql&sol;pool&lowbar;params&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">struct pool&lowbar;params;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_members"><a class="anchor" href="#_data_members"></a>Data Members</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/connect_timeout.html" class="xref page"><code>connect&lowbar;timeout</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timeout to use when connecting&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/connection_executor.html" class="xref page"><code>connection&lowbar;executor</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The executor to be used by individual connections created by the pool&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/database.html" class="xref page"><code>database</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Database name that connections created by the pool will use when connecting&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/initial_buffer_size.html" class="xref page"><code>initial&lowbar;buffer&lowbar;size</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial size (in bytes) of the internal buffer for the connections created by the pool&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/initial_size.html" class="xref page"><code>initial&lowbar;size</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial number of connections to create&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/max_size.html" class="xref page"><code>max&lowbar;size</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Max number of connections to create&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/multi_queries.html" class="xref page"><code>multi&lowbar;queries</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to enable support for semicolon&hyphen;separated text queries for connections created by the pool&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/password.html" class="xref page"><code>password</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password that connections created by the pool should use&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/ping_interval.html" class="xref page"><code>ping&lowbar;interval</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The health&hyphen;check interval&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/ping_timeout.html" class="xref page"><code>ping&lowbar;timeout</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timeout to use for pings and session resets&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/retry_interval.html" class="xref page"><code>retry&lowbar;interval</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The interval between connect attempts&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/server_address.html" class="xref page"><code>server&lowbar;address</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines how to establish a physical connection to the MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/ssl.html" class="xref page"><code>ssl</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls whether connections created by the pool will use TLS or not&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/ssl_ctx.html" class="xref page"><code>ssl&lowbar;ctx</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SSL context to use for connections using TLS&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/thread_safe.html" class="xref page"><code>thread&lowbar;safe</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables thread&hyphen;safety&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="pool_params/username.html" class="xref page"><code>username</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User name that connections created by the pool should use to authenticate as&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is an owning type&period;</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

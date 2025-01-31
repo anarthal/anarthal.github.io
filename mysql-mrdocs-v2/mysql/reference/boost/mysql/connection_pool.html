@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::connection&lowbar;pool :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/connection_pool.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../_'</script>
+<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../overview.html">Mytest</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="connection_pool.html"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::connection&lowbar;pool</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::connection&lowbar;pool</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A pool of connections of variable size&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/connection_pool.hpp#L290">boost&sol;mysql&sol;connection&lowbar;pool&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class connection&lowbar;pool;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types"><a class="anchor" href="#_types"></a>Types</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/executor_type.html" class="xref page"><code>executor&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The executor type associated to this object&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/async_get_connection.html" class="xref page"><code>async&lowbar;get&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves a connection from the pool&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/async_run.html" class="xref page"><code>async&lowbar;run</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runs the pool task in charge of managing connections&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/cancel.html" class="xref page"><code>cancel</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stops any current outstanding operation and marks the pool as cancelled&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/2constructor.html" class="xref page"><code>connection&lowbar;pool</code></a>         <span class="small">[constructor]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Constructs a connection pool&period;</p>
+<p class="tableblock">Move&hyphen;constructor&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/get_executor.html" class="xref page"><code>get&lowbar;executor</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the executor associated to this object&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/operator_assign.html" class="xref page"><code>operator&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move assignment&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/valid.html" class="xref page"><code>valid</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns whether the object is in a moved&hyphen;from state&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection_pool/2destructor.html" class="xref page"><code>&#126;connection&lowbar;pool</code></a> <span class="small">[destructor]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Destructor&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A connection pool creates and manages <a href="any_connection.html" class="xref page">any&lowbar;connection</a> objects&period; Using a pool allows to reuse sessions, avoiding part of the overhead associated to session establishment&period; It also features built&hyphen;in error handling and reconnection&period; See the discussion and examples for more details on when to use this class&period;</p>
+</div>
+<div class="paragraph">
+<p>Connections are retrieved by <a href="connection_pool/async_get_connection-0f.html" class="xref page">async&lowbar;get&lowbar;connection</a>, which yields a <a href="pooled_connection.html" class="xref page">pooled&lowbar;connection</a> object&period; They are returned to the pool when the <code>pooled&lowbar;connection</code> is destroyed, or by calling <a href="pooled_connection/return_without_reset.html" class="xref page">pooled&lowbar;connection&colon;&colon;return&lowbar;without&lowbar;reset</a>&period;</p>
+</div>
+<div class="paragraph">
+<p>A pool needs to be run before it can return any connection&period; Use <a href="connection_pool/async_run.html" class="xref page">async&lowbar;run</a> for this&period; Pools can only be run once&period;</p>
+</div>
+<div class="paragraph">
+<p>Connections are created, connected and managed internally by the pool, following a well&hyphen;defined state model&period; Please refer to the discussion for details&period;</p>
+</div>
+<div class="paragraph">
+<p>Due to oddities in Boost&period;Asio&apos;s universal async model, this class only exposes async functions&period; You can use <code>asio&colon;&colon;use&lowbar;future</code> to transform them into sync functions (please read the discussion for details)&period;</p>
+</div>
+<div class="paragraph">
+<p>This is a move&hyphen;only type&period;</p>
+</div>
+<div class="sect2">
+<h3 id="_default_completion_tokens"><a class="anchor" href="#_default_completion_tokens"></a>Default completion tokens</h3>
+<div class="paragraph">
+<p>The default completion token for all async operations in this class is <code>with&lowbar;diagnostics(asio&colon;&colon;deferred)</code>, which allows you to use <code>co&lowbar;await</code> and have the expected exceptions thrown on error&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_threadsafety"><a class="anchor" href="#_threadsafety"></a>Thread&hyphen;safety</h3>
+<div class="paragraph">
+<p>Pools are composed of an internal state object, plus a handle to such state&period; Each component has different thread&hyphen;safety rules&period;</p>
+</div>
+<div class="paragraph">
+<p>Regarding <strong>internal state</strong>, connection pools are <strong>not thread&hyphen;safe by default</strong>, but can be made safe by constructing them with <a href="pool_params/thread_safe.html" class="xref page">pool&lowbar;params&colon;&colon;thread&lowbar;safe</a> set to <code>true</code>&period; Internal state is also mutated by some functions outside <code>connection&lowbar;pool</code>, like returning connections&period;</p>
+</div>
+<div class="paragraph">
+<p>The following actions imply a pool state mutation, and are protected by a strand when thread&hyphen;safety is enabled&colon;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Calling
+connection&lowbar;pool&colon;&colon;async&lowbar;run
+&period;</p>
+</li>
+<li>
+<p>Calling
+connection&lowbar;pool&colon;&colon;async&lowbar;get&lowbar;connection
+&period;</p>
+</li>
+<li>
+<p>Cancelling
+async&lowbar;get&lowbar;connection
+ by emitting a cancellation signal&period;</p>
+</li>
+<li>
+<p>Returning a connection by destroying a
+pooled&lowbar;connection
+ or     calling
+pooled&lowbar;connection&colon;&colon;return&lowbar;without&lowbar;reset
+&period;</p>
+</li>
+<li>
+<p>Cancelling the pool by calling
+connection&lowbar;pool&colon;&colon;cancel
+,     emitting a cancellation signal for
+async&lowbar;run
+, or destroying the
+<code>connection&lowbar;pool</code>
+ object&period;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>handle to the pool state</strong> is <strong>never thread&hyphen;safe</strong>, even for pools with thread&hyphen;safety enabled&period; Functions like assignments modify the handle, and cause race conditions if called concurrently with other functions&period; Other objects, like <a href="pooled_connection.html" class="xref page">pooled&lowbar;connection</a>, have their own state handle, and thus interact only with the pool state&period;</p>
+</div>
+<div class="paragraph">
+<p>In summary&colon;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Distinct objects&colon; safe&period;</p>
+</li>
+<li>
+<p>Shared objects&colon; unsafe&period; Setting
+pool&lowbar;params&colon;&colon;thread&lowbar;safe
+      to
+<code>true</code>
+ makes some functions safe&period;</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_object_lifetimes"><a class="anchor" href="#_object_lifetimes"></a>Object lifetimes</h3>
+<div class="paragraph">
+<p>Connection pool objects create an internal state object that is referenced by other objects and operations (like <a href="pooled_connection.html" class="xref page">pooled&lowbar;connection</a>)&period; This object will be kept alive using shared ownership semantics even after the <code>connection&lowbar;pool</code> object is destroyed&period; This results in intuitive lifetime rules&period;</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

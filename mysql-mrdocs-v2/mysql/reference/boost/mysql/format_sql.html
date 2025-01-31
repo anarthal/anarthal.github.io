@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::format&lowbar;sql :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/format_sql.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../_'</script>
+<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../overview.html">Mytest</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="format_sql.html"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::format&lowbar;sql</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::format&lowbar;sql</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Composes a SQL query client&hyphen;side&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/format_sql.hpp#L533">boost&sol;mysql&sol;format&lowbar;sql&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template&lt;class&#8230;&#8203; Formattable&gt;
+std::string
+<a href="format_sql-01.html" class="xref page">format&lowbar;sql</a>(
+    <a href="format_options.html" class="xref page">format&lowbar;options</a> opts,
+    <a href="constant_string_view.html" class="xref page">constant&lowbar;string&lowbar;view</a> format&lowbar;str,
+    Formattable&amp;&amp;&#8230;&#8203; args);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="small"><a href="format_sql-01.html" class="xref page"><em>» more&#8230;&#8203;</em></a></span></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">std::string
+<a href="format_sql-0b.html" class="xref page">format&lowbar;sql</a>(
+    <a href="format_options.html" class="xref page">format&lowbar;options</a> opts,
+    <a href="constant_string_view.html" class="xref page">constant&lowbar;string&lowbar;view</a> format&lowbar;str,
+    std::initializer&lowbar;list&lt;<a href="format_arg.html" class="xref page">format&lowbar;arg</a>&gt; args);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="small"><a href="format_sql-0b.html" class="xref page"><em>» more&#8230;&#8203;</em></a></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parses <code>format&lowbar;str</code> as a format string, substituting replacement fields (like <code>&lcub;&rcub;</code>, <code>&lcub;1&rcub;</code> or <code>&lcub;name&rcub;</code>) by formatted arguments, extracted from <code>args</code>&period; <code>opts</code> is using to parse the string and format string arguments&period;</p>
+</div>
+<div class="paragraph">
+<p>Formatting is performed as if <a href="format_context_base/append_raw.html" class="xref page">format&lowbar;context&colon;&colon;append&lowbar;raw</a> and <a href="format_context_base/append_value.html" class="xref page">format&lowbar;context&colon;&colon;append&lowbar;value</a> were called on a context created by this function&period;</p>
+</div>
+<div class="sect2">
+<h3 id="_exception_safety"><a class="anchor" href="#_exception_safety"></a>Exception safety</h3>
+<div class="paragraph">
+<p>Strong guarantee&period; Memory allocations may throw&period; <code>boost&colon;&colon;system&colon;&colon;system&lowbar;error</code> is thrown if an error is found while formatting&period; See below for more info&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_errors"><a class="anchor" href="#_errors"></a>Errors</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>client&lowbar;errc&colon;&colon;invalid&lowbar;encoding
+ if
+<code>args</code>
+ contains a string with byte sequences     that can&apos;t be decoded with the current character set&period;</p>
+</li>
+<li>
+<p>client&lowbar;errc&colon;&colon;unformattable&lowbar;value
+ if
+<code>args</code>
+ contains a floating&hyphen;point value     that is NaN or infinity&period;</p>
+</li>
+<li>
+<p>client&lowbar;errc&colon;&colon;format&lowbar;string&lowbar;invalid&lowbar;specifier
+if a replacement field includes          a specifier not supported by the type being formatted&period;</p>
+</li>
+<li>
+<p>Any other error generated by user&hyphen;defined
+formatter
+ specializations&period;</p>
+</li>
+<li>
+<p>client&lowbar;errc&colon;&colon;format&lowbar;string&lowbar;invalid&lowbar;syntax
+ if
+<code>format&lowbar;str</code>
+ can&apos;t be parsed as     a format string&period;</p>
+</li>
+<li>
+<p>client&lowbar;errc&colon;&colon;format&lowbar;string&lowbar;invalid&lowbar;encoding
+ if
+<code>format&lowbar;str</code>
+ contains byte byte sequences     that can&apos;t be decoded with the current character set&period;</p>
+</li>
+<li>
+<p>client&lowbar;errc&colon;&colon;format&lowbar;string&lowbar;manual&lowbar;auto&lowbar;mix
+ if
+<code>format&lowbar;str</code>
+ contains a mix of automatic     (
+<code>&lcub;&rcub;</code>
+) and manual indexed (
+<code>&lcub;1&rcub;</code>
+) replacement fields&period;</p>
+</li>
+<li>
+<p>client&lowbar;errc&colon;&colon;format&lowbar;arg&lowbar;not&lowbar;found
+ if an argument referenced by
+<code>format&lowbar;str</code>
+ isn&apos;t present     in
+<code>args</code>
+ (there aren&apos;t enough arguments or a named argument is not found)&period;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/index.html">
+    <link rel="next" href="overview.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../_/css/boostlook.css">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../_'</script>
+<link rel="icon" href="../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class=" is-current-page" data-depth="1">
+            <a class="nav-link" href="index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="overview.html">Mytest</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="reference/index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="index.html">Introduction</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+    <a accesskey="p" href="overview.html"><span class="material-symbols-outlined" title="Next: Mytest">arrow_forward</span></a>
+</div>
+</div>
+    <h1 class="page">Introduction</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Boost.MySQL is a C++11 client for the <a href="https://www.mysql.com/">MySQL</a> and <a href="https://mariadb.com/">MariaDB</a> database servers, based on Boost.Asio.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_motivation"><a class="anchor" href="#_motivation"></a>Motivation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MySQL and MariaDB are widespread SQL database servers. MySQL
+clients connect to the server in order to issue SQL queries. For this
+purpose, MySQL employs a dedicated protocol. Boost.MySQL is an
+implementation of the client side of this protocol.</p>
+</div>
+<div class="paragraph">
+<p>This library is a full implementation of the
+<a href="https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_PROTOCOL.html">MySQL client/server protocol</a>.
+It aims to expose the protocol primitives in an efficient but easy-to-use way.
+It is similar in scope to the official <a href="https://dev.mysql.com/doc/c-api/8.0/en/">libmysqlclient</a>,
+but interoperable with Asio, safer and more expressive. Note that Boost.MySQL
+<strong>does not use libmysqlclient</strong>: it&#8217;s a full implementation of the MySQL protocol, which makes
+it natively compatible with Asio.</p>
+</div>
+<div class="paragraph">
+<p>This library is relatively low level. It gives you access to text SQL queries and
+prepared statements. Don&#8217;t expect an ORM. <a href="overview.html" class="xref page">This section</a> presents a quick tour
+over the main library capabilities.</p>
+</div>
+<div class="paragraph">
+<p>The design goals of this library are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Interoperability with Asio</strong>: this library employs the same principles as Boost.Asio and Boost.Beast.
+Users of any of these libraries will immediately understand Boost.MySQL, and will have it easy
+to integrate it in their programs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Basis for further abstraction</strong>: it allows efficient access to the MySQL client/server protocol
+so it can be used by higher level components as a building block. Do a single thing and do it well.</p>
+</li>
+<li>
+<p><strong>Efficiency</strong>.</p>
+</li>
+<li>
+<p><strong>Ease of use</strong>: the MySQL protocol is full of pitfalls. We believe in simplicity. While retaining
+control over the important parts, the library hides as much complexity from the protocol as possible.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Non-goals:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Being an ORM</strong>.</p>
+</li>
+<li>
+<p><strong>Portability to other SQL databases</strong>. This library focuses on MySQL. It won&#8217;t work with Postgres
+or SQLite.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_when_to_use"><a class="anchor" href="#_when_to_use"></a>When to use</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If any of the following statements is true, you may consider using Boost.MySQL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Your application uses Boost.Asio and you need to access a MySQL server.</p>
+</li>
+<li>
+<p>You need asynchronous access to a MySQL server from a C++ application.</p>
+</li>
+<li>
+<p>You need efficient access to a MySQL server from a C++ application.</p>
+</li>
+<li>
+<p>You need a BSL-licensed library to access your MySQL server.</p>
+</li>
+<li>
+<p>You are writing a higher-level database access library, like an ORM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use cases may include web servers, ETL processes and IoT systems.</p>
+</div>
+<div class="paragraph">
+<p>It may not be a good fit for you if:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You only need synchronous access to a MySQL server and efficiency doesn&#8217;t matter
+to your application. The official client libraries may be better suited for you, in this case.</p>
+</li>
+<li>
+<p>You need homogeneous SQL access to different SQL databases (and not only MySQL access).
+You may find more value in using <a href="https://github.com/rbock/sqlpp11">sqlpp11</a> or a similar wrapper
+library.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tested_compilers_and_systems"><a class="anchor" href="#_tested_compilers_and_systems"></a>Tested compilers and systems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Boost.MySQL is tested under the following compilers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>gcc 5.4 (Linux)</p>
+</li>
+<li>
+<p>gcc 6.5 (Linux)</p>
+</li>
+<li>
+<p>gcc 10.3 (Linux)</p>
+</li>
+<li>
+<p>gcc 11.2 (Linux)</p>
+</li>
+<li>
+<p>gcc 13.0 (Linux)</p>
+</li>
+<li>
+<p>gcc 14.0 (Linux)</p>
+</li>
+<li>
+<p>clang 3.6 (Linux)</p>
+</li>
+<li>
+<p>clang 7.0 (Linux)</p>
+</li>
+<li>
+<p>clang 11.0 (Linux)</p>
+</li>
+<li>
+<p>clang 14.0 (Linux)</p>
+</li>
+<li>
+<p>clang 16.0 (Linux)</p>
+</li>
+<li>
+<p>clang 17.0 (Linux)</p>
+</li>
+<li>
+<p>clang 18.0 (Linux)</p>
+</li>
+<li>
+<p>Apple clang 14.0 (OSX)</p>
+</li>
+<li>
+<p>MSVC 14.1 - Visual Studio 2017 (Windows)</p>
+</li>
+<li>
+<p>MSVC 14.2 - Visual Studio 2019 (Windows)</p>
+</li>
+<li>
+<p>MSVC 14.3 - Visual Studio 2022 (Windows)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And with the following RDBMS systems:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MySQL v5.7.41.</p>
+</li>
+<li>
+<p>MySQL v8.4.1.</p>
+</li>
+<li>
+<p>MariaDB v11.4.2.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a>Acknowledgements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I would like to specially acknowledge <a href="https://github.com/madmongo1">Richard Hodges</a> (<a href="mailto:hodges.r@gmail.com">hodges.r@gmail.com</a>)
+for his invaluable technical guidance during development. Thanks also to
+Christian Mazakas for his ideas in early stages, and to
+<a href="https://github.com/klemens-morgenstern">Klemens Morgenstern</a> and
+and <a href="https://github.com/vinniefalco">Vinnie Falco</a> for his techincal advice.
+Without you, this library would not exist.</p>
+</div>
+<div class="paragraph">
+<p>Finally, thanks to <a href="https://github.com/chriskohlhoff">Christopher Kohlhoff</a>
+for his awesome Asio library, and to <a href="https://github.com/HowardHinnant">Howard Hinnant</a>
+for his date algorithms, shamelessly copied in this lib.</p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+      <a href="file:///home/ruben/workspace/boost-root/libs/mysql/doc/modules/ROOT/pages/index.adoc">Edit this Page</a>
+  </div>
+      <nav class="pagination">
+        <span class="next"><a href="overview.html">Mytest</a></span>
+    </nav>
+</article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

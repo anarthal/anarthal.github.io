@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::mysql::connection :: Boost.MySQL documentation</title>
+  <link rel="canonical" href="https://test.com/mysql/reference/boost/mysql/connection.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../_'</script>
+<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="mysql" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../index.html">Boost.MySQL</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../overview.html">Mytest</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../index.html">Reference</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../index.html" aria-label="Home: Boost.MySQL">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="connection.html"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::connection</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+</div>
+</div>
+    <h1 class="page"><a href="../../boost.html">boost</a>::<a href="../../boost/mysql.html">mysql</a>::connection</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>(Legacy) A connection to a MySQL server&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/mysql/blob/master/include/boost/mysql/connection.hpp#L70">boost&sol;mysql&sol;connection&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template&lt;class Stream&gt;
+class connection;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types"><a class="anchor" href="#_types"></a>Types</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/executor_type.html" class="xref page"><code>executor&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The executor type associated to this object&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/rebind_executor.html" class="xref page"><code>rebind&lowbar;executor</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rebinds the connection type to another executor&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/stream_type.html" class="xref page"><code>stream&lowbar;type</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>Stream</code> type this connection is using&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_close.html" class="xref page"><code>async&lowbar;close</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Closes the connection to the server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_close_statement.html" class="xref page"><code>async&lowbar;close&lowbar;statement</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Closes a statement, deallocating it from the server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_connect.html" class="xref page"><code>async&lowbar;connect</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Establishes a connection to a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_execute.html" class="xref page"><code>async&lowbar;execute</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes a text query or prepared statement&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_handshake.html" class="xref page"><code>async&lowbar;handshake</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs the MySQL&hyphen;level handshake&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_ping.html" class="xref page"><code>async&lowbar;ping</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks whether the server is alive&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_prepare_statement.html" class="xref page"><code>async&lowbar;prepare&lowbar;statement</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepares a statement server&hyphen;side&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_quit.html" class="xref page"><code>async&lowbar;quit</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notifies the MySQL server that the client wants to end the session and shutdowns SSL&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_read_resultset_head.html" class="xref page"><code>async&lowbar;read&lowbar;resultset&lowbar;head</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reads metadata for subsequent resultsets in a multi&hyphen;resultset operation&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_read_some_rows.html" class="xref page"><code>async&lowbar;read&lowbar;some&lowbar;rows</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reads a batch of rows&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_reset_connection.html" class="xref page"><code>async&lowbar;reset&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resets server&hyphen;side session state, like variables and prepared statements&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/async_start_execution.html" class="xref page"><code>async&lowbar;start&lowbar;execution</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starts a SQL execution as a multi&hyphen;function operation&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/close.html" class="xref page"><code>close</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Closes the connection to the server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/close_statement.html" class="xref page"><code>close&lowbar;statement</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Closes a statement, deallocating it from the server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/connect.html" class="xref page"><code>connect</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Establishes a connection to a MySQL server&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/2constructor.html" class="xref page"><code>connection</code></a>         <span class="small">[constructor]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initializing constructor with buffer params&period;</p>
+<p class="tableblock">Initializing constructor&period;</p>
+<p class="tableblock">Move constructor&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/execute.html" class="xref page"><code>execute</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes a text query or prepared statement&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/get_executor.html" class="xref page"><code>get&lowbar;executor</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the executor associated to this object&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/handshake.html" class="xref page"><code>handshake</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs the MySQL&hyphen;level handshake&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/meta_mode.html" class="xref page"><code>meta&lowbar;mode</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the current metadata mode that this connection is using&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/operator_assign.html" class="xref page"><code>operator&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move assignment&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/ping.html" class="xref page"><code>ping</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks whether the server is alive&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/prepare_statement.html" class="xref page"><code>prepare&lowbar;statement</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepares a statement server&hyphen;side&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/quit.html" class="xref page"><code>quit</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notifies the MySQL server that the client wants to end the session and shutdowns SSL&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/read_resultset_head.html" class="xref page"><code>read&lowbar;resultset&lowbar;head</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reads metadata for subsequent resultsets in a multi&hyphen;resultset operation&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/read_some_rows.html" class="xref page"><code>read&lowbar;some&lowbar;rows</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reads a batch of rows&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/reset_connection.html" class="xref page"><code>reset&lowbar;connection</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resets server&hyphen;side session state, like variables and prepared statements&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/set_meta_mode.html" class="xref page"><code>set&lowbar;meta&lowbar;mode</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the metadata mode&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/start_execution.html" class="xref page"><code>start&lowbar;execution</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starts a SQL execution as a multi&hyphen;function operation&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/stream.html" class="xref page"><code>stream</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the underlying Stream object&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="connection/uses_ssl.html" class="xref page"><code>uses&lowbar;ssl</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns whether the connection negotiated the use of SSL or not&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Represents a templated connection to a MySQL server&period;</p>
+</div>
+<div class="paragraph">
+<p><code>connection</code> owns a <code>Stream</code> object that is accessed by functions involving network operations, as well as session state&period; You can access the stream using <a href="connection/stream-0d.html" class="xref page">connection&colon;&colon;stream</a>, and its executor via <a href="connection/get_executor.html" class="xref page">connection&colon;&colon;get&lowbar;executor</a>&period; The executor used by this object is always the same as the underlying stream&period;</p>
+</div>
+<div class="sect2">
+<h3 id="_thread_safety"><a class="anchor" href="#_thread_safety"></a>Thread safety</h3>
+<div class="paragraph">
+<p>Distinct objects&colon; safe&period;</p>
+</div>
+<div class="paragraph">
+<p>Shared objects&colon; unsafe&period;</p>
+</div>
+<div class="paragraph">
+<p>This class is <strong>not thread&hyphen;safe</strong>&colon; for a single object, if you call its member functions concurrently from separate threads, you will get a race condition&period;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_legacy"><a class="anchor" href="#_legacy"></a>Legacy</h3>
+<div class="paragraph">
+<p>New code should use <a href="any_connection.html" class="xref page">any&lowbar;connection</a> instead of this class, as it&apos;s simpler to use and provides the same level of performance&period;</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>
