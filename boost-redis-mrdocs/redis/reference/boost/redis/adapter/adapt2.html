@@ -3,20 +3,20 @@
   <head>
         <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Reference :: Boost.Redis documentation</title>
-  <link rel="canonical" href="https://test.com/redis/reference/boost/redis/adapter/adapt2.html">
+    <title>Reference :: Boost.Redis</title>
+  <link rel="canonical" href="https://github.com/boostorg/redis/blob/master/redis/reference/boost/redis/adapter/adapt2.html">
   <meta name="generator" content="Antora 3.1.10">
-    <link rel="stylesheet" href="../../../../../_/css/boostlook.css">
-    <link rel="stylesheet" href="../../../../../_/css/site.css">
-    <link rel="stylesheet" href="../../../../../_/css/vendor/tabs.css">
-    <script>var uiRootPath = '../../../../../_'</script>
-<link rel="icon" href="../../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../../../redis/_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../../redis/_/css/site.css">
+    <link rel="stylesheet" href="../../../../../redis/_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../../redis/_'</script>
+<link rel="icon" href="../../../../../redis/_/img/favicons/favicon.ico" type="image/x-icon">
     <!-- Favicon configuration -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../_/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../_/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../_/img/favicons/favicon-16x16.png">
-    <link rel="manifest" href="../../../../../_/img/favicons/site.webmanifest">
-    <link rel="shortcut icon" href="../../../../../_/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../redis/_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../redis/_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../redis/_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../../redis/_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../../redis/_/img/favicons/favicon.ico">
   </head>
   <body class="article toc2 toc-left">
     <div class="boostlook">
@@ -34,10 +34,31 @@
             <a class="nav-link" href="../../../../index.html">Introduction</a>
         </li>
               <li class="" data-depth="1">
-            <a class="nav-link" href="../../../../overview.html">Overview</a>
+            <a class="nav-link" href="../../../../requests_responses.html">Requests and responses</a>
         </li>
               <li class="" data-depth="1">
-            <a class="nav-link" href="../../../index.html">Reference</a>
+            <a class="nav-link" href="../../../../serialization.html">Serializing and parsing into custom types</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../logging.html">Logging</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../benchmarks.html">Echo server benchmark</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../comparison.html">Comparison with other Redis clients</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../examples.html">Examples</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../reference.html">Reference</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../changelog.html">Changelog</a>
         </li>
         </ul>
   </ul>
@@ -69,12 +90,12 @@
 <h2 id="boost-redis-adapter-adapt2"><a class="anchor" href="#boost-redis-adapter-adapt2"></a><a href="../../../boost.html" class="xref page">boost</a>::<a href="../../redis.html" class="xref page">redis</a>::<a href="../adapter.html" class="xref page">adapter</a>::adapt2</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Adapts user data to read operations&period;</p>
+<p>Adapts a type to be used as the response to an individual command&period;</p>
 </div>
 <div class="sect2">
 <h3 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h3>
 <div class="paragraph">
-<p>Declared in <code>&lt;<a href="https://github.com/boostorg/redis/blob/master/include/boost/redis/adapter/adapt.hpp#L74">boost&sol;redis&sol;adapter&sol;adapt&period;hpp</a>&gt;</code></p>
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/redis/blob/master/include/boost/redis/adapter/adapt.hpp#L38">boost&sol;redis&sol;adapter&sol;adapt&period;hpp</a>&gt;</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -87,36 +108,7 @@ adapt2(T&amp; t = redis&colon;&colon;ignore) noexcept;</code></pre>
 <div class="sect2">
 <h3 id="_description"><a class="anchor" href="#_description"></a>Description</h3>
 <div class="paragraph">
-<p>STL containers, <code>resp3&colon;&colon;response</code> and built&hyphen;in types are supported and can be used in conjunction with <code>std&colon;&colon;optional&lt;T&gt;&period;</code></p>
-</div>
-<div class="paragraph">
-<p>Example usage&colon;</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">std::unordered_map&lt;std::string, std::string&gt; cont;
-co_await async_read(socket, buffer, adapt(cont));</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For a transaction</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">sr.push(command::multi);
-sr.push(command::ping, ...);
-sr.push(command::incr, ...);
-sr.push_range(command::rpush, ...);
-sr.push(command::lrange, ...);
-sr.push(command::incr, ...);
-sr.push(command::exec);
-
-co_await async_write(socket, buffer(request));
-
-// Reads the response to a transaction
-resp3::response&lt;std::string, int, int, std::vector&lt;std::string&gt;, int&gt; execs;
-co_await resp3::async_read(socket, dynamic_buffer(buffer), adapt(execs));</code></pre>
-</div>
+<p>It can be used with low&hyphen;level APIs, like <a href="../resp3/parser.html" class="xref page"><code>boost&colon;&colon;redis&colon;&colon;resp3&colon;&colon;parser</code></a>&period;</p>
 </div>
 <div class="paragraph">
 <p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
@@ -129,9 +121,9 @@ co_await resp3::async_read(socket, dynamic_buffer(buffer), adapt(execs));</code>
   </article>
 </div>
   <div id="footer">
-  <script id="site-script" src="../../../../../_/js/site.js" data-ui-root-path="../../../../../_"></script>
-<script async src="../../../../../_/js/vendor/highlight.js"></script>
-<script async src="../../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+  <script id="site-script" src="../../../../../redis/_/js/site.js" data-ui-root-path="../../../../../redis/_"></script>
+<script async src="../../../../../redis/_/js/vendor/highlight.js"></script>
+<script async src="../../../../../redis/_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
 </div>
 </div>
   </body>

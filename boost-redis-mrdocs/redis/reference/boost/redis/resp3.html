@@ -3,20 +3,20 @@
   <head>
         <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Reference :: Boost.Redis documentation</title>
-  <link rel="canonical" href="https://test.com/redis/reference/boost/redis/resp3.html">
+    <title>Reference :: Boost.Redis</title>
+  <link rel="canonical" href="https://github.com/boostorg/redis/blob/master/redis/reference/boost/redis/resp3.html">
   <meta name="generator" content="Antora 3.1.10">
-    <link rel="stylesheet" href="../../../../_/css/boostlook.css">
-    <link rel="stylesheet" href="../../../../_/css/site.css">
-    <link rel="stylesheet" href="../../../../_/css/vendor/tabs.css">
-    <script>var uiRootPath = '../../../../_'</script>
-<link rel="icon" href="../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../../redis/_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../redis/_/css/site.css">
+    <link rel="stylesheet" href="../../../../redis/_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../redis/_'</script>
+<link rel="icon" href="../../../../redis/_/img/favicons/favicon.ico" type="image/x-icon">
     <!-- Favicon configuration -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/favicons/favicon-16x16.png">
-    <link rel="manifest" href="../../../../_/img/favicons/site.webmanifest">
-    <link rel="shortcut icon" href="../../../../_/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../redis/_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../redis/_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../redis/_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../redis/_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../redis/_/img/favicons/favicon.ico">
   </head>
   <body class="article toc2 toc-left">
     <div class="boostlook">
@@ -34,10 +34,31 @@
             <a class="nav-link" href="../../../index.html">Introduction</a>
         </li>
               <li class="" data-depth="1">
-            <a class="nav-link" href="../../../overview.html">Overview</a>
+            <a class="nav-link" href="../../../requests_responses.html">Requests and responses</a>
         </li>
               <li class="" data-depth="1">
-            <a class="nav-link" href="../../index.html">Reference</a>
+            <a class="nav-link" href="../../../serialization.html">Serializing and parsing into custom types</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../logging.html">Logging</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../benchmarks.html">Echo server benchmark</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../comparison.html">Comparison with other Redis clients</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../examples.html">Examples</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../reference.html">Reference</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../changelog.html">Changelog</a>
         </li>
         </ul>
   </ul>
@@ -69,22 +90,6 @@
 <h2 id="boost-redis-resp3"><a class="anchor" href="#boost-redis-resp3"></a><a href="../../boost.html" class="xref page">boost</a>::<a href="../redis.html" class="xref page">redis</a>::resp3</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_namespaces"><a class="anchor" href="#_namespaces"></a>Namespaces</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/detail.html" class="xref page"><code>detail</code></a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_types"><a class="anchor" href="#_types"></a>Types</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -97,40 +102,20 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/add_bulk_impl-00.html" class="xref page"><code>add&lowbar;bulk&lowbar;impl</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/add_bulk_impl-0b.html" class="xref page"><code>add&lowbar;bulk&lowbar;impl&lt;std::tuple&lt;Ts&period;&period;&period;&gt;&gt;</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/add_bulk_impl-04.html" class="xref page"><code>add&lowbar;bulk&lowbar;impl&lt;std::pair&lt;U, V&gt;&gt;</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/basic_node.html" class="xref page"><code>basic&lowbar;node</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A node in the response tree&period;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/bulk_counter-01.html" class="xref page"><code>bulk&lowbar;counter</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/bulk_counter-0a.html" class="xref page"><code>bulk&lowbar;counter&lt;std::pair&lt;T, U&gt;&gt;</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/parser.html" class="xref page"><code>parser</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parser&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/node.html" class="xref page"><code>node</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A node in the response tree that owns its data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A node in the response tree that owns its data&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/node_view.html" class="xref page"><code>node&lowbar;view</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A node view in the response tree</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A node in the response tree that does not own its data&period;</p></td>
 </tr>
 </tbody>
 </table>
@@ -167,56 +152,28 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/add_blob.html" class="xref page"><code>add&lowbar;blob</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/add_bulk.html" class="xref page"><code>add&lowbar;bulk</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/add_header.html" class="xref page"><code>add&lowbar;header</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/add_separator.html" class="xref page"><code>add&lowbar;separator</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/boost_redis_to_bulk-08.html" class="xref page"><code>boost&lowbar;redis&lowbar;to&lowbar;bulk</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a bulk to the request&period;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/element_multiplicity.html" class="xref page"><code>element&lowbar;multiplicity</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/is_aggregate.html" class="xref page"><code>is&lowbar;aggregate</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/parse.html" class="xref page"><code>parse</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/to_code.html" class="xref page"><code>to&lowbar;code</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/to_string.html" class="xref page"><code>to&lowbar;string</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Converts the data type to a string&period;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/to_type.html" class="xref page"><code>to&lowbar;type</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/operator_lshift.html" class="xref page"><code>operator&lt;&lt;</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Writes the type to the output stream&period;</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/is_aggregate.html" class="xref page"><code>is&lowbar;aggregate</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks whether the data type is an aggregate&period;</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/operator_eq.html" class="xref page"><code>operator&equals;&equals;</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Compares a node for equality&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/parse.html" class="xref page"><code>parse</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns false if more data is needed&period; If true is returned the parser is either done or an error occured, that can be checked on ec&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="resp3/boost_redis_to_bulk.html" class="xref page"><code>boost&lowbar;redis&lowbar;to&lowbar;bulk</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a bulk to the request&period;</p></td>
 </tr>
 </tbody>
 </table>
@@ -231,9 +188,9 @@
   </article>
 </div>
   <div id="footer">
-  <script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
-<script async src="../../../../_/js/vendor/highlight.js"></script>
-<script async src="../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+  <script id="site-script" src="../../../../redis/_/js/site.js" data-ui-root-path="../../../../redis/_"></script>
+<script async src="../../../../redis/_/js/vendor/highlight.js"></script>
+<script async src="../../../../redis/_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
 </div>
 </div>
   </body>

@@ -3,20 +3,20 @@
   <head>
         <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Reference :: Boost.Redis documentation</title>
-  <link rel="canonical" href="https://test.com/redis/reference/boost/redis/request/config/cancel_if_unresponded.html">
+    <title>Reference :: Boost.Redis</title>
+  <link rel="canonical" href="https://github.com/boostorg/redis/blob/master/redis/reference/boost/redis/request/config/cancel_if_unresponded.html">
   <meta name="generator" content="Antora 3.1.10">
-    <link rel="stylesheet" href="../../../../../../_/css/boostlook.css">
-    <link rel="stylesheet" href="../../../../../../_/css/site.css">
-    <link rel="stylesheet" href="../../../../../../_/css/vendor/tabs.css">
-    <script>var uiRootPath = '../../../../../../_'</script>
-<link rel="icon" href="../../../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../../../../redis/_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../../../redis/_/css/site.css">
+    <link rel="stylesheet" href="../../../../../../redis/_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../../../redis/_'</script>
+<link rel="icon" href="../../../../../../redis/_/img/favicons/favicon.ico" type="image/x-icon">
     <!-- Favicon configuration -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../_/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../_/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../_/img/favicons/favicon-16x16.png">
-    <link rel="manifest" href="../../../../../../_/img/favicons/site.webmanifest">
-    <link rel="shortcut icon" href="../../../../../../_/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../redis/_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../../redis/_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../../redis/_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../../../redis/_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../../../redis/_/img/favicons/favicon.ico">
   </head>
   <body class="article toc2 toc-left">
     <div class="boostlook">
@@ -34,10 +34,31 @@
             <a class="nav-link" href="../../../../../index.html">Introduction</a>
         </li>
               <li class="" data-depth="1">
-            <a class="nav-link" href="../../../../../overview.html">Overview</a>
+            <a class="nav-link" href="../../../../../requests_responses.html">Requests and responses</a>
         </li>
               <li class="" data-depth="1">
-            <a class="nav-link" href="../../../../index.html">Reference</a>
+            <a class="nav-link" href="../../../../../serialization.html">Serializing and parsing into custom types</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../../logging.html">Logging</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../../benchmarks.html">Echo server benchmark</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../../comparison.html">Comparison with other Redis clients</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../../examples.html">Examples</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../../reference.html">Reference</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../../changelog.html">Changelog</a>
         </li>
         </ul>
   </ul>
@@ -69,12 +90,12 @@
 <h2 id="boost-redis-request-config-cancel_if_unresponded"><a class="anchor" href="#boost-redis-request-config-cancel_if_unresponded"></a><a href="../../../../boost.html" class="xref page">boost</a>::<a href="../../../redis.html" class="xref page">redis</a>::<a href="../../request.html" class="xref page">request</a>::<a href="../config.html" class="xref page">config</a>::cancel&lowbar;if&lowbar;unresponded</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If <code>false</code> <code>connection&colon;&colon;async&lowbar;exec</code> will not automatically cancel this request if the connection is lost&period; Affects only requests that have been written to the socket but remained unresponded when <code>boost&colon;&colon;redis&colon;&colon;connection&colon;&colon;async&lowbar;run</code> completed&period;</p>
+<p>If <code>false</code>, <a href="../../basic_connection/async_exec-0a.html" class="xref page"><code>basic&lowbar;connection&colon;&colon;async&lowbar;exec</code></a> will not automatically cancel this request if the connection is lost&period; Affects only requests that have been written to the socket but have not been responded when <a href="../../connection/async_run-0a.html" class="xref page"><code>boost&colon;&colon;redis&colon;&colon;connection&colon;&colon;async&lowbar;run</code></a> completes&period;</p>
 </div>
 <div class="sect2">
 <h3 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h3>
 <div class="paragraph">
-<p>Declared in <code>&lt;<a href="https://github.com/boostorg/redis/blob/master/include/boost/redis/request.hpp#L68">boost&sol;redis&sol;request&period;hpp</a>&gt;</code></p>
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/redis/blob/master/include/boost/redis/request.hpp#L67">boost&sol;redis&sol;request&period;hpp</a>&gt;</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -92,9 +113,9 @@
   </article>
 </div>
   <div id="footer">
-  <script id="site-script" src="../../../../../../_/js/site.js" data-ui-root-path="../../../../../../_"></script>
-<script async src="../../../../../../_/js/vendor/highlight.js"></script>
-<script async src="../../../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+  <script id="site-script" src="../../../../../../redis/_/js/site.js" data-ui-root-path="../../../../../../redis/_"></script>
+<script async src="../../../../../../redis/_/js/vendor/highlight.js"></script>
+<script async src="../../../../../../redis/_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
 </div>
 </div>
   </body>
