@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Authentication :: Boost.Redis</title>
+  <link rel="canonical" href="https://github.com/boostorg/redis/blob/master/redis/auth.html">
+    <link rel="prev" href="serialization.html">
+    <link rel="next" href="logging.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../_/css/boostlook.css">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../_'</script>
+<link rel="icon" href="../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="redis" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="index.html">Boost.Redis</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="requests_responses.html">Requests and responses</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="pushes.html">Server pushes</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="cancellation.html">Cancellation and timeouts</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="serialization.html">Serializing and parsing into custom types</a>
+        </li>
+              <li class=" is-current-page" data-depth="1">
+            <a class="nav-link" href="auth.html">Authentication</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="logging.html">Logging</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="sentinel.html">Sentinel</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="benchmarks.html">Echo server benchmark</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="comparison.html">Comparison with other Redis clients</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="examples.html">Examples</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="reference.html">Reference</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="changelog.html">Changelog</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="index.html" aria-label="Home: Boost.Redis">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="auth.html">Authentication</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+    <a accesskey="p" href="serialization.html">
+      <span class="material-symbols-outlined" title="Previous: Serializing and parsing into custom types">arrow_back</span>
+    </a>
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+    <a accesskey="n" href="logging.html">
+      <span class="material-symbols-outlined" title="Next: Logging">arrow_forward</span>
+    </a>
+</div></div>
+    <h1 class="page">Authentication</h1>
+  <div class="paragraph">
+<p>Boost.Redis supports connecting to servers that require authentication.
+To achieve it, you must send a
+<a href="https://redis.io/commands/hello/">HELLO</a> command with the appropriate
+<code>AUTH</code> parameters during connection establishment. Boost.Redis allows you
+to customize this handshake by using a <em>setup request</em>: a request that
+is run automatically before any other request,
+every time a physical connection to the server is established.</p>
+</div>
+<div class="paragraph">
+<p>Configuration is done on <a href="reference/boost/redis/config.html" class="xref page"><code>config</code></a>.
+Set <code>use_setup</code> to <code>true</code> (required for backwards compatibility)
+and build the desired setup request in
+<code>config::setup</code>. By default, the library sends a plain <code>HELLO 3</code> (RESP3
+without auth). To authenticate, clear the default setup and push a
+<code>HELLO</code> command that includes your credentials:</p>
+</div>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_asio" class="tab">
+<p>Asio</p>
+</li>
+<li id="_tabs_1_corosio" class="tab">
+<p>Corosio</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_asio--panel" class="tabpanel" aria-labelledby="_tabs_1_asio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">config cfg;
+cfg.use_setup = true;
+cfg.setup.clear();   // Remove the default HELLO 3
+cfg.setup.hello("my_username", "my_password");
+
+co_await conn-&gt;async_run(cfg);</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_corosio--panel" class="tabpanel" aria-labelledby="_tabs_1_corosio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">config cfg;
+cfg.use_setup = true;
+cfg.setup.clear();   // Remove the default HELLO 3
+cfg.setup.hello("my_username", "my_password");
+
+co_await conn.run(cfg);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Authentication is just one use of this mechanism.
+For example, to select a particular logical database (see the Redis
+<a href="https://redis.io/commands/select/">SELECT</a> command), add a <code>SELECT</code>
+command after the <code>HELLO</code>:</p>
+</div>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_asio" class="tab">
+<p>Asio</p>
+</li>
+<li id="_tabs_2_corosio" class="tab">
+<p>Corosio</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_asio--panel" class="tabpanel" aria-labelledby="_tabs_2_asio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">config cfg;
+cfg.use_setup = true;
+cfg.setup.push("SELECT", 42); // select the logical database 42 after the default HELLO 3
+
+co_await conn-&gt;async_run(cfg);</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_corosio--panel" class="tabpanel" aria-labelledby="_tabs_2_corosio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">config cfg;
+cfg.use_setup = true;
+cfg.setup.push("SELECT", 42); // select the logical database 42 after the default HELLO 3
+
+co_await conn.run(cfg);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+      <a href="file:///home/ruben/workspace/boost-root/libs/redis/doc/modules/ROOT/pages/auth.adoc">Edit this Page</a>
+  </div>
+      <nav class="pagination">
+        <span class="prev"><a href="serialization.html">Serializing and parsing into custom types</a></span>
+        <span class="next"><a href="logging.html">Logging</a></span>
+    </nav>
+</article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

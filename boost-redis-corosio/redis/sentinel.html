@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sentinel :: Boost.Redis</title>
+  <link rel="canonical" href="https://github.com/boostorg/redis/blob/master/redis/sentinel.html">
+    <link rel="prev" href="logging.html">
+    <link rel="next" href="benchmarks.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../_/css/boostlook.css">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../_'</script>
+<link rel="icon" href="../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="redis" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="index.html">Boost.Redis</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="requests_responses.html">Requests and responses</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="pushes.html">Server pushes</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="cancellation.html">Cancellation and timeouts</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="serialization.html">Serializing and parsing into custom types</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="auth.html">Authentication</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="logging.html">Logging</a>
+        </li>
+              <li class=" is-current-page" data-depth="1">
+            <a class="nav-link" href="sentinel.html">Sentinel</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="benchmarks.html">Echo server benchmark</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="comparison.html">Comparison with other Redis clients</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="examples.html">Examples</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="reference.html">Reference</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="changelog.html">Changelog</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="index.html" aria-label="Home: Boost.Redis">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="sentinel.html">Sentinel</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+    <a accesskey="p" href="logging.html">
+      <span class="material-symbols-outlined" title="Previous: Logging">arrow_back</span>
+    </a>
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+    <a accesskey="n" href="benchmarks.html">
+      <span class="material-symbols-outlined" title="Next: Echo server benchmark">arrow_forward</span>
+    </a>
+</div></div>
+    <h1 class="page">Sentinel</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Boost.Redis supports Redis Sentinel deployments. Sentinel handling is built-in:
+<a href="reference/boost/redis/basic_connection/async_run-04.html" class="xref page"><code>connection::async_run</code></a> and
+<a href="reference/boost/redis/co_connection/run.html" class="xref page"><code>co_connection::run</code></a>
+automatically connect to Sentinels, resolve the master&#8217;s address, and connect to the master.</p>
+</div>
+<div class="paragraph">
+<p>Configuration is done using <a href="reference/boost/redis/sentinel_config.html" class="xref page"><code>config::sentinel</code></a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">config cfg;
+
+// To enable Sentinel, set this field to a non-empty list
+// of (hostname, port) pairs where Sentinels are listening
+cfg.sentinel.addresses = {
+    {"sentinel1.example.com", "26379"},
+    {"sentinel2.example.com", "26379"},
+    {"sentinel3.example.com", "26379"},
+};
+
+// Set master_name to the identifier that you configured
+// in the "sentinel monitor" statement of your sentinel.conf file
+cfg.sentinel.master_name = "mymaster";</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once set, the connection object can be used normally. See our Sentinel examples for full program listings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/boostorg/redis/blob/master/example/cpp20_sentinel.cpp">cpp20_sentinel.cpp</a> (Asio)</p>
+</li>
+<li>
+<p><a href="https://github.com/boostorg/redis/blob/master/example/corosio_sentinel.cpp">corosio_sentinel.cpp</a> (Corosio)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connecting_to_replicas"><a class="anchor" href="#_connecting_to_replicas"></a>Connecting to replicas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the library connects to the Redis master.
+You can connect to one of its replicas by using
+<a href="reference/boost/redis/sentinel_config/server_role.html" class="xref page"><code>config::sentinel::server_role</code></a>.
+This can be used to balance load, if all your commands read data from
+the server and never write to it. The particular replica will be chosen randomly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">config cfg;
+
+// Set up Sentinel
+cfg.sentinel.addresses = {
+    {"sentinel1.example.com", "26379"},
+    {"sentinel2.example.com", "26379"},
+    {"sentinel3.example.com", "26379"},
+};
+cfg.sentinel.master_name = "mymaster";
+
+// Ask the library to connect to a random replica of 'mymaster', rather than the master node
+cfg.sentinel.server_role = role::replica;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sentinel_authentication"><a class="anchor" href="#_sentinel_authentication"></a>Sentinel authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If your Sentinels require authentication,
+you can use <a href="reference/boost/redis/sentinel_config/setup.html" class="xref page"><code>config::sentinel::setup</code></a>
+to provide credentials.
+This request is executed immediately after connecting to Sentinels, and
+before any other command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">// Set up Sentinel
+config cfg;
+cfg.sentinel.addresses = {
+    {"sentinel1.example.com", "26379"},
+    {"sentinel2.example.com", "26379"},
+    {"sentinel3.example.com", "26379"},
+};
+cfg.sentinel.master_name = "mymaster";
+
+// By default, setup contains a 'HELLO 3' command.
+// Override it to add an AUTH clause to it with out credentials.
+cfg.sentinel.setup.clear();
+cfg.sentinel.setup.push("HELLO", 3, "AUTH", "sentinel_user", "sentinel_password");
+
+// cfg.sentinel.setup applies to Sentinels, only.
+// Use cfg.setup to authenticate to masters/replicas.
+cfg.use_setup = true; // Required for cfg.setup to be used, for historic reasons
+cfg.setup.clear();
+cfg.setup.push("HELLO", 3, "AUTH", "master_user", "master_password");</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_tls_with_sentinels"><a class="anchor" href="#_using_tls_with_sentinels"></a>Using TLS with Sentinels</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You might use TLS with Sentinels only, masters/replicas only, or both by adjusting
+<a href="reference/boost/redis/sentinel_config/use_ssl.html" class="xref page"><code>config::sentinel::use_ssl</code></a>
+and <a href="reference/boost/redis/config/use_ssl.html" class="xref page"><code>config::use_ssl</code></a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">// Set up Sentinel
+config cfg;
+cfg.sentinel.addresses = {
+    {"sentinel1.example.com", "26379"},
+    {"sentinel2.example.com", "26379"},
+    {"sentinel3.example.com", "26379"},
+};
+cfg.sentinel.master_name = "mymaster";
+
+// Adjust these switches to enable/disable TLS
+cfg.use_ssl = true;          // Applies to masters and replicas
+cfg.sentinel.use_ssl = true; // Applies to Sentinels</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sentinel_algorithm"><a class="anchor" href="#_sentinel_algorithm"></a>Sentinel algorithm</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section details how <code>connection::async_run</code> and <code>co_connection::run</code> interact with Sentinel.
+Most of the algorithm follows
+<a href="https://redis.io/docs/latest/develop/reference/sentinel-clients/">the official Sentinel client guidelines</a>.
+Some of these details may vary between library versions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connections maintain an internal list of Sentinels, bootstrapped from
+<a href="reference/boost/redis/sentinel_config/addresses.html" class="xref page"><code>config::sentinel::addresses</code></a>.</p>
+</li>
+<li>
+<p>The first Sentinel in the list is contacted by performing the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A physical connection is established.</p>
+</li>
+<li>
+<p>The setup request is executed.</p>
+</li>
+<li>
+<p>The master&#8217;s address is resolved using
+<a href="https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#sentinel-api"><code>SENTINEL GET-MASTER-NAME-BY-ADDR</code></a>.</p>
+</li>
+<li>
+<p>If <code>config::sentinel::server_role</code> is <code>role::replica</code>, replica addresses are obtained using
+<a href="https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#sentinel-api"><code>SENTINEL REPLICAS</code></a>.
+One replica is chosen randomly.</p>
+</li>
+<li>
+<p>The address of other Sentinels also monitoring this master are retrieved using
+<a href="https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#sentinel-api"><code>SENTINEL SENTINELS</code></a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If a Sentinel is unreachable, doesn&#8217;t know about the configured master,
+or returns an error while executing the above requests, the next Sentinel in the list is tried.</p>
+</li>
+<li>
+<p>If all Sentinels have been tried without success, <code>config::reconnect_wait_interval</code>
+is waited, and the process starts again.</p>
+</li>
+<li>
+<p>After a successful Sentinel response, the internal Sentinel list is updated
+with any newly discovered Sentinels.
+Sentinels in <code>config::sentinel::addresses</code> are always kept in the list,
+even if they weren&#8217;t present in the output of <code>SENTINEL SENTINELS</code>.</p>
+</li>
+<li>
+<p>The retrieved address is used
+to establish a connection with the master or replica.
+A <code>ROLE</code> command is added at the end of the setup request.
+This is used to detect situations where a Sentinel returns outdated
+information due to a failover in process. If <code>ROLE</code> doesn&#8217;t output
+the expected role (<code>"master"</code> or <code>"slave"</code>, depending on <code>config::sentinel::server_role</code>)
+<code>config::reconnect_wait_interval</code> is waited and Sentinel is contacted again.</p>
+</li>
+<li>
+<p>The connection to the master/replica is run like any other connection.
+If network errors or timeouts happen, <code>config::reconnect_wait_interval</code>
+is waited and Sentinel is contacted again.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+      <a href="file:///home/ruben/workspace/boost-root/libs/redis/doc/modules/ROOT/pages/sentinel.adoc">Edit this Page</a>
+  </div>
+      <nav class="pagination">
+        <span class="prev"><a href="logging.html">Logging</a></span>
+        <span class="next"><a href="benchmarks.html">Echo server benchmark</a></span>
+    </nav>
+</article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>boost::redis::resp3::flat&lowbar;tree :: Boost.Redis</title>
+  <link rel="canonical" href="https://github.com/boostorg/redis/blob/master/redis/reference/boost/redis/resp3/flat_tree.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../../../_/css/boostlook.css">
+    <link rel="stylesheet" href="../../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../../../../../_'</script>
+<link rel="icon" href="../../../../../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../../../../../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="redis" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="../../../../index.html">Boost.Redis</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../requests_responses.html">Requests and responses</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../pushes.html">Server pushes</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../cancellation.html">Cancellation and timeouts</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../serialization.html">Serializing and parsing into custom types</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../auth.html">Authentication</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../logging.html">Logging</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../sentinel.html">Sentinel</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../benchmarks.html">Echo server benchmark</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../comparison.html">Comparison with other Redis clients</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../examples.html">Examples</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../reference.html">Reference</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="../../../../changelog.html">Changelog</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="../../../../index.html" aria-label="Home: Boost.Redis">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="flat_tree.html"><a href="../../../boost.html">boost</a>::<a href="../../../boost/redis.html">redis</a>::<a href="../../../boost/redis/resp3.html">resp3</a>::flat&lowbar;tree</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+</div></div>
+    <h1 class="page"><a href="../../../boost.html">boost</a>::<a href="../../../boost/redis.html">redis</a>::<a href="../../../boost/redis/resp3.html">resp3</a>::flat&lowbar;tree</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A generic response that stores data contiguously&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;<a href="https://github.com/boostorg/redis/blob/master/include/boost/redis/resp3/flat_tree.hpp#Lundefined">boost&sol;redis&sol;resp3&sol;flat&lowbar;tree&period;hpp</a>&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class flat&lowbar;tree;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>Description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implements a container of RESP3 nodes&period; It&apos;s similar to <a href="tree.html" class="xref page"><code>boost&colon;&colon;redis&colon;&colon;resp3&colon;&colon;tree</code></a>, but node data is stored contiguously&period; This allows for amortized no allocations when re&hyphen;using <code>flat&lowbar;tree</code> objects&period; Like <code>tree</code>, it can contain the response to several Redis commands or several server pushes&period; Use <a href="flat_tree/get_total_msgs.html" class="xref page"><code>get&lowbar;total&lowbar;msgs</code></a> to obtain how many responses this object contains&period;</p>
+</div>
+<div class="paragraph">
+<p>Objects are typically created by the user and passed to <a href="../connection/async_exec-0b.html" class="xref page"><code>connection&colon;&colon;async&lowbar;exec</code></a> to be used as response containers&period; Once populated, they can be used as a const range of <a href="node_view.html" class="xref page"><code>resp3&colon;&colon;node&lowbar;view</code></a> objects&period; The usual random access range methods (like <a href="flat_tree/at.html" class="xref page"><code>at</code></a>, <a href="flat_tree/size.html" class="xref page"><code>size</code></a> or <a href="flat_tree/front.html" class="xref page"><code>front</code></a>) are provided&period; Once populated, <code>flat&lowbar;tree</code> can&apos;t be modified, except for <a href="flat_tree/clear.html" class="xref page"><code>clear</code></a> and assignment&period;</p>
+</div>
+<div class="paragraph">
+<p><code>flat&lowbar;tree</code> models <code>std&colon;&colon;ranges&colon;&colon;contiguous&lowbar;range</code>&period;</p>
+</div>
+<div class="paragraph">
+<p>A <code>flat&lowbar;tree</code> is conceptually similar to a pair of <code>std&colon;&colon;vector</code> objects, one holding <a href="node_view.html" class="xref page"><code>resp3&colon;&colon;node&lowbar;view</code></a> objects, and another owning the the string data that these views point to&period; The node capacity and the data capacity are the capacities of these two vectors&period;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types"><a class="anchor" href="#_types"></a>Types</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/iterator.html" class="xref page"><code>iterator</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of the iterators returned by <a href="flat_tree/begin.html" class="xref page"><code>begin</code></a> and <a href="flat_tree/end.html" class="xref page"><code>end</code></a>&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/reverse_iterator.html" class="xref page"><code>reverse&lowbar;iterator</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of the iterators returned by <a href="flat_tree/rbegin.html" class="xref page"><code>rbegin</code></a> and <a href="flat_tree/rend.html" class="xref page"><code>rend</code></a>&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_member_functions"><a class="anchor" href="#_member_functions"></a>Member Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/2constructor-0ee.html" class="xref page"><code>flat&lowbar;tree</code></a>         <span class="small">[constructor]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Constructors</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/operator_assign-00b.html" class="xref page"><code>operator&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assignment operators</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/begin.html" class="xref page"><code>begin</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an iterator to the first element of the node range&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/end.html" class="xref page"><code>end</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an iterator past the last element in the node range&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/rbegin.html" class="xref page"><code>rbegin</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an iterator to the first element of the reversed node range&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/rend.html" class="xref page"><code>rend</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an iterator past the last element of the reversed node range&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/at.html" class="xref page"><code>at</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a reference to the node at the specified position (checked access)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/operator_subs.html" class="xref page"><code>operator&lsqb;&rsqb;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a reference to the node at the specified position (unchecked access)&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/front.html" class="xref page"><code>front</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a reference to the first node&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/back.html" class="xref page"><code>back</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a reference to the last node&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/data.html" class="xref page"><code>data</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a pointer to the underlying node storage&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/empty.html" class="xref page"><code>empty</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks whether the tree is empty&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/size.html" class="xref page"><code>size</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the number of nodes in the tree&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/reserve.html" class="xref page"><code>reserve</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reserves capacity for incoming data&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/clear.html" class="xref page"><code>clear</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clears the tree so it contains no nodes&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/data_size.html" class="xref page"><code>data&lowbar;size</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the size of the data buffer, in bytes&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/capacity.html" class="xref page"><code>capacity</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the capacity of the node container&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/data_capacity.html" class="xref page"><code>data&lowbar;capacity</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the capacity of the data buffer, in bytes&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/get_reallocs.html" class="xref page"><code>get&lowbar;reallocs</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the number of memory reallocations that took place in the data buffer&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="flat_tree/get_total_msgs.html" class="xref page"><code>get&lowbar;total&lowbar;msgs</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the number of complete RESP3 messages contained in this object&period;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_friends"><a class="anchor" href="#_friends"></a>Friends</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>boost::redis::adapter::detail::general&lowbar;aggregate</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_non_member_functions"><a class="anchor" href="#_non_member_functions"></a>Non-Member Functions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="operator_not_eq-0c.html" class="xref page"><code>operator!&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inequality operator&period;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="operator_eq-0c.html" class="xref page"><code>operator&equals;&equals;</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equality operator&period;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><span class="small">Created with <a href="https://www.mrdocs.com">MrDocs</a></span></p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+  </div>
+  </article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../../../../../_/js/site.js" data-ui-root-path="../../../../../_"></script>
+<script async src="../../../../../_/js/vendor/highlight.js"></script>
+<script async src="../../../../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>

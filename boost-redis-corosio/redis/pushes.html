@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Server pushes :: Boost.Redis</title>
+  <link rel="canonical" href="https://github.com/boostorg/redis/blob/master/redis/pushes.html">
+    <link rel="prev" href="requests_responses.html">
+    <link rel="next" href="cancellation.html">
+  <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../_/css/boostlook.css">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/vendor/tabs.css">
+    <script>var uiRootPath = '../_'</script>
+<link rel="icon" href="../_/img/favicons/favicon.ico" type="image/x-icon">
+    <!-- Favicon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../_/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../_/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="../_/img/favicons/favicon.ico">
+  </head>
+  <body class="article toc2 toc-left">
+    <div class="boostlook">
+  <div id="header">
+    <div id="toc" class="nav-container toc2" data-component="redis" data-version="">
+  <aside class="nav">
+    <button class="nav-close"></button>
+    <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+      <h3 class="title"><a href="index.html">Boost.Redis</a></h3>
+      <ul class="nav-list">
+        <ul class="nav-list">
+        <li class="" data-depth="1">
+            <a class="nav-link" href="index.html">Introduction</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="requests_responses.html">Requests and responses</a>
+        </li>
+              <li class=" is-current-page" data-depth="1">
+            <a class="nav-link" href="pushes.html">Server pushes</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="cancellation.html">Cancellation and timeouts</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="serialization.html">Serializing and parsing into custom types</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="auth.html">Authentication</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="logging.html">Logging</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="sentinel.html">Sentinel</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="benchmarks.html">Echo server benchmark</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="comparison.html">Comparison with other Redis clients</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="examples.html">Examples</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="reference.html">Reference</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="acknowledgements.html">Acknowledgements</a>
+        </li>
+              <li class="" data-depth="1">
+            <a class="nav-link" href="changelog.html">Changelog</a>
+        </li>
+        </ul>
+  </ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+</div>
+  <div id="content">
+    <article class="doc max-width-reset">
+  <div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li>
+      <a href="index.html" aria-label="Home: Boost.Redis">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 -960 960 960" fill="#000000" aria-hidden="true"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+      </a>
+    </li>
+    <li><a href="pushes.html">Server pushes</a></li>
+  </ul>
+</nav>
+<div class="spirit-nav">
+    <a accesskey="p" href="requests_responses.html">
+      <span class="material-symbols-outlined" title="Previous: Requests and responses">arrow_back</span>
+    </a>
+    <a class="disabled" accesskey="u" aria-disabled="true" tabindex="-1">
+      <span class="material-symbols-outlined" title="Up:">arrow_upward</span>
+    </a>
+    <a accesskey="n" href="cancellation.html">
+      <span class="material-symbols-outlined" title="Next: Cancellation and timeouts">arrow_forward</span>
+    </a>
+</div></div>
+    <h1 class="page">Server pushes</h1>
+  <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Redis servers can send various push messages to the client. Boost.Redis supports these
+as first-class operations. This page describes how to receive and handle them.</p>
+</div>
+<div class="paragraph">
+<p>The most common case is
+<a href="https://redis.io/docs/latest/develop/pubsub/">Pub/Sub messages</a>
+triggered by <code>PUBLISH</code>. The following example shows a typical receiver:</p>
+</div>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_asio" class="tab">
+<p>Asio</p>
+</li>
+<li id="_tabs_1_corosio" class="tab">
+<p>Corosio</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_asio--panel" class="tabpanel" aria-labelledby="_tabs_1_asio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">auto receiver(std::shared_ptr&lt;connection&gt; conn) -&gt; asio::awaitable&lt;void&gt;
+{
+   generic_flat_response resp;
+   conn-&gt;set_receive_response(resp);
+
+   // Subscribe to the channel 'mychannel'. You can add any number of channels here.
+   request req;
+   req.subscribe({"mychannel"});
+   co_await conn-&gt;async_exec(req);
+
+   // You're now subscribed to 'mychannel'. Pushes sent over this channel will be stored
+   // in resp. If the connection encounters a network error and reconnects to the server,
+   // it will automatically subscribe to 'mychannel' again. This is transparent to the user.
+   // You need to use specialized request::subscribe() function (instead of request::push)
+   // to enable this behavior.
+
+   // Loop to read Redis push messages.
+   while (conn-&gt;will_reconnect()) {
+      // Wait for pushes
+      auto [ec] = co_await conn-&gt;async_receive2(asio::as_tuple);
+
+      // Check for errors and cancellations
+      if (ec) {
+         std::cerr &lt;&lt; "Error during receive: " &lt;&lt; ec &lt;&lt; std::endl;
+         break;
+      }
+
+      // This can happen if a SUBSCRIBE command errored (e.g. insufficient permissions)
+      if (resp.has_error()) {
+         std::cerr &lt;&lt; "The receive response contains an error: " &lt;&lt; resp.error().diagnostic
+                   &lt;&lt; std::endl;
+         break;
+      }
+
+      // The response must be consumed without suspending the
+      // coroutine i.e. without the use of async operations.
+      for (push_view elem : push_parser(resp.value())) {
+         std::cout &lt;&lt; "Received message from channel " &lt;&lt; elem.channel &lt;&lt; ": " &lt;&lt; elem.payload
+                   &lt;&lt; "\n";
+      }
+
+      resp.value().clear();
+   }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_corosio--panel" class="tabpanel" aria-labelledby="_tabs_1_corosio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">capy::io_task&lt;&gt; receiver(co_connection&amp; conn)
+{
+   generic_flat_response resp;
+   conn.set_receive_response(resp);
+
+   // Subscribe to the channel 'mychannel'. You can add any number of channels here.
+   request req;
+   req.subscribe({"mychannel"});
+   auto [sub_ec] = co_await conn.exec(req);
+   if (sub_ec) {
+      std::cerr &lt;&lt; "Error subscribing: " &lt;&lt; sub_ec &lt;&lt; std::endl;
+      co_return {};
+   }
+
+   // You're now subscribed to 'mychannel'. Pushes sent over this channel will be stored
+   // in resp. If the connection encounters a network error and reconnects to the server,
+   // it will automatically subscribe to 'mychannel' again. This is transparent to the user.
+   // You need to use the specialized request::subscribe() function (instead of request::push)
+   // to enable this behavior.
+
+   // Loop to read Redis push messages. The loop terminates when receive() reports an error
+   // (e.g. cancellation when the surrounding when_any cascade tears down the run loop).
+   while (true) {
+      // Wait for pushes
+      auto [ec] = co_await conn.receive();
+
+      // Check for errors and cancellations
+      if (ec) {
+         std::cerr &lt;&lt; "Error during receive: " &lt;&lt; ec &lt;&lt; std::endl;
+         co_return {};
+      }
+
+      // This can happen if a SUBSCRIBE command errored (e.g. insufficient permissions)
+      if (resp.has_error()) {
+         std::cerr &lt;&lt; "The receive response contains an error: " &lt;&lt; resp.error().diagnostic
+                   &lt;&lt; std::endl;
+         co_return {};
+      }
+
+      // The response must be consumed without suspending the
+      // coroutine i.e. without the use of async operations.
+      for (push_view elem : push_parser(resp.value())) {
+         std::cout &lt;&lt; "Received message from channel " &lt;&lt; elem.channel &lt;&lt; ": " &lt;&lt; elem.payload
+                   &lt;&lt; "\n";
+      }
+
+      resp.value().clear();
+   }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Summary of the steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Call <a href="reference/boost/redis/basic_connection.html" class="xref page"><code>connection::set_receive_response</code></a> /
+<a href="reference/boost/redis/co_connection/set_receive_response.html" class="xref page"><code>co_connection::set_receive_response</code></a>
+before any other receive-related calls so that the connection stores incoming pushes in the
+given object. The library does not copy the response; you must keep it alive for the
+duration of the receive loop.</p>
+</li>
+<li>
+<p>Build a request with <a href="reference/boost/redis/request.html" class="xref page"><code>request::subscribe</code></a>
+(or <code>psubscribe</code>) and execute it. If the connection drops and is re-established,
+an equivalent <code>SUBSCRIBE</code> is sent automatically.</p>
+</li>
+<li>
+<p>Loop until the connection is cancelled.
+In Asio, gate the loop on <a href="reference/boost/redis/basic_connection.html" class="xref page"><code>connection::will_reconnect</code></a>.
+In Corosio, run until <a href="reference/boost/redis/co_connection/receive.html" class="xref page"><code>co_connection::receive</code></a>
+reports an error (e.g. cancellation when the surrounding <code>when_any</code> tears down the run loop).</p>
+</li>
+<li>
+<p>Call <a href="reference/boost/redis/basic_connection.html" class="xref page"><code>connection::async_receive2</code></a> /
+<a href="reference/boost/redis/co_connection/receive.html" class="xref page"><code>co_connection::receive</code></a>
+to wait until at least one push is available. This function also participates in
+push flow control (see <a href="#flow-control">Flow control</a>).</p>
+</li>
+<li>
+<p>After completion, <code>resp</code> holds the raw RESP3 nodes for the received pushes
+(<a href="reference/boost/redis/resp3/node_view.html" class="xref page"><code>resp3::node_view</code></a>).
+For Pub/Sub messages produced by <code>PUBLISH</code>, use <a href="reference/boost/redis/push_parser.html" class="xref page"><code>push_parser</code></a>
+to iterate over them. Each parsed message exposes the channel, the payload, and, for
+pattern subscriptions (<code>PSUBSCRIBE</code>), the matched pattern.</p>
+</li>
+<li>
+<p>Call <code>resp.value().clear()</code> to discard the current push data and make room for the
+next batch.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Consume all push data <strong>without suspending the current coroutine</strong> (or otherwise re-entering
+the event loop). See <a href="#suspending-the-receiver">Suspending the receiver</a> for how to handle cases where you must
+suspend.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can use the same connection for both pushes and normal request/response
+traffic. Boost.Redis relies on RESP3 to multiplex them on a single connection.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dynamic_pubsub_tracking"><a class="anchor" href="#_dynamic_pubsub_tracking"></a>Dynamic Pub/Sub tracking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you execute a request built with <a href="reference/boost/redis/request.html" class="xref page"><code>request::subscribe</code></a>
+(or <code>psubscribe</code>, <code>unsubscribe</code>, <code>punsubscribe</code>), the connection tracks it. After a reconnect, it
+re-issues the subscribe commands to restore any subscriptions that were active before the reconnect.
+You can dynamically subscribe and unsubscribe to channels; tracking is fully dynamic.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="flow-control"><a class="anchor" href="#flow-control"></a>Flow control</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the server sends pushes faster than the client consumes them, the connection applies
+flow control. After a certain number of pushes have been read and not yet consumed, it
+stops reading until the application drains the receive buffer. This creates backpressure
+at the TCP level.</p>
+</div>
+<div class="paragraph">
+<p>The pending count is reset each time <code>async_receive2</code> (Asio) /
+<code>receive</code> (Corosio)
+completes. You must still free
+memory by calling <code>resp3::flat_tree::clear()</code> (or equivalent) on the response, as in
+the example.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do not call
+<a href="reference/boost/redis/basic_connection/async_exec-02.html" class="xref page"><code>connection::async_exec</code></a> /
+<a href="reference/boost/redis/co_connection/exec-00.html" class="xref page"><code>co_connection::exec</code></a>
+from within the receiver loop. The response to your request may be behind enough pushes might to trigger the flow control mechanism, causing a deadlock.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subscribe_confirmations"><a class="anchor" href="#_subscribe_confirmations"></a>Subscribe confirmations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every time you subscribe to a channel, Redis sends a push as a confirmation. These confirmations
+are stored in your receive response and cause <code>async_receive2</code> (Asio) /
+<code>receive</code> (Corosio)
+to complete like any
+other push. <code>push_parser</code> skips these messages, since they don&#8217;t contain application-level information.</p>
+</div>
+<div class="paragraph">
+<p>As a result, <strong>the receive call will complete while the <code>push_parser</code> range is empty</strong>
+when only confirmations are received. Your code should handle an empty range correctly.</p>
+</div>
+<div class="paragraph">
+<p>To work with subscribe confirmations or other push shapes, use the raw nodes in
+<a href="reference/boost/redis/generic_flat_response.html" class="xref page"><code>generic_flat_response</code></a>
+directly (see <a href="#advanced-scenarios">Advanced scenarios</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="suspending-the-receiver"><a class="anchor" href="#suspending-the-receiver"></a>Suspending the receiver</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must not suspend the receiver coroutine before fully consuming the current push data. If you
+need to perform I/O with that data (e.g. send it over a WebSocket), first copy or
+serialize it without suspending, then clear the response, and only then perform the
+async operation.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following is incorrect:</p>
+</div>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_asio" class="tab">
+<p>Asio</p>
+</li>
+<li id="_tabs_2_corosio" class="tab">
+<p>Corosio</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_asio--panel" class="tabpanel" aria-labelledby="_tabs_2_asio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">auto [ec] = co_await conn-&gt;async_receive2(asio::as_tuple);
+// DON'T DO THIS: more pushes may be read while the WebSocket send runs,
+// and they are discarded when you clear(), causing a race.
+co_await websocket.async_send(push_parser(resp.value()));
+resp.value().clear();</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_corosio--panel" class="tabpanel" aria-labelledby="_tabs_2_corosio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">auto [ec] = co_await conn.receive();
+// DON'T DO THIS: more pushes may be read while the WebSocket send runs,
+// and they are discarded when you clear(), causing a race.
+co_await websocket.send(push_parser(resp.value()));
+resp.value().clear();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead, copy or compose the message without I/O, then clear, then send:</p>
+</div>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_asio" class="tab">
+<p>Asio</p>
+</li>
+<li id="_tabs_3_corosio" class="tab">
+<p>Corosio</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_asio--panel" class="tabpanel" aria-labelledby="_tabs_3_asio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">auto [ec] = co_await conn-&gt;async_receive2(asio::as_tuple);
+
+// Compose the WebSocket message without any I/O (no suspension).
+// msg must not reference resp.
+auto msg = compose_websocket_message(push_parser(resp.value()));
+
+resp.value().clear();
+
+// Now it's OK to suspend the coroutine
+co_await websocket.async_write(msg);</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_corosio--panel" class="tabpanel" aria-labelledby="_tabs_3_corosio">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">auto [ec] = co_await conn.receive();
+
+// Compose the WebSocket message without any I/O (no suspension).
+// msg must not reference resp.
+auto msg = compose_websocket_message(push_parser(resp.value()));
+
+resp.value().clear();
+
+// Now it's OK to suspend the coroutine
+co_await websocket.write(msg);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subscribe_errors"><a class="anchor" href="#_subscribe_errors"></a>SUBSCRIBE errors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>SUBSCRIBE</code> can fail (e.g. due to ACL rules). Because of how the protocol works, such
+errors may be delivered as push-like data. Using
+<a href="reference/boost/redis/generic_flat_response.html" class="xref page"><code>generic_flat_response</code></a>
+(an alias for <code>adapter::result&lt;resp3::flat_tree&gt;</code>, similar to <code>std::expected</code>) lets you detect them: check
+<code>resp.has_error()</code> and handle the error before iterating. See the example at the top
+of this page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="advanced-scenarios"><a class="anchor" href="#advanced-scenarios"></a>Advanced scenarios</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>push_parser</code> only recognizes standard
+Pub/Sub <code>message</code> and <code>pmessage</code> pushes. Other push types are skipped, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Subscribe/unsubscribe confirmations.</p>
+</li>
+<li>
+<p><a href="https://redis.io/docs/latest/develop/clients/client-side-caching/">Client-side caching</a>
+invalidation messages.</p>
+</li>
+<li>
+<p>Output of the <code>MONITOR</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you need to handle these, work directly with the nodes in <code>generic_flat_response</code>
+instead of <code>push_parser</code>. The overall receiver pattern (set response, subscribe,
+loop with <code>async_receive2</code>, consume, clear) stays the same.</p>
+</div>
+</div>
+</div>
+  <div class="edit-this-page">
+      <a href="file:///home/ruben/workspace/boost-root/libs/redis/doc/modules/ROOT/pages/pushes.adoc">Edit this Page</a>
+  </div>
+      <nav class="pagination">
+        <span class="prev"><a href="requests_responses.html">Requests and responses</a></span>
+        <span class="next"><a href="cancellation.html">Cancellation and timeouts</a></span>
+    </nav>
+</article>
+</div>
+  <div id="footer">
+  <script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js" data-sync-storage-key="preferred-tab"></script>
+</div>
+</div>
+  </body>
+</html>
